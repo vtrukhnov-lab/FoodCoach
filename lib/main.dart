@@ -214,7 +214,7 @@ class MyApp extends StatelessWidget {
     return Consumer<LocaleService>(
       builder: (context, localeService, child) {
         return MaterialApp(
-          title: 'HydroMate',
+          title: 'FoodCoach',
           debugShowCheckedModeBanner: false,
 
           // Localization
@@ -438,7 +438,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 .shake(delay: 500.ms),
             const SizedBox(height: 20),
             const Text(
-              'HydroMate',
+              'FoodCoach',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 32,
