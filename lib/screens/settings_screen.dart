@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:hydracoach/providers/hydration_provider.dart';
+import '../providers/hydration_provider.dart';
 import '../l10n/app_localizations.dart';
 import '../services/notification_service.dart' as notif;
 import '../services/subscription_service.dart';
@@ -356,15 +356,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
-                            const Color(0xFFFFD700).withOpacity(0.1),
-                            const Color(0xFFFFA500).withOpacity(0.05),
+                            const Color(0xFFFFD700).withValues(alpha: 0.1),
+                            const Color(0xFFFFA500).withValues(alpha: 0.05),
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
-                          color: const Color(0xFFFFD700).withOpacity(0.3),
+                          color: const Color(0xFFFFD700).withValues(alpha: 0.3),
                         ),
                       ),
                       child: InkWell(
@@ -1585,7 +1585,7 @@ class _NotificationCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: _getTypeColor().withOpacity(0.1),
+                  color: _getTypeColor().withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -1602,7 +1602,7 @@ class _NotificationCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Colors.red.withOpacity(0.1),
+                    color: Colors.red.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Text(
@@ -1789,9 +1789,9 @@ class _StatCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: color.withOpacity(0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1805,7 +1805,7 @@ class _StatCard extends StatelessWidget {
                   title,
                   style: TextStyle(
                     fontSize: 12,
-                    color: color.withOpacity(0.8),
+                    color: color.withValues(alpha: 0.8),
                     fontWeight: FontWeight.w600,
                   ),
                 ),

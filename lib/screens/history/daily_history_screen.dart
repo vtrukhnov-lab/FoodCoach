@@ -255,7 +255,7 @@ class _DailyHistoryScreenState extends State<DailyHistoryScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -564,7 +564,7 @@ class _DailyHistoryScreenState extends State<DailyHistoryScreen> {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.7),
+            color: Colors.white.withValues(alpha: 0.7),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: Colors.blue.shade200),
           ),
@@ -590,7 +590,7 @@ class _DailyHistoryScreenState extends State<DailyHistoryScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
             decoration: BoxDecoration(
-              color: Colors.orange.withOpacity(0.15),
+              color: Colors.orange.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: Colors.orange.shade300),
             ),
@@ -616,7 +616,7 @@ class _DailyHistoryScreenState extends State<DailyHistoryScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
             decoration: BoxDecoration(
-              color: Colors.green.withOpacity(0.15),
+              color: Colors.green.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: Colors.green.shade300),
             ),
@@ -711,7 +711,7 @@ class _DailyHistoryScreenState extends State<DailyHistoryScreen> {
           ),
           boxShadow: isSelected ? [
             BoxShadow(
-              color: Colors.blue.withOpacity(0.3),
+              color: Colors.blue.withValues(alpha: 0.3),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -780,7 +780,7 @@ class _DailyHistoryScreenState extends State<DailyHistoryScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -842,7 +842,7 @@ class _DailyHistoryScreenState extends State<DailyHistoryScreen> {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: _getIntakeTypeColor(intake.type).withOpacity(0.15),
+              color: _getIntakeTypeColor(intake.type).withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Center(
@@ -927,7 +927,7 @@ class _DailyHistoryScreenState extends State<DailyHistoryScreen> {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: Colors.orange.withOpacity(0.15),
+              color: Colors.orange.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Center(
@@ -1012,7 +1012,7 @@ class _DailyHistoryScreenState extends State<DailyHistoryScreen> {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: Colors.green.withOpacity(0.15),
+              color: Colors.green.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Center(
@@ -1091,7 +1091,7 @@ class _DailyHistoryScreenState extends State<DailyHistoryScreen> {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: Colors.brown.withOpacity(0.15),
+              color: Colors.brown.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(12),
             ),
             child: const Center(
@@ -1157,7 +1157,7 @@ class _DailyHistoryScreenState extends State<DailyHistoryScreen> {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: Colors.green.withOpacity(0.15),
+              color: Colors.green.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Center(

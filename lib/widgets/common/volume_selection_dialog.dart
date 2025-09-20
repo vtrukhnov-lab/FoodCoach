@@ -631,12 +631,12 @@ class _VolumeSelectionDialogState extends State<VolumeSelectionDialog> {
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                       decoration: BoxDecoration(
                         color: widget.showDuration
-                          ? Colors.teal.withOpacity(0.1)
+                          ? Colors.teal.withValues(alpha: 0.1)
                           : widget.showFoodInfo
                             ? Colors.deepOrange.shade100
                           : widget.showDosage
                             ? Colors.purple.shade100
-                            : theme.colorScheme.primaryContainer.withOpacity(0.5),
+                            : theme.colorScheme.primaryContainer.withValues(alpha: 0.5),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
@@ -662,9 +662,9 @@ class _VolumeSelectionDialogState extends State<VolumeSelectionDialog> {
                 SliderTheme(
                   data: SliderTheme.of(context).copyWith(
                     activeTrackColor: sliderActiveColor,
-                    inactiveTrackColor: sliderActiveColor.withOpacity(0.2),
+                    inactiveTrackColor: sliderActiveColor.withValues(alpha: 0.2),
                     thumbColor: sliderActiveColor,
-                    overlayColor: sliderActiveColor.withOpacity(0.1),
+                    overlayColor: sliderActiveColor.withValues(alpha: 0.1),
                     trackHeight: 6,
                     thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 10),
                   ),
@@ -723,7 +723,7 @@ class _VolumeSelectionDialogState extends State<VolumeSelectionDialog> {
                             l10n.waterLoss,
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.white.withOpacity(0.9),
+                              color: Colors.white.withValues(alpha: 0.9),
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -762,7 +762,7 @@ class _VolumeSelectionDialogState extends State<VolumeSelectionDialog> {
                             l10n.hriImpact,
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.white.withOpacity(0.9),
+                              color: Colors.white.withValues(alpha: 0.9),
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -827,7 +827,7 @@ class _VolumeSelectionDialogState extends State<VolumeSelectionDialog> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                         decoration: BoxDecoration(
-                          color: Colors.orange.withOpacity(0.1),
+                          color: Colors.orange.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Row(
@@ -884,7 +884,7 @@ class _VolumeSelectionDialogState extends State<VolumeSelectionDialog> {
                             l10n.kcal,
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.white.withOpacity(0.9),
+                              color: Colors.white.withValues(alpha: 0.9),
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -923,7 +923,7 @@ class _VolumeSelectionDialogState extends State<VolumeSelectionDialog> {
                             l10n.gramsSugar,
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.white.withOpacity(0.9),
+                              color: Colors.white.withValues(alpha: 0.9),
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -1067,7 +1067,7 @@ class _VolumeSelectionDialogState extends State<VolumeSelectionDialog> {
                               l10n.standardDrinksUnit,
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.white.withOpacity(0.9),
+                                color: Colors.white.withValues(alpha: 0.9),
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -1105,7 +1105,7 @@ class _VolumeSelectionDialogState extends State<VolumeSelectionDialog> {
                               l10n.hriImpact,
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.white.withOpacity(0.9),
+                                color: Colors.white.withValues(alpha: 0.9),
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -1146,7 +1146,7 @@ class _VolumeSelectionDialogState extends State<VolumeSelectionDialog> {
                               l10n.gramsSugar,
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.white.withOpacity(0.9),
+                                color: Colors.white.withValues(alpha: 0.9),
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -1300,7 +1300,7 @@ class _VolumeSelectionDialogState extends State<VolumeSelectionDialog> {
           width: 28,
           height: 28,
           decoration: BoxDecoration(
-            color: color.withOpacity(0.2),
+            color: color.withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(6),
           ),
           child: Center(

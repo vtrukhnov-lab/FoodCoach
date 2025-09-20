@@ -341,7 +341,7 @@ class _FirstIntakeTutorialState extends State<FirstIntakeTutorial>
                                     borderRadius: BorderRadius.circular(25),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: const Color(0xFF2EC5FF).withOpacity(0.6),
+                                        color: const Color(0xFF2EC5FF).withValues(alpha: 0.6),
                                         blurRadius: 20,
                                         spreadRadius: 2,
                                       ),
@@ -383,7 +383,7 @@ class _FirstIntakeTutorialState extends State<FirstIntakeTutorial>
                       //                 borderRadius: BorderRadius.circular(25),
                       //                 boxShadow: [
                       //                   BoxShadow(
-                      //                     color: const Color(0xFF2EC5FF).withOpacity(0.6),
+                      //                     color: const Color(0xFF2EC5FF).withValues(alpha: 0.6),
                       //                     blurRadius: 20,
                       //                     spreadRadius: 2,
                       //                   ),
@@ -425,11 +425,11 @@ class _FirstIntakeTutorialState extends State<FirstIntakeTutorial>
                         width: 60,
                         height: 60,
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.95),
+                          color: Colors.white.withValues(alpha: 0.95),
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.3),
+                              color: Colors.black.withValues(alpha: 0.3),
                               blurRadius: 8,
                               offset: const Offset(0, 4),
                             ),
@@ -477,7 +477,7 @@ class _FirstIntakeTutorialState extends State<FirstIntakeTutorial>
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
+                              color: Colors.black.withValues(alpha: 0.2),
                               blurRadius: 20,
                               offset: const Offset(0, 4),
                             ),
@@ -547,7 +547,7 @@ class _FirstIntakeTutorialState extends State<FirstIntakeTutorial>
                         borderRadius: BorderRadius.circular(4),
                         color: stepIndex <= _currentStep
                             ? const Color(0xFF2EC5FF)
-                            : Colors.white.withOpacity(0.3),
+                            : Colors.white.withValues(alpha: 0.3),
                       ),
                     );
                   }),
@@ -594,10 +594,10 @@ class _SimulatedProgressCircle extends StatelessWidget {
       height: 200,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.white.withOpacity(0.95),
+        color: Colors.white.withValues(alpha: 0.95),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF2EC5FF).withOpacity(0.3),
+            color: const Color(0xFF2EC5FF).withValues(alpha: 0.3),
             blurRadius: 20,
             spreadRadius: 5,
           ),
@@ -633,7 +633,7 @@ class _SimulatedProgressCircle extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.1),
+                  color: color.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -703,7 +703,7 @@ class _SpotlightPainter extends CustomPainter {
         spotlightCenter,
         radius,
         Paint()
-          ..color = const Color(0xFF2EC5FF).withOpacity(opacity)
+          ..color = const Color(0xFF2EC5FF).withValues(alpha: opacity)
           ..style = PaintingStyle.stroke
           ..strokeWidth = 2,
       );
@@ -714,7 +714,7 @@ class _SpotlightPainter extends CustomPainter {
       spotlightCenter,
       spotlightRadius,
       Paint()
-        ..color = const Color(0xFF2EC5FF).withOpacity(0.5)
+        ..color = const Color(0xFF2EC5FF).withValues(alpha: 0.5)
         ..style = PaintingStyle.stroke
         ..strokeWidth = 3
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 10),
@@ -723,9 +723,9 @@ class _SpotlightPainter extends CustomPainter {
     // Внешнее свечение с градиентом
     final gradient = RadialGradient(
       colors: [
-        const Color(0xFF2EC5FF).withOpacity(0.3),
-        const Color(0xFF2EC5FF).withOpacity(0.1),
-        const Color(0xFF2EC5FF).withOpacity(0.0),
+        const Color(0xFF2EC5FF).withValues(alpha: 0.3),
+        const Color(0xFF2EC5FF).withValues(alpha: 0.1),
+        const Color(0xFF2EC5FF).withValues(alpha: 0.0),
       ],
       stops: const [0.3, 0.6, 1.0],
     );
@@ -848,7 +848,7 @@ class _MotivationalOverlayState extends State<_MotivationalOverlay>
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFF2EC5FF).withOpacity(0.4),
+                          color: const Color(0xFF2EC5FF).withValues(alpha: 0.4),
                           blurRadius: 16,
                           spreadRadius: 2,
                         ),

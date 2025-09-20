@@ -124,7 +124,7 @@ class _SlotOption extends StatelessWidget {
     if (isLocked) {
       return Container(
         decoration: BoxDecoration(
-          color: Colors.purple.shade50.withOpacity(0.5),
+          color: Colors.purple.shade50.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: Colors.purple.shade200),
         ),

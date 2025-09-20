@@ -132,7 +132,7 @@ class NotificationExamplesPage extends StatelessWidget {
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         side: BorderSide(
-                          color: theme.colorScheme.outline.withOpacity(0.5),
+                          color: theme.colorScheme.outline.withValues(alpha: 0.5),
                         ),
                       ),
                       child: Text(
@@ -341,7 +341,7 @@ class NotificationExamplesPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(isLight ? 0.08 : 0.2),
+            color: Colors.black.withValues(alpha: isLight ? 0.08 : 0.2),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -354,7 +354,7 @@ class NotificationExamplesPage extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: iconColor.withOpacity(0.15),
+              color: iconColor.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(

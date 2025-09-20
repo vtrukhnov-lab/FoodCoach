@@ -146,7 +146,7 @@ class _IonCharacterState extends State<IonCharacter>
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         boxShadow: [
-                          BoxShadow(color: Colors.black.withOpacity(0.12), blurRadius: 16, spreadRadius: 2),
+                          BoxShadow(color: Colors.black.withValues(alpha: 0.12), blurRadius: 16, spreadRadius: 2),
                         ],
                       ),
                     ),
@@ -163,8 +163,8 @@ class _IonCharacterState extends State<IonCharacter>
                           shape: BoxShape.circle,
                           gradient: RadialGradient(
                             colors: [
-                              (widget.hydrationLevel == HydrationLevel.perfect ? const Color(0xFF8AF5A3) : const Color(0xFF2EC5FF)).withOpacity(0.35),
-                              const Color(0xFF2EC5FF).withOpacity(0.10),
+                              (widget.hydrationLevel == HydrationLevel.perfect ? const Color(0xFF8AF5A3) : const Color(0xFF2EC5FF)).withValues(alpha: 0.35),
+                              const Color(0xFF2EC5FF).withValues(alpha: 0.10),
                               Colors.transparent,
                             ],
                             stops: const [0.0, 0.55, 1.0],
@@ -238,7 +238,7 @@ class _IonCharacterState extends State<IonCharacter>
           fontSize: fs,
           fontWeight: FontWeight.w700,
           color: c,
-          shadows: [Shadow(color: c.withOpacity(.55), blurRadius: 6)],
+          shadows: [Shadow(color: c.withValues(alpha: .55), blurRadius: 6)],
         ),
       ),
     );
@@ -288,7 +288,7 @@ class _IonPainter extends CustomPainter {
     final stroke = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.016
-      ..color = Colors.white.withOpacity(.7);
+      ..color = Colors.white.withValues(alpha: .7);
 
     // рисуем
     canvas.drawPath(dropPath, fill);
@@ -302,13 +302,13 @@ class _IonPainter extends CustomPainter {
         width: size.width * .20,
         height: size.height * .28,
       ));
-    canvas.drawPath(highlight, Paint()..color = Colors.white.withOpacity(.28));
+    canvas.drawPath(highlight, Paint()..color = Colors.white.withValues(alpha: .28));
 
     // маленький блик
     canvas.drawCircle(
       Offset(size.width * .66, size.height * .30),
       size.width * .06,
-      Paint()..color = Colors.white.withOpacity(.55),
+      Paint()..color = Colors.white.withValues(alpha: .55),
     );
 
     // лицо
@@ -407,7 +407,7 @@ class _IonPainter extends CustomPainter {
 
     // лёгкий «румянец» для excited/celebrating
     if (mood == IonMood.excited || mood == IonMood.celebrating) {
-      final blush = Paint()..color = Colors.pink.withOpacity(.28);
+      final blush = Paint()..color = Colors.pink.withValues(alpha: .28);
       canvas.drawCircle(Offset(size.width * .22, size.height * .52), size.width * .06, blush);
       canvas.drawCircle(Offset(size.width * .78, size.height * .52), size.width * .06, blush);
     }
@@ -415,7 +415,7 @@ class _IonPainter extends CustomPainter {
     // «сухие штрихи» при low-гидратации
     if (hydrationLevel == HydrationLevel.low) {
       final dry = Paint()
-        ..color = eyeColor.withOpacity(.22)
+        ..color = eyeColor.withValues(alpha: .22)
         ..style = PaintingStyle.stroke
         ..strokeWidth = 1.2;
       for (int i = 0; i < 3; i++) {
@@ -430,7 +430,7 @@ class _IonPainter extends CustomPainter {
   // ====== руки (минималистичные цилиндры), рисуем только когда надо ======
 
   Paint get _armPaint => Paint()
-    ..color = bodyColors.first.withOpacity(.95)
+    ..color = bodyColors.first.withValues(alpha: .95)
     ..style = PaintingStyle.fill;
 
   void _drawWavingArm(Canvas canvas, Size size, {required bool left}) {

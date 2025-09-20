@@ -35,6 +35,9 @@ dependencies:
   fl_chart: ^1.0.0
   flutter_animate: ^4.5.2
   carousel_slider: ^5.0.0
+
+  # Сканирование штрих-кодов
+  mobile_scanner: ^5.2.3
   
   # Разрешения и уведомления
   flutter_local_notifications: ^19.4.1

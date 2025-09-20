@@ -51,7 +51,9 @@
       "Bash(nc localhost 54365)",
       "Bash(git push:*)",
       "Bash(git remote remove:*)",
-      "Bash(git remote add:*)"
+      "Bash(git remote add:*)",
+      "WebFetch(domain:pub.dev)",
+      "Bash(del \"C:\\Projects\\FoodCoach\\lib\\services\\weather_service.dart\")"
     ],
     "deny": [],
     "ask": []

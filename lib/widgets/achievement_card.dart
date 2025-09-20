@@ -283,14 +283,14 @@ class AchievementCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: isUnlocked 
-                  ? achievement.rarity.color.withOpacity(0.3)
-                  : theme.dividerColor.withOpacity(0.1),
+                  ? achievement.rarity.color.withValues(alpha: 0.3)
+                  : theme.dividerColor.withValues(alpha: 0.1),
               width: isUnlocked ? 2 : 1,
             ),
             boxShadow: [
               if (isUnlocked)
                 BoxShadow(
-                  color: achievement.rarity.color.withOpacity(0.1),
+                  color: achievement.rarity.color.withValues(alpha: 0.1),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),
@@ -305,12 +305,12 @@ class AchievementCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: isUnlocked
-                      ? achievement.category.color.withOpacity(0.1)
-                      : theme.dividerColor.withOpacity(0.1),
+                      ? achievement.category.color.withValues(alpha: 0.1)
+                      : theme.dividerColor.withValues(alpha: 0.1),
                   border: Border.all(
                     color: isUnlocked
-                        ? achievement.category.color.withOpacity(0.3)
-                        : theme.dividerColor.withOpacity(0.2),
+                        ? achievement.category.color.withValues(alpha: 0.3)
+                        : theme.dividerColor.withValues(alpha: 0.2),
                     width: 2,
                   ),
                 ),
@@ -327,7 +327,7 @@ class AchievementCard extends StatelessWidget {
                             Icons.lock_outline,
                             key: ValueKey('locked'),
                             size: compact ? 20 : 24,
-                            color: theme.colorScheme.onSurface.withOpacity(0.3),
+                            color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
                           ),
                   ),
                 ),
@@ -350,7 +350,7 @@ class AchievementCard extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color: isUnlocked
                                   ? theme.colorScheme.onSurface
-                                  : theme.colorScheme.onSurface.withOpacity(0.5),
+                                  : theme.colorScheme.onSurface.withValues(alpha: 0.5),
                             ),
                           ),
                         ),
@@ -363,7 +363,7 @@ class AchievementCard extends StatelessWidget {
                               vertical: 2,
                             ),
                             decoration: BoxDecoration(
-                              color: Colors.amber.withOpacity(0.1),
+                              color: Colors.amber.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Row(
@@ -374,7 +374,7 @@ class AchievementCard extends StatelessWidget {
                                   size: 14,
                                   color: isUnlocked
                                       ? Colors.amber
-                                      : Colors.amber.withOpacity(0.5),
+                                      : Colors.amber.withValues(alpha: 0.5),
                                 ),
                                 const SizedBox(width: 2),
                                 Text(
@@ -384,7 +384,7 @@ class AchievementCard extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                     color: isUnlocked
                                         ? Colors.amber
-                                        : Colors.amber.withOpacity(0.5),
+                                        : Colors.amber.withValues(alpha: 0.5),
                                   ),
                                 ),
                               ],
@@ -401,7 +401,7 @@ class AchievementCard extends StatelessWidget {
                         localizedDescription, // ✅ Использует локализованное описание с единицами
                         style: TextStyle(
                           fontSize: 12,
-                          color: theme.colorScheme.onSurface.withOpacity(0.6),
+                          color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                         ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -436,7 +436,7 @@ class AchievementCard extends StatelessWidget {
                               vertical: 2,
                             ),
                             decoration: BoxDecoration(
-                              color: achievement.rarity.color.withOpacity(0.1),
+                              color: achievement.rarity.color.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Text(
@@ -462,9 +462,9 @@ class AchievementCard extends StatelessWidget {
                                   child: LinearProgressIndicator(
                                     // ✅ ИСПРАВЛЕНО: Используем локализованный процент прогресса
                                     value: achievement.localizedProgressPercent / 100,
-                                    backgroundColor: theme.dividerColor.withOpacity(0.2),
+                                    backgroundColor: theme.dividerColor.withValues(alpha: 0.2),
                                     valueColor: AlwaysStoppedAnimation<Color>(
-                                      achievement.category.color.withOpacity(0.8),
+                                      achievement.category.color.withValues(alpha: 0.8),
                                     ),
                                     minHeight: 6,
                                   ),
@@ -476,7 +476,7 @@ class AchievementCard extends StatelessWidget {
                                 '${achievement.currentProgress}/${achievement.getLocalizedMaxProgress()}',
                                 style: TextStyle(
                                   fontSize: 11,
-                                  color: theme.colorScheme.onSurface.withOpacity(0.5),
+                                  color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -547,15 +547,15 @@ class AchievementMiniCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: achievement.rarity.color.withOpacity(0.5),
+              color: achievement.rarity.color.withValues(alpha: 0.5),
               width: 2,
             ),
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                achievement.rarity.color.withOpacity(0.1),
-                achievement.rarity.color.withOpacity(0.05),
+                achievement.rarity.color.withValues(alpha: 0.1),
+                achievement.rarity.color.withValues(alpha: 0.05),
               ],
             ),
           ),
@@ -571,9 +571,9 @@ class AchievementMiniCard extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Colors.white.withOpacity(0.0),
-                        Colors.white.withOpacity(0.1),
-                        Colors.white.withOpacity(0.0),
+                        Colors.white.withValues(alpha: 0.0),
+                        Colors.white.withValues(alpha: 0.1),
+                        Colors.white.withValues(alpha: 0.0),
                       ],
                       stops: const [0.0, 0.5, 1.0],
                     ),
@@ -592,7 +592,7 @@ class AchievementMiniCard extends StatelessWidget {
                       height: 48,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: achievement.category.color.withOpacity(0.2),
+                        color: achievement.category.color.withValues(alpha: 0.2),
                         border: Border.all(
                           color: achievement.category.color,
                           width: 2,
@@ -636,7 +636,7 @@ class AchievementMiniCard extends StatelessWidget {
                             _getLocalizedDescription(l10n, achievement), // ✅ Локализованное описание с единицами
                             style: TextStyle(
                               fontSize: 12,
-                              color: theme.colorScheme.onSurface.withOpacity(0.7),
+                              color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -651,7 +651,7 @@ class AchievementMiniCard extends StatelessWidget {
                         icon: Icon(
                           Icons.close,
                           size: 20,
-                          color: theme.colorScheme.onSurface.withOpacity(0.5),
+                          color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                         ),
                         onPressed: onDismiss,
                       ),

@@ -596,9 +596,9 @@ class _NotificationDebugPanelState extends State<NotificationDebugPanel> {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: color.withOpacity(0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
       child: Column(
         children: [
@@ -606,7 +606,7 @@ class _NotificationDebugPanelState extends State<NotificationDebugPanel> {
             title,
             style: TextStyle(
               fontSize: 10,
-              color: color.withOpacity(0.8),
+              color: color.withValues(alpha: 0.8),
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -635,7 +635,7 @@ class _NotificationDebugPanelState extends State<NotificationDebugPanel> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: color.withOpacity(0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
       child: ListTile(
         leading: Icon(icon, color: color, size: 24),
@@ -1108,8 +1108,8 @@ class _NotificationStatusScreenState extends State<NotificationStatusScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   color: isToday 
-                    ? Colors.green.withOpacity(0.1)
-                    : _getTypeColor(notification).withOpacity(0.1),
+                    ? Colors.green.withValues(alpha: 0.1)
+                    : _getTypeColor(notification).withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -1127,7 +1127,7 @@ class _NotificationStatusScreenState extends State<NotificationStatusScreen> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.1),
+                  color: Colors.grey.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -1144,7 +1144,7 @@ class _NotificationStatusScreenState extends State<NotificationStatusScreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Colors.red.withOpacity(0.1),
+                    color: Colors.red.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Text(

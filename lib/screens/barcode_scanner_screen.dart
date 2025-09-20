@@ -27,13 +27,17 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
         actions: [
           IconButton(
             icon: ValueListenableBuilder(
-              valueListenable: cameraController.torchState,
+              valueListenable: cameraController,
               builder: (context, state, child) {
-                switch (state as TorchState) {
+                switch (state.torchState) {
                   case TorchState.off:
                     return const Icon(Icons.flash_off, color: Colors.grey);
                   case TorchState.on:
                     return const Icon(Icons.flash_on, color: Colors.yellow);
+                  case TorchState.auto:
+                    return const Icon(Icons.flash_auto, color: Colors.orange);
+                  case TorchState.unavailable:
+                    return const Icon(Icons.flash_off, color: Colors.grey);
                 }
               },
             ),
@@ -41,9 +45,14 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
           ),
           IconButton(
             icon: ValueListenableBuilder(
-              valueListenable: cameraController.cameraFacingState,
+              valueListenable: cameraController,
               builder: (context, state, child) {
-                return const Icon(Icons.camera_front);
+                switch (state.cameraDirection) {
+                  case CameraFacing.front:
+                    return const Icon(Icons.camera_front);
+                  case CameraFacing.back:
+                    return const Icon(Icons.camera_rear);
+                }
               },
             ),
             onPressed: () => cameraController.switchCamera(),
@@ -79,7 +88,7 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
               padding: const EdgeInsets.all(20),
               margin: const EdgeInsets.symmetric(horizontal: 40),
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.7),
+                color: Colors.black.withValues(alpha: 0.7),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: const Text(
@@ -94,7 +103,7 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
           ),
           if (_isProcessing)
             Container(
-              color: Colors.black.withOpacity(0.5),
+              color: Colors.black.withValues(alpha: 0.5),
               child: const Center(
                 child: CircularProgressIndicator(),
               ),
@@ -202,7 +211,7 @@ class ScannerOverlayPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.black.withOpacity(0.5)
+      ..color = Colors.black.withValues(alpha: 0.5)
       ..style = PaintingStyle.fill;
 
     final centerX = size.width / 2;

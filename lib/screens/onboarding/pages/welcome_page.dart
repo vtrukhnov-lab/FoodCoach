@@ -30,7 +30,7 @@ class WelcomePage extends StatelessWidget {
           ).animate()
             .scale(duration: 600.ms, curve: Curves.elasticOut)
             .then()
-            .shimmer(duration: 2000.ms, color: const Color(0xFF8AF5A3).withOpacity(0.2)),
+            .shimmer(duration: 2000.ms, color: const Color(0xFF8AF5A3).withValues(alpha: 0.2)),
           
           const SizedBox(height: 24),
           
@@ -100,7 +100,7 @@ class WelcomePage extends StatelessWidget {
               width: 22,
               height: 22,
               decoration: BoxDecoration(
-                color: const Color(0xFF2EC5FF).withOpacity(0.1),
+                color: const Color(0xFF2EC5FF).withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: const Center(

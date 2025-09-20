@@ -271,7 +271,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -284,7 +284,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
             leading: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.amber.withOpacity(0.1),
+                color: Colors.amber.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.wb_sunny, color: Colors.amber, size: 20),
@@ -316,7 +316,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
             leading: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.indigo.withOpacity(0.1),
+                color: Colors.indigo.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.nightlight_round, color: Colors.indigo, size: 20),
@@ -361,7 +361,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -374,7 +374,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: theme.colorScheme.primary.withOpacity(0.1),
+                  color: theme.colorScheme.primary.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Icon(Icons.timer, color: theme.colorScheme.primary, size: 20),
@@ -400,7 +400,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
-                  color: theme.colorScheme.primary.withOpacity(0.1),
+                  color: theme.colorScheme.primary.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: DropdownButton<int>(
@@ -427,7 +427,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
               margin: const EdgeInsets.only(top: 12),
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.amber.withOpacity(0.1),
+                color: Colors.amber.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
@@ -465,7 +465,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -477,7 +477,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
             secondary: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.brown.withOpacity(0.1),
+                color: Colors.brown.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.coffee, color: Colors.brown, size: 20),
@@ -500,7 +500,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -512,7 +512,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
             secondary: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.orange.withOpacity(0.1),
+                color: Colors.orange.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.thermostat, color: Colors.orange, size: 20),
@@ -527,7 +527,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
             secondary: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.purple.withOpacity(0.1),
+                color: Colors.purple.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: const Icon(Icons.local_bar, color: Colors.purple, size: 20),
@@ -551,7 +551,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -564,7 +564,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: (_quietHoursEnabled ? Colors.purple : Colors.grey).withOpacity(0.1),
+                  color: (_quietHoursEnabled ? Colors.purple : Colors.grey).withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Icon(
@@ -663,12 +663,12 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
-              color: theme.colorScheme.primary.withOpacity(0.3),
+              color: theme.colorScheme.primary.withValues(alpha: 0.3),
               width: 2,
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.05),
+                color: Colors.black.withValues(alpha: 0.05),
                 blurRadius: 10,
                 offset: const Offset(0, 2),
               ),
@@ -680,7 +680,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                 leading: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.orange.withOpacity(0.1),
+                    color: Colors.orange.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Icon(Icons.thermostat, color: Colors.orange, size: 20),
@@ -690,7 +690,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                 trailing: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Colors.amber.withOpacity(0.2),
+                    color: Colors.amber.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: const Text(
@@ -708,7 +708,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                 leading: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.purple.withOpacity(0.1),
+                    color: Colors.purple.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Icon(Icons.local_bar, color: Colors.purple, size: 20),
@@ -718,7 +718,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                 trailing: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Colors.amber.withOpacity(0.2),
+                    color: Colors.amber.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: const Text(
@@ -736,7 +736,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                 leading: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.green.withOpacity(0.1),
+                    color: Colors.green.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Icon(Icons.all_inclusive, color: Colors.green, size: 20),
@@ -746,7 +746,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
                 trailing: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Colors.amber.withOpacity(0.2),
+                    color: Colors.amber.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: const Text(

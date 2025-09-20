@@ -244,7 +244,7 @@ class _AchievementOverlayState extends State<_AchievementOverlay>
                           borderRadius: BorderRadius.circular(30),
                           boxShadow: [
                             BoxShadow(
-                              color: (widget.color ?? Colors.purple.shade500).withOpacity(0.3),
+                              color: (widget.color ?? Colors.purple.shade500).withValues(alpha: 0.3),
                               blurRadius: 12,
                               offset: const Offset(0, 4),
                             ),
@@ -287,7 +287,7 @@ class _AchievementOverlayState extends State<_AchievementOverlay>
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.teal.withOpacity(0.3),
+                            color: Colors.teal.withValues(alpha: 0.3),
                             blurRadius: 8,
                             offset: const Offset(0, 2),
                           ),

@@ -143,7 +143,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.red.withOpacity(0.3),
+                        color: Colors.red.withValues(alpha: 0.3),
                         blurRadius: 4,
                         spreadRadius: 1,
                       ),
@@ -190,7 +190,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.red.withOpacity(0.3),
+                        color: Colors.red.withValues(alpha: 0.3),
                         blurRadius: 4,
                         spreadRadius: 1,
                       ),
@@ -224,7 +224,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
               color: theme.colorScheme.surface,
               border: Border(
                 bottom: BorderSide(
-                  color: theme.dividerColor.withOpacity(0.1),
+                  color: theme.dividerColor.withValues(alpha: 0.1),
                   width: 1,
                 ),
               ),
@@ -234,7 +234,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
               isScrollable: true,
               padding: const EdgeInsets.symmetric(horizontal: 8),
               labelColor: theme.colorScheme.primary,
-              unselectedLabelColor: theme.colorScheme.onSurface.withOpacity(0.6),
+              unselectedLabelColor: theme.colorScheme.onSurface.withValues(alpha: 0.6),
               indicatorColor: theme.colorScheme.primary,
               indicatorWeight: 2,
               labelStyle: const TextStyle(
@@ -271,7 +271,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                     return Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                       decoration: BoxDecoration(
-                        color: theme.colorScheme.primary.withOpacity(0.08),
+                        color: theme.colorScheme.primary.withValues(alpha: 0.08),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Row(
@@ -320,7 +320,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                         Container(
                           height: 18,
                           decoration: BoxDecoration(
-                            color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
+                            color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
                             borderRadius: BorderRadius.circular(9),
                           ),
                         ),
@@ -336,7 +336,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                               gradient: LinearGradient(
                                 colors: [
                                   theme.colorScheme.primary,
-                                  theme.colorScheme.primary.withOpacity(0.8),
+                                  theme.colorScheme.primary.withValues(alpha: 0.8),
                                 ],
                               ),
                               borderRadius: BorderRadius.circular(9),
@@ -350,7 +350,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                             style: TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
-                              color: theme.colorScheme.onSurface.withOpacity(0.8),
+                              color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
                             ),
                           ),
                         ),
@@ -378,13 +378,13 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                           width: 80,
                           height: 80,
                           decoration: BoxDecoration(
-                            color: theme.colorScheme.primary.withOpacity(0.1),
+                            color: theme.colorScheme.primary.withValues(alpha: 0.1),
                             shape: BoxShape.circle,
                           ),
                           child: Icon(
                             Icons.emoji_events_outlined,
                             size: 40,
-                            color: theme.colorScheme.primary.withOpacity(0.6),
+                            color: theme.colorScheme.primary.withValues(alpha: 0.6),
                           ),
                         ),
                         const SizedBox(height: 24),
@@ -393,7 +393,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
-                            color: theme.colorScheme.onSurface.withOpacity(0.7),
+                            color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -401,7 +401,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                           l10n.achievementKeepUsing,
                           style: TextStyle(
                             fontSize: 14,
-                            color: theme.colorScheme.onSurface.withOpacity(0.5),
+                            color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                           ),
                         ),
                       ],
@@ -484,7 +484,7 @@ class AchievementDetailsSheet extends StatelessWidget {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: theme.dividerColor.withOpacity(0.3),
+                  color: theme.dividerColor.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -498,8 +498,8 @@ class AchievementDetailsSheet extends StatelessWidget {
                   shape: BoxShape.circle,
                   gradient: RadialGradient(
                     colors: [
-                      achievement.rarity.color.withOpacity(0.3),
-                      achievement.rarity.color.withOpacity(0.0),
+                      achievement.rarity.color.withValues(alpha: 0.3),
+                      achievement.rarity.color.withValues(alpha: 0.0),
                     ],
                   ),
                 ),
@@ -529,7 +529,7 @@ class AchievementDetailsSheet extends StatelessWidget {
                 achievement.getLocalizedDescription(),
                 style: TextStyle(
                   fontSize: 16,
-                  color: theme.colorScheme.onSurface.withOpacity(0.7),
+                  color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -542,7 +542,7 @@ class AchievementDetailsSheet extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: achievement.category.color.withOpacity(0.1),
+                      color: achievement.category.color.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Row(
@@ -566,7 +566,7 @@ class AchievementDetailsSheet extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: achievement.rarity.color.withOpacity(0.1),
+                      color: achievement.rarity.color.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
@@ -587,7 +587,7 @@ class AchievementDetailsSheet extends StatelessWidget {
                 LinearProgressIndicator(
                   // ✅ ИСПРАВЛЕНО: Use localized progress percent
                   value: achievement.localizedProgressPercent / 100,
-                  backgroundColor: theme.dividerColor.withOpacity(0.2),
+                  backgroundColor: theme.dividerColor.withValues(alpha: 0.2),
                   valueColor: AlwaysStoppedAnimation<Color>(
                     achievement.category.color,
                   ),
@@ -599,7 +599,7 @@ class AchievementDetailsSheet extends StatelessWidget {
                   '${achievement.currentProgress} / ${achievement.getLocalizedMaxProgress()}',
                   style: TextStyle(
                     fontSize: 14,
-                    color: theme.colorScheme.onSurface.withOpacity(0.5),
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                   ),
                 ),
               ] else ...[
@@ -613,7 +613,7 @@ class AchievementDetailsSheet extends StatelessWidget {
                   '${l10n.achievementDetailsUnlockedOn} ${_formatDate(achievement.unlockedAt!)}',
                   style: TextStyle(
                     fontSize: 14,
-                    color: theme.colorScheme.onSurface.withOpacity(0.5),
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                   ),
                 ),
               ],
@@ -624,7 +624,7 @@ class AchievementDetailsSheet extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
-                  color: Colors.amber.withOpacity(0.1),
+                  color: Colors.amber.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(

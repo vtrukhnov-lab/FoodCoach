@@ -12,9 +12,6 @@ enum AppFeature {
   quickLog,                 // Быстрый лог воды/электролитов/кофе
   deleteSwipe,              // Удаление записей свайпом
   
-  // Погода
-  weatherBasic,             // Температура/влажность, Heat Index
-  weatherAutoCorrection,    // Автокоррекция целей
   
   // Уведомления FREE
   simpleReminders,          // До 4 временных напоминаний в день
@@ -102,9 +99,6 @@ class FeatureGateService {
     AppFeature.quickLog,
     AppFeature.deleteSwipe,
     
-    // Погода
-    AppFeature.weatherBasic,
-    AppFeature.weatherAutoCorrection,
     
     // Уведомления FREE
     AppFeature.simpleReminders,

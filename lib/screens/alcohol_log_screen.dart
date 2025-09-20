@@ -385,7 +385,7 @@ class _AlcoholLogScreenState extends State<AlcoholLogScreen> {
           Container(
             padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
-              color: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
+              color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
               borderRadius: BorderRadius.circular(16),
             ),
             child: Row(
@@ -530,15 +530,15 @@ class EnhancedAlcoholStatusCard extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            statusColor.withOpacity(0.1),
-            statusColor.withOpacity(0.05),
+            statusColor.withValues(alpha: 0.1),
+            statusColor.withValues(alpha: 0.05),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: statusColor.withOpacity(0.3),
+          color: statusColor.withValues(alpha: 0.3),
           width: 1.5,
         ),
       ),
@@ -665,7 +665,7 @@ class EnhancedAlcoholStatusCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: theme.colorScheme.surface.withOpacity(0.5),
+                color: theme.colorScheme.surface.withValues(alpha: 0.5),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
@@ -681,7 +681,7 @@ class EnhancedAlcoholStatusCard extends StatelessWidget {
                   Container(
                     width: 1,
                     height: 40,
-                    color: theme.colorScheme.outline.withOpacity(0.2),
+                    color: theme.colorScheme.outline.withValues(alpha: 0.2),
                   ),
                   _CorrectionItem(
                     icon: Icons.grain,
@@ -693,7 +693,7 @@ class EnhancedAlcoholStatusCard extends StatelessWidget {
                   Container(
                     width: 1,
                     height: 40,
-                    color: theme.colorScheme.outline.withOpacity(0.2),
+                    color: theme.colorScheme.outline.withValues(alpha: 0.2),
                   ),
                   _CorrectionItem(
                     icon: Icons.warning,

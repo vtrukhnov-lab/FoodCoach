@@ -31,7 +31,7 @@ class DailyReportCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
-                color: Colors.blue.withOpacity(0.3),
+                color: Colors.blue.withValues(alpha: 0.3),
                 blurRadius: 20,
                 offset: const Offset(0, 10),
               ),
@@ -44,7 +44,7 @@ class DailyReportCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.1),
+                  color: Colors.white.withValues(alpha: 0.1),
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(24),
                     topRight: Radius.circular(24),
@@ -67,7 +67,7 @@ class DailyReportCard extends StatelessWidget {
                         Text(
                           l10n.dateFormat(_getWeekday(l10n), DateTime.now().day, _getMonth(l10n)),
                           style: TextStyle(
-                            color: Colors.white.withOpacity(0.8),
+                            color: Colors.white.withValues(alpha: 0.8),
                             fontSize: 14,
                           ),
                         ),
@@ -76,7 +76,7 @@ class DailyReportCard extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white.withValues(alpha: 0.2),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
@@ -137,7 +137,7 @@ class DailyReportCard extends StatelessWidget {
                 margin: const EdgeInsets.all(20),
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.15),
+                  color: Colors.white.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
@@ -165,7 +165,7 @@ class DailyReportCard extends StatelessWidget {
                     Text(
                       _getRecommendation(status, progress, l10n),
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.9),
+                        color: Colors.white.withValues(alpha: 0.9),
                         fontSize: 14,
                         height: 1.5,
                       ),
@@ -220,7 +220,7 @@ class DailyReportCard extends StatelessWidget {
           horizontalInterval: 25,
           getDrawingHorizontalLine: (value) {
             return FlLine(
-              color: Colors.white.withOpacity(0.1),
+              color: Colors.white.withValues(alpha: 0.1),
               strokeWidth: 1,
             );
           },
@@ -234,7 +234,7 @@ class DailyReportCard extends StatelessWidget {
                 return Text(
                   '${value.toInt()}%',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.6),
+                    color: Colors.white.withValues(alpha: 0.6),
                     fontSize: 10,
                   ),
                 );
@@ -251,7 +251,7 @@ class DailyReportCard extends StatelessWidget {
                   return Text(
                     '${value.toInt()}:00',
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.6),
+                      color: Colors.white.withValues(alpha: 0.6),
                       fontSize: 10,
                     ),
                   );
@@ -283,7 +283,7 @@ class DailyReportCard extends StatelessWidget {
             dotData: const FlDotData(show: false),
             belowBarData: BarAreaData(
               show: true,
-              color: Colors.white.withOpacity(0.1),
+              color: Colors.white.withValues(alpha: 0.1),
             ),
           ),
         ],
@@ -306,7 +306,7 @@ class DailyReportCard extends StatelessWidget {
         Text(
           label,
           style: TextStyle(
-            color: Colors.white.withOpacity(0.8),
+            color: Colors.white.withValues(alpha: 0.8),
             fontSize: 14,
           ),
         ),

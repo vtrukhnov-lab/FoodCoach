@@ -31,7 +31,6 @@ import 'screens/food_catalog_screen.dart';
 import 'services/notification_service.dart';
 import 'services/subscription_service.dart';
 import 'services/remote_config_service.dart';
-import 'services/weather_service.dart';
 import 'services/alcohol_service.dart';
 import 'services/hri_service.dart';
 import 'services/locale_service.dart';
@@ -124,7 +123,6 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => HydrationProvider()),
         ChangeNotifierProvider(create: (context) => SubscriptionProvider()),
-        ChangeNotifierProvider(create: (context) => WeatherService()),
         ChangeNotifierProvider(create: (context) => AlcoholService()),
         ChangeNotifierProvider(create: (context) => HRIService()),
         ChangeNotifierProvider.value(value: LocaleService.instance),

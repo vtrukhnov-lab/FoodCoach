@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../../services/hri_service.dart';
-import '../../services/weather_service.dart';
 import '../../services/alcohol_service.dart';
 import '../../providers/hydration_provider.dart';
 import '../../l10n/app_localizations.dart';
@@ -23,7 +22,6 @@ class HRIStatusCard extends StatelessWidget {
     final hri = Provider.of<HRIService>(context);
     final provider = Provider.of<HydrationProvider>(context);
     final alcohol = Provider.of<AlcoholService>(context, listen: false);
-    final weather = Provider.of<WeatherService>(context, listen: false);
     final l10n = AppLocalizations.of(context);
 
     final hriValue = hri.currentHRI.round();
@@ -44,7 +42,7 @@ class HRIStatusCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -72,7 +70,7 @@ class HRIStatusCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
-                  color: _getHRIColor(hriValue).withOpacity(0.1),
+                  color: _getHRIColor(hriValue).withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -100,7 +98,7 @@ class HRIStatusCard extends StatelessWidget {
               Text(localizedHRIStatus, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: _getHRIColor(hriValue))),
             ],
           ),
-          if (_hasActiveFactors(components, alcohol, weather, sugarGrams)) ...[
+          if (_hasActiveFactors(components, alcohol, sugarGrams)) ...[
             const SizedBox(height: 16),
             const Divider(),
             const SizedBox(height: 12),
@@ -113,7 +111,7 @@ class HRIStatusCard extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Column(
-              children: _buildEnhancedFactorCards(components, alcohol, weather, sugarGrams, sugarImpact, l10n),
+              children: _buildEnhancedFactorCards(components, alcohol, sugarGrams, sugarImpact, l10n),
             ),
           ],
           if (isFasting) ...[
@@ -121,9 +119,9 @@ class HRIStatusCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.purple.withOpacity(0.1),
+                color: Colors.purple.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.purple.withOpacity(0.3)),
+                border: Border.all(color: Colors.purple.withValues(alpha: 0.3)),
               ),
               child: Row(
                 children: [
@@ -142,7 +140,7 @@ class HRIStatusCard extends StatelessWidget {
   }
 
   // ИСПРАВЛЕНО: добавлена проверка всех компонентов
-  bool _hasActiveFactors(Map<String, double> components, AlcoholService alcohol, WeatherService weather, double sugarGrams) {
+  bool _hasActiveFactors(Map<String, double> components, AlcoholService alcohol, double sugarGrams) {
     final hasWorkouts = (components['workouts'] ?? 0) > 0;
     final hasCaffeine = (components['caffeine'] ?? 0) > 0;
     final hasAlcohol = (components['alcohol'] ?? 0) > 0;
@@ -165,7 +163,6 @@ class HRIStatusCard extends StatelessWidget {
   List<Widget> _buildEnhancedFactorCards(
     Map<String, double> components,
     AlcoholService alcohol,
-    WeatherService weather,
     double sugarGrams,
     int sugarImpact,
     AppLocalizations l10n
@@ -251,7 +248,7 @@ class HRIStatusCard extends StatelessWidget {
     // Environmental factors
     final heatImpact = components['heat'] ?? 0;
     if (heatImpact > 0) {
-      final temp = weather.heatIndex?.round() ?? 30;
+      const temp = 25; // Default temperature
       String description = temp < 32 ? 'Warm weather increases sweating' : 'High heat significantly increases fluid loss';
       cards.add(_buildEnhancedFactorCard(
         '${l10n.hriComponentHeat}',
@@ -356,7 +353,6 @@ class HRIStatusCard extends StatelessWidget {
   List<Widget> _buildActiveFactorChips(
     Map<String, double> components,
     AlcoholService alcohol,
-    WeatherService weather,
     double sugarGrams,
     int sugarImpact,
     AppLocalizations l10n
@@ -374,22 +370,21 @@ class HRIStatusCard extends StatelessWidget {
     }
     
     // Показываем погоду/жару
-    if (weather.heatIndex != null) {
-      final heatImpact = components['heat'] ?? 0;
-      if (heatImpact > 0) {
-        if (weather.heatIndex! < 32) {
-          chips.add(_buildFactorChip(
-            '${l10n.hriComponentHeat} +${heatImpact.toInt()}', 
-            Icons.wb_sunny, 
-            Colors.orange
-          ));
-        } else {
-          chips.add(_buildFactorChip(
-            '${l10n.hriComponentHeat} +${heatImpact.toInt()}', 
-            Icons.local_fire_department, 
-            Colors.red
-          ));
-        }
+    final heatImpact = components['heat'] ?? 0;
+    if (heatImpact > 0) {
+      const temp = 25; // Default temperature
+      if (temp < 32) {
+        chips.add(_buildFactorChip(
+          '${l10n.hriComponentHeat} +${heatImpact.toInt()}',
+          Icons.wb_sunny,
+          Colors.orange
+        ));
+      } else {
+        chips.add(_buildFactorChip(
+          '${l10n.hriComponentHeat} +${heatImpact.toInt()}',
+          Icons.local_fire_department,
+          Colors.red
+        ));
       }
     }
     
@@ -439,16 +434,16 @@ class HRIStatusCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.08),
+        color: color.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: color.withOpacity(0.2), width: 1),
+        border: Border.all(color: color.withValues(alpha: 0.2), width: 1),
       ),
       child: Row(
         children: [
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.15),
+              color: color.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(icon, size: 20, color: color),
@@ -466,13 +461,13 @@ class HRIStatusCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w700,
-                        color: color.withOpacity(0.9),
+                        color: color.withValues(alpha: 0.9),
                       ),
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                       decoration: BoxDecoration(
-                        color: color.withOpacity(0.2),
+                        color: color.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
@@ -507,9 +502,9 @@ class HRIStatusCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: color.withOpacity(0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

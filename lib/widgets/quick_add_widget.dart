@@ -113,7 +113,7 @@ class QuickAddWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: gradientColors.first.withOpacity(0.3),
+                color: gradientColors.first.withValues(alpha: 0.3),
                 blurRadius: 8,
                 offset: const Offset(0, 4),
               ),

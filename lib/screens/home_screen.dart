@@ -7,7 +7,6 @@ import '../l10n/app_localizations.dart';
 
 // Services
 import '../services/hri_service.dart';
-import '../services/weather_service.dart';
 import '../services/alcohol_service.dart';
 import '../services/achievement_tracker.dart';
 
@@ -19,12 +18,10 @@ import '../screens/achievements_screen.dart';
 
 // Widgets
 import '../widgets/home/home_header.dart';
-import '../widgets/home/weather_card.dart';
 import '../widgets/home/main_progress_card.dart';
 import '../widgets/home/electrolytes_card.dart';
 import '../widgets/home/hri_status_card.dart';
 import '../widgets/home/sugar_intake_card.dart';
-import '../widgets/home/food_intake_card.dart';
 import '../widgets/achievement_overlay.dart';
 import '../models/achievement.dart';
 
@@ -86,10 +83,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     final alcohol = Provider.of<AlcoholService>(context, listen: false);
     alcohol.addListener(_onAlcoholChanged);
     
-    final weather = Provider.of<WeatherService>(context, listen: false);
-    weather.addListener(_onWeatherChanged);
-    await weather.loadWeather();
-    
     final hydrationProvider = Provider.of<HydrationProvider>(context, listen: false);
     
     // Pass context to HydrationProvider for AchievementService
@@ -121,8 +114,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     try {
       final alcohol = Provider.of<AlcoholService>(context, listen: false);
       alcohol.removeListener(_onAlcoholChanged);
-      final weather = Provider.of<WeatherService>(context, listen: false);
-      weather.removeListener(_onWeatherChanged);
       _achievementTracker.removeListener(_onAchievementTrackerChanged);
     } catch (e) {
       debugPrint("Error removing listeners: $e");
@@ -148,10 +139,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     _updateHRI();
   }
 
-  void _onWeatherChanged() {
-    if (!mounted) return;
-    _updateHRI();
-  }
 
   void _checkMorningCheckin() {
     final alcohol = Provider.of<AlcoholService>(context, listen: false);
@@ -176,7 +163,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     final provider = Provider.of<HydrationProvider>(context, listen: false);
     final hri = Provider.of<HRIService>(context, listen: false);
     final alcohol = Provider.of<AlcoholService>(context, listen: false);
-    final weather = Provider.of<WeatherService>(context, listen: false);
     
     DateTime? lastIntakeTime = provider.todayIntakes.isNotEmpty 
         ? provider.todayIntakes.last.timestamp 
@@ -196,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       potassiumGoal: provider.goals.potassium.toDouble(),
       magnesiumIntake: provider.totalMagnesiumToday.toDouble(),
       magnesiumGoal: provider.goals.magnesium.toDouble(),
-      heatIndex: weather.heatIndex,
+      heatIndex: 25.0, // Default temperature in Celsius
       coffeeCups: provider.coffeeCupsToday,
       alcoholSD: alcohol.totalStandardDrinks,
       sugarIntake: sugarData.totalGrams,
@@ -245,9 +231,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     final List<Widget> cards = [
       MainProgressCard(onUpdate: _onIntakeUpdated),
       const ElectrolytesCard(),
-      const WeatherCard(),
       const SugarIntakeCard(),
-      const FoodIntakeCard(),
     ];
 
     return Scaffold(
@@ -269,7 +253,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             Text(
               _formatDate(DateTime.now(), l10n),
               style: TextStyle(
-                color: theme.colorScheme.onSurface.withOpacity(0.6),
+                color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                 fontSize: 14,
               ),
             ),
@@ -293,7 +277,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         fontSize: 26,
                         shadows: hasNewAchievements ? [
                           Shadow(
-                            color: Colors.amber.withOpacity(0.8),
+                            color: Colors.amber.withValues(alpha: 0.8),
                             blurRadius: 8,
                             offset: const Offset(0, 0),
                           ),
@@ -323,7 +307,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.red.withOpacity(0.3),
+                              color: Colors.red.withValues(alpha: 0.3),
                               blurRadius: 4,
                               spreadRadius: 1,
                             ),
@@ -421,7 +405,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             borderRadius: BorderRadius.circular(4),
                             color: isActive
                                 ? theme.primaryColor
-                                : theme.primaryColor.withOpacity(0.3),
+                                : theme.primaryColor.withValues(alpha: 0.3),
                           ),
                         ),
                       );

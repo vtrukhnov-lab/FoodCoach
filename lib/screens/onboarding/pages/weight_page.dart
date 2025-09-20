@@ -109,7 +109,7 @@ class WeightPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF2EC5FF).withOpacity(0.1),
+            color: const Color(0xFF2EC5FF).withValues(alpha: 0.1),
             blurRadius: 20,
             offset: const Offset(0, 4),
           ),
@@ -145,9 +145,9 @@ class WeightPage extends StatelessWidget {
           SliderTheme(
             data: SliderTheme.of(context).copyWith(
               activeTrackColor: const Color(0xFF2EC5FF),
-              inactiveTrackColor: const Color(0xFF2EC5FF).withOpacity(0.1),
+              inactiveTrackColor: const Color(0xFF2EC5FF).withValues(alpha: 0.1),
               thumbColor: const Color(0xFF2EC5FF),
-              overlayColor: const Color(0xFF2EC5FF).withOpacity(0.2),
+              overlayColor: const Color(0xFF2EC5FF).withValues(alpha: 0.2),
               thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 12),
               trackHeight: 8,
             ),
@@ -203,10 +203,10 @@ class WeightPage extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
-            color: const Color(0xFF8AF5A3).withOpacity(0.1),
+            color: const Color(0xFF8AF5A3).withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: const Color(0xFF8AF5A3).withOpacity(0.3),
+              color: const Color(0xFF8AF5A3).withValues(alpha: 0.3),
               width: 1,
             ),
           ),
@@ -234,10 +234,10 @@ class WeightPage extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
-            color: const Color(0xFFFF9F43).withOpacity(0.1),
+            color: const Color(0xFFFF9F43).withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: const Color(0xFFFF9F43).withOpacity(0.3),
+              color: const Color(0xFFFF9F43).withValues(alpha: 0.3),
               width: 1,
             ),
           ),

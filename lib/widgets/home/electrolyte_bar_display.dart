@@ -45,7 +45,7 @@ class ElectrolyteBarDisplay extends StatelessWidget {
           width: 26,
           height: 26,
           decoration: BoxDecoration(
-            color: color.withOpacity(0.15),
+            color: color.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(6),
           ),
           child: Center(
@@ -82,7 +82,7 @@ class ElectrolyteBarDisplay extends StatelessWidget {
                 borderRadius: BorderRadius.circular(3),
                 child: LinearProgressIndicator(
                   value: percent,
-                  backgroundColor: color.withOpacity(0.15),
+                  backgroundColor: color.withValues(alpha: 0.15),
                   valueColor: AlwaysStoppedAnimation(color),
                   minHeight: 5,
                 ),

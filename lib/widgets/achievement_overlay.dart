@@ -323,7 +323,7 @@ class _AchievementOverlayState extends State<AchievementOverlay>
         child: Container(
           width: screenSize.width,
           height: screenSize.height,
-          color: Colors.black.withOpacity(0.3),
+          color: Colors.black.withValues(alpha: 0.3),
           child: Center(
             child: AnimatedBuilder(
               animation: _controller,
@@ -345,7 +345,7 @@ class _AchievementOverlayState extends State<AchievementOverlay>
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
+                              color: Colors.black.withValues(alpha: 0.2),
                               blurRadius: 20,
                               offset: const Offset(0, 10),
                             ),
@@ -359,7 +359,7 @@ class _AchievementOverlayState extends State<AchievementOverlay>
                               height: 3,
                               margin: const EdgeInsets.only(bottom: 20),
                               decoration: BoxDecoration(
-                                color: theme.colorScheme.outline.withOpacity(0.2),
+                                color: theme.colorScheme.outline.withValues(alpha: 0.2),
                                 borderRadius: BorderRadius.circular(2),
                               ),
                               child: AnimatedBuilder(
@@ -397,7 +397,7 @@ class _AchievementOverlayState extends State<AchievementOverlay>
                               height: 80,
                               decoration: BoxDecoration(
                                 color: _getRarityColor(widget.achievement.rarity)
-                                    .withOpacity(0.1),
+                                    .withValues(alpha: 0.1),
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                   color: _getRarityColor(widget.achievement.rarity),
@@ -433,7 +433,7 @@ class _AchievementOverlayState extends State<AchievementOverlay>
                             Text(
                               _getLocalizedDescription(l10n),
                               style: theme.textTheme.bodyMedium?.copyWith(
-                                color: theme.colorScheme.onSurface.withOpacity(0.7),
+                                color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                               ),
                               textAlign: TextAlign.center,
                             ).animate().fadeIn(delay: 500.ms),

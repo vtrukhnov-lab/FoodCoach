@@ -398,7 +398,7 @@ class _WeeklyHistoryScreenState extends State<WeeklyHistoryScreen> {
               (i) => FlSpot(i.toDouble(), 100.0),
             ),
             isCurved: false,
-            color: Colors.green.withOpacity(0.3),
+            color: Colors.green.withValues(alpha: 0.3),
             barWidth: 1,
             isStrokeCapRound: false,
             dotData: const FlDotData(show: false),
@@ -427,8 +427,8 @@ class _WeeklyHistoryScreenState extends State<WeeklyHistoryScreen> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Colors.blue.withOpacity(0.3),
-                  Colors.blue.withOpacity(0.0),
+                  Colors.blue.withValues(alpha: 0.3),
+                  Colors.blue.withValues(alpha: 0.0),
                 ],
               ),
             ),
@@ -1188,7 +1188,7 @@ class _WeeklyHistoryScreenState extends State<WeeklyHistoryScreen> {
           width: 40,
           height: 40,
           decoration: BoxDecoration(
-            color: color.withOpacity(0.1),
+            color: color.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Center(child: Text(icon, style: const TextStyle(fontSize: 20))),
@@ -1236,7 +1236,7 @@ class _WeeklyHistoryScreenState extends State<WeeklyHistoryScreen> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.purple.withOpacity(0.3),
+            color: Colors.purple.withValues(alpha: 0.3),
             blurRadius: 15,
             offset: const Offset(0, 5),
           ),
@@ -1251,7 +1251,7 @@ class _WeeklyHistoryScreenState extends State<WeeklyHistoryScreen> {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -1425,7 +1425,7 @@ class _WeeklyHistoryScreenState extends State<WeeklyHistoryScreen> {
             width: 36,
             height: 36,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               shape: BoxShape.circle,
             ),
             child: Center(
@@ -1452,7 +1452,7 @@ class _WeeklyHistoryScreenState extends State<WeeklyHistoryScreen> {
                 Text(
                   description,
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.white.withValues(alpha: 0.9),
                     fontSize: 13,
                   ),
                 ),
@@ -1469,7 +1469,7 @@ class _WeeklyHistoryScreenState extends State<WeeklyHistoryScreen> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),

@@ -57,7 +57,7 @@ class ProFeatureGate extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.transparent,
-                          Colors.black.withOpacity(0.3),
+                          Colors.black.withValues(alpha: 0.3),
                         ],
                       ),
                     ),
@@ -78,7 +78,7 @@ class ProFeatureGate extends StatelessWidget {
                               shape: BoxShape.circle,
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.orange.withOpacity(0.3),
+                                  color: Colors.orange.withValues(alpha: 0.3),
                                   blurRadius: 20,
                                   spreadRadius: 5,
                                 ),
@@ -112,7 +112,7 @@ class ProFeatureGate extends StatelessWidget {
                               FeatureGateService.getFeatureDescription(feature),
                               textAlign: TextAlign.center,
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: Colors.white.withOpacity(0.9),
+                                color: Colors.white.withValues(alpha: 0.9),
                               ),
                             ),
                           ),
@@ -223,7 +223,7 @@ class _ProBadge extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.orange.withOpacity(0.3),
+              color: Colors.orange.withValues(alpha: 0.3),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -285,8 +285,8 @@ class ProFeatureCard extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                const Color(0xFFFFD700).withOpacity(0.1),
-                const Color(0xFFFFA500).withOpacity(0.05),
+                const Color(0xFFFFD700).withValues(alpha: 0.1),
+                const Color(0xFFFFA500).withValues(alpha: 0.05),
               ],
             ),
           ),
@@ -355,7 +355,7 @@ class ProFeatureCard extends StatelessWidget {
                     Text(
                       'Нажмите для разблокировки',
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).textTheme.bodySmall?.color?.withOpacity(0.6),
+                        color: Theme.of(context).textTheme.bodySmall?.color?.withValues(alpha: 0.6),
                       ),
                     ),
                   ],
@@ -366,7 +366,7 @@ class ProFeatureCard extends StatelessWidget {
               Icon(
                 Icons.arrow_forward_ios,
                 size: 16,
-                color: Theme.of(context).textTheme.bodySmall?.color?.withOpacity(0.3),
+                color: Theme.of(context).textTheme.bodySmall?.color?.withValues(alpha: 0.3),
               ),
             ],
           ),
@@ -485,8 +485,8 @@ class _FeatureListTile extends StatelessWidget {
         height: 40,
         decoration: BoxDecoration(
           color: isAvailable 
-            ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
-            : Colors.grey.withOpacity(0.1),
+            ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.1)
+            : Colors.grey.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Icon(
@@ -513,7 +513,7 @@ class _FeatureListTile extends StatelessWidget {
           )
         : Icon(
             Icons.lock,
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withValues(alpha: 0.5),
             size: 18,
           ),
       dense: true,

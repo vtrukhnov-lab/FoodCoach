@@ -344,8 +344,8 @@ class _WaterProgressRingState extends State<_WaterProgressRing>
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
                   color: useWhiteText 
-                      ? Colors.white.withOpacity(0.2)
-                      : Colors.grey.withOpacity(0.1),
+                      ? Colors.white.withValues(alpha: 0.2)
+                      : Colors.grey.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
@@ -411,7 +411,7 @@ class _WaterRingPainter extends CustomPainter {
       size, 
       waterLevel, 
       wavePhase, 
-      waterColor.withOpacity(0.85), 
+      waterColor.withValues(alpha: 0.85), 
       5, 
       1.6
     );
@@ -422,7 +422,7 @@ class _WaterRingPainter extends CustomPainter {
       size, 
       waterLevel + 2, 
       (wavePhase + 0.35) % 1.0, 
-      waterColor.withOpacity(0.6), 
+      waterColor.withValues(alpha: 0.6), 
       3, 
       2.3
     );
@@ -432,7 +432,7 @@ class _WaterRingPainter extends CustomPainter {
       ..shader = LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
-        colors: [Colors.white.withOpacity(0.25), Colors.transparent],
+        colors: [Colors.white.withValues(alpha: 0.25), Colors.transparent],
         stops: const [0.0, 0.4],
       ).createShader(Rect.fromLTWH(0, 0, w, h));
     canvas.drawRect(Rect.fromLTWH(0, 0, w, h * 0.4), glossPaint);
@@ -443,7 +443,7 @@ class _WaterRingPainter extends CustomPainter {
     final glassPaint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0
-      ..color = Colors.white.withOpacity(0.3);
+      ..color = Colors.white.withValues(alpha: 0.3);
     canvas.drawCircle(center, radius - 12, glassPaint);
     
     // Прогресс-дуга поверх
@@ -472,7 +472,7 @@ class _WaterRingPainter extends CustomPainter {
       
       // Светящаяся точка
       final glowPaint = Paint()
-        ..color = color.withOpacity(0.3)
+        ..color = color.withValues(alpha: 0.3)
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2);
       canvas.drawCircle(endPoint, 4, glowPaint);
       

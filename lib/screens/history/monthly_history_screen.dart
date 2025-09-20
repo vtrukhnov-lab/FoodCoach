@@ -556,7 +556,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
                 left: 0,
                 right: 0,
                 child: Center(
-                  child: _alcoholGlyph(alcLevel, color: textColor.withOpacity(0.8), size: 8),
+                  child: _alcoholGlyph(alcLevel, color: textColor.withValues(alpha: 0.8), size: 8),
                 ),
               ),
 
@@ -569,7 +569,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
                   width: 6,
                   height: 6,
                   decoration: BoxDecoration(
-                    color: Colors.green.withOpacity(0.8),
+                    color: Colors.green.withValues(alpha: 0.8),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -693,7 +693,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
         border: Border.all(color: Colors.orange.shade200),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -838,7 +838,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
         border: Border.all(color: Colors.brown.shade200),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -971,7 +971,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
         border: Border.all(color: Colors.pink.shade200),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -1104,7 +1104,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
         border: Border.all(color: Colors.green.shade200),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -1183,7 +1183,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
         border: Border.all(color: Colors.green.shade200),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -1311,7 +1311,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
         border: Border.all(color: Colors.teal.shade200),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),
@@ -1422,7 +1422,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.indigo.withOpacity(0.3),
+            color: Colors.indigo.withValues(alpha: 0.3),
             blurRadius: 15,
             offset: const Offset(0, 5),
           ),
@@ -1437,7 +1437,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -1570,7 +1570,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
             width: 36,
             height: 36,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               shape: BoxShape.circle,
             ),
             child: Center(
@@ -1597,7 +1597,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
                 Text(
                   description,
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.white.withValues(alpha: 0.9),
                     fontSize: 13,
                   ),
                 ),
@@ -2072,9 +2072,9 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.05),
+        color: color.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: color.withOpacity(0.2)),
+        border: Border.all(color: color.withValues(alpha: 0.2)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -2125,7 +2125,7 @@ class _MonthlyHistoryScreenState extends State<MonthlyHistoryScreen> {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 2),
           ),

@@ -81,7 +81,7 @@ class DietPage extends StatelessWidget {
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           color: isPracticingFasting 
-            ? const Color(0xFF2EC5FF).withOpacity(0.1)
+            ? const Color(0xFF2EC5FF).withValues(alpha: 0.1)
             : Colors.white,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
@@ -146,7 +146,7 @@ class DietPage extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFF2EC5FF).withOpacity(0.3)),
+        border: Border.all(color: const Color(0xFF2EC5FF).withValues(alpha: 0.3)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,7 +211,7 @@ class DietPage extends StatelessWidget {
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           color: isSelected 
-            ? const Color(0xFF2EC5FF).withOpacity(0.1)
+            ? const Color(0xFF2EC5FF).withValues(alpha: 0.1)
             : Colors.white,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(

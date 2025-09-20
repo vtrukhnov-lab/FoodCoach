@@ -187,6 +187,19 @@ class SubscriptionService {
 
   Future<void> _restoreFromStorage() async {
     final prefs = await SharedPreferences.getInstance();
+
+    // Проверяем мок статус PRO для debug режима
+    if (kDebugMode) {
+      final mockProStatus = prefs.getBool('mock_pro_status') ?? false;
+      final isMockPurchase = prefs.getBool('is_mock_purchase') ?? false;
+
+      if (isMockPurchase && mockProStatus) {
+        _isPro = true;
+        print('🎭 Restored mock PRO status');
+        return;
+      }
+    }
+
     final storedIsPro = prefs.getBool(_isProKey) ?? false;
     final expiryIso = prefs.getString(_proExpiresAtKey);
     DateTime? expiry;
@@ -381,7 +394,6 @@ class SubscriptionService {
   bool hasFeatureAccess(String featureName) {
     const freeFeatures = {
       'basic_tracking',
-      'weather_integration',
       'simple_reminders',
       'daily_report',
       'basic_history',
@@ -453,6 +465,44 @@ class SubscriptionService {
   /// Мок-покупка для тестирования — годовая подписка
   Future<void> mockPurchase() async {
     await purchaseSubscription(_yearlyProductId);
+  }
+
+  /// Устанавливает мок PRO статус для тестирования
+  Future<void> setMockProStatus(bool isPro) async {
+    if (kDebugMode) {
+      print('🎭 Setting mock PRO status to: $isPro');
+      _isPro = isPro;
+
+      // Сохраняем статус в SharedPreferences
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('mock_pro_status', isPro);
+
+      // Добавляем маркер что это мок покупка
+      await prefs.setBool('is_mock_purchase', true);
+
+      if (isPro) {
+        // Устанавливаем дату активации
+        await prefs.setString('pro_activated_at', DateTime.now().toIso8601String());
+      } else {
+        // Если отключаем PRO, убираем мок флаги
+        await prefs.remove('mock_pro_status');
+        await prefs.remove('is_mock_purchase');
+        await prefs.remove('pro_activated_at');
+      }
+    }
+  }
+
+  /// Сбрасывает мок PRO статус
+  Future<void> clearMockProStatus() async {
+    if (kDebugMode) {
+      print('🎭 Clearing mock PRO status');
+      _isPro = false;
+
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove('mock_pro_status');
+      await prefs.remove('is_mock_purchase');
+      await prefs.remove('pro_activated_at');
+    }
   }
 
   /// Очистка ресурсов
@@ -586,6 +636,34 @@ class SubscriptionProvider extends ChangeNotifier {
 
     if (kDebugMode) {
       print('✅ Mock purchase completed - PRO activated');
+    }
+  }
+
+  Future<void> setMockProStatus(bool isPro) async {
+    _isLoading = true;
+    notifyListeners();
+
+    await _subscriptionService.setMockProStatus(isPro);
+
+    _isLoading = false;
+    notifyListeners();
+
+    if (kDebugMode) {
+      print('✅ Mock PRO status set to: $isPro');
+    }
+  }
+
+  Future<void> clearMockProStatus() async {
+    _isLoading = true;
+    notifyListeners();
+
+    await _subscriptionService.clearMockProStatus();
+
+    _isLoading = false;
+    notifyListeners();
+
+    if (kDebugMode) {
+      print('✅ Mock PRO status cleared');
     }
   }
 

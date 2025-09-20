@@ -358,13 +358,13 @@ class _FavoriteBeveragesBarState extends State<FavoriteBeveragesBar> {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [color.withOpacity(0.1), color.withOpacity(0.05)],
+              colors: [color.withValues(alpha: 0.1), color.withValues(alpha: 0.05)],
             ),
             borderRadius: BorderRadius.circular(cardHeight * 0.2), // 20% от высоты
-            border: Border.all(color: color.withOpacity(0.2), width: 1.5),
+            border: Border.all(color: color.withValues(alpha: 0.2), width: 1.5),
             boxShadow: isPressed ? [] : [
               BoxShadow(
-                color: color.withOpacity(0.1),
+                color: color.withValues(alpha: 0.1),
                 blurRadius: 8,
                 offset: const Offset(0, 4),
               ),
@@ -384,7 +384,7 @@ class _FavoriteBeveragesBarState extends State<FavoriteBeveragesBar> {
                   style: TextStyle(
                     fontSize: textSize,
                     fontWeight: FontWeight.w600,
-                    color: color.withOpacity(0.9),
+                    color: color.withValues(alpha: 0.9),
                     height: 1.15,
                   ),
                   maxLines: 2,
@@ -413,14 +413,14 @@ class _FavoriteBeveragesBarState extends State<FavoriteBeveragesBar> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: isDarkMode
-              ? [Colors.grey[850]!.withOpacity(0.5), Colors.grey[900]!.withOpacity(0.3)]
+              ? [Colors.grey[850]!.withValues(alpha: 0.5), Colors.grey[900]!.withValues(alpha: 0.3)]
               : [Colors.grey[50]!, Colors.white],
         ),
         borderRadius: BorderRadius.circular(cardHeight * 0.2),
         border: Border.all(
           color: isDarkMode 
-              ? Colors.grey[700]!.withOpacity(0.5) 
-              : Colors.grey[300]!.withOpacity(0.8),
+              ? Colors.grey[700]!.withValues(alpha: 0.5) 
+              : Colors.grey[300]!.withValues(alpha: 0.8),
           width: 1.5,
         ),
       ),
@@ -433,7 +433,7 @@ class _FavoriteBeveragesBarState extends State<FavoriteBeveragesBar> {
             Container(
               padding: EdgeInsets.all(iconPadding),
               decoration: BoxDecoration(
-                color: isDarkMode ? Colors.grey[800]!.withOpacity(0.5) : Colors.grey[100],
+                color: isDarkMode ? Colors.grey[800]!.withValues(alpha: 0.5) : Colors.grey[100],
                 shape: BoxShape.circle,
               ),
               child: Icon(
@@ -473,14 +473,14 @@ class _FavoriteBeveragesBarState extends State<FavoriteBeveragesBar> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.purple.shade400.withOpacity(0.8),
-            Colors.purple.shade600.withOpacity(0.8),
+            Colors.purple.shade400.withValues(alpha: 0.8),
+            Colors.purple.shade600.withValues(alpha: 0.8),
           ],
         ),
         borderRadius: BorderRadius.circular(cardHeight * 0.2),
         boxShadow: [
           BoxShadow(
-            color: Colors.purple.withOpacity(0.3),
+            color: Colors.purple.withValues(alpha: 0.3),
             blurRadius: 12,
             offset: const Offset(0, 6),
           ),
@@ -497,7 +497,7 @@ class _FavoriteBeveragesBarState extends State<FavoriteBeveragesBar> {
               Container(
                 padding: EdgeInsets.all(iconPadding),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
@@ -513,7 +513,7 @@ class _FavoriteBeveragesBarState extends State<FavoriteBeveragesBar> {
                   vertical: badgePaddingV
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(cardHeight * 0.15),
                 ),
                 child: Text(

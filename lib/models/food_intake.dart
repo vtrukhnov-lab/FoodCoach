@@ -16,6 +16,9 @@ class FoodIntake {
   final int potassium; // Калий в мг
   final int magnesium; // Магний в мг
   final double sugar; // Сахар в граммах
+  final double proteins; // Белки в граммах
+  final double carbohydrates; // Углеводы в граммах
+  final double fats; // Жиры в граммах
   final bool hasCaffeine; // Содержит кофеин
   final String? emoji; // Эмодзи продукта
 
@@ -31,6 +34,9 @@ class FoodIntake {
     this.potassium = 0,
     this.magnesium = 0,
     this.sugar = 0.0,
+    this.proteins = 0.0,
+    this.carbohydrates = 0.0,
+    this.fats = 0.0,
     this.hasCaffeine = false,
     this.emoji,
   });
@@ -48,6 +54,9 @@ class FoodIntake {
     'potassium': potassium,
     'magnesium': magnesium,
     'sugar': sugar,
+    'proteins': proteins,
+    'carbohydrates': carbohydrates,
+    'fats': fats,
     'hasCaffeine': hasCaffeine,
     if (emoji != null) 'emoji': emoji,
   };
@@ -65,6 +74,9 @@ class FoodIntake {
     potassium: json['potassium'] as int? ?? 0,
     magnesium: json['magnesium'] as int? ?? 0,
     sugar: (json['sugar'] as num?)?.toDouble() ?? 0.0,
+    proteins: (json['proteins'] as num?)?.toDouble() ?? 0.0,
+    carbohydrates: (json['carbohydrates'] as num?)?.toDouble() ?? 0.0,
+    fats: (json['fats'] as num?)?.toDouble() ?? 0.0,
     hasCaffeine: json['hasCaffeine'] as bool? ?? false,
     emoji: json['emoji'] as String?,
   );
@@ -82,6 +94,9 @@ class FoodIntake {
     int? potassium,
     int? magnesium,
     double? sugar,
+    double? proteins,
+    double? carbohydrates,
+    double? fats,
     bool? hasCaffeine,
     String? emoji,
   }) {
@@ -97,6 +112,9 @@ class FoodIntake {
       potassium: potassium ?? this.potassium,
       magnesium: magnesium ?? this.magnesium,
       sugar: sugar ?? this.sugar,
+      proteins: proteins ?? this.proteins,
+      carbohydrates: carbohydrates ?? this.carbohydrates,
+      fats: fats ?? this.fats,
       hasCaffeine: hasCaffeine ?? this.hasCaffeine,
       emoji: emoji ?? this.emoji,
     );
@@ -139,7 +157,8 @@ class FoodIntake {
     return 'FoodIntake(id: $id, timestamp: $timestamp, foodId: $foodId, '
            'foodName: $foodName, weight: $weight, calories: $calories, '
            'waterContent: $waterContent, sodium: $sodium, potassium: $potassium, '
-           'magnesium: $magnesium, sugar: $sugar, hasCaffeine: $hasCaffeine)';
+           'magnesium: $magnesium, sugar: $sugar, proteins: $proteins, '
+           'carbohydrates: $carbohydrates, fats: $fats, hasCaffeine: $hasCaffeine)';
   }
 
   @override
@@ -158,6 +177,9 @@ class FoodIntake {
       other.potassium == potassium &&
       other.magnesium == magnesium &&
       other.sugar == sugar &&
+      other.proteins == proteins &&
+      other.carbohydrates == carbohydrates &&
+      other.fats == fats &&
       other.hasCaffeine == hasCaffeine &&
       other.emoji == emoji;
   }
@@ -175,6 +197,9 @@ class FoodIntake {
       potassium.hashCode ^
       magnesium.hashCode ^
       sugar.hashCode ^
+      proteins.hashCode ^
+      carbohydrates.hashCode ^
+      fats.hashCode ^
       hasCaffeine.hashCode ^
       emoji.hashCode;
   }

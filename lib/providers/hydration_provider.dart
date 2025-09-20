@@ -19,7 +19,6 @@ import '../services/water_progress_cache.dart';
 import '../services/remote_config_service.dart';
 import '../services/hri_service.dart';
 import '../services/alcohol_service.dart';
-import '../services/weather_service.dart';
 import '../services/achievement_service.dart';
 import '../services/units_service.dart';
 import '../services/history_service.dart';
@@ -50,8 +49,6 @@ class HydrationProvider extends ChangeNotifier {
   List<Intake> todayIntakes = [];
   List<FoodIntake> todayFoodIntakes = [];
   
-  double weatherWaterAdjustment = 0;
-  int weatherSodiumAdjustment = 0;
   
   // Alcohol adjustments
   double alcoholWaterAdjustment = 0;
@@ -461,7 +458,6 @@ class HydrationProvider extends ChangeNotifier {
     required BuildContext context,
     required HRIService hriService,
     AlcoholService? alcoholService,
-    WeatherService? weatherService,
   }) async {
     // Calculate current electrolytes
     int totalSodium = 0;
@@ -487,7 +483,7 @@ class HydrationProvider extends ChangeNotifier {
       potassiumGoal: goals.potassium.toDouble(),
       magnesiumIntake: totalMagnesium.toDouble(),
       magnesiumGoal: goals.magnesium.toDouble(),
-      heatIndex: weatherService?.heatIndex,
+      heatIndex: 25.0, // Default temperature
       sugarIntake: sugarData.totalGrams,
       lastIntakeTime: lastIntakeTime,
       userWeightKg: weight,
@@ -561,7 +557,6 @@ class HydrationProvider extends ChangeNotifier {
       await messaging.subscribeToTopic('fasting_users');
     }
     
-    await messaging.subscribeToTopic('weather_alerts');
   }
   
   void _calculateGoals() {
@@ -601,13 +596,6 @@ class HydrationProvider extends ChangeNotifier {
   int waterOpt = baseWaterOpt;
   int waterMax = baseWaterMax;
   
-  // Apply weather correction (percentage increase from BASE)
-  if (weatherWaterAdjustment > 0) {
-    waterMin = (baseWaterMin * (1 + weatherWaterAdjustment)).round();
-    waterOpt = (baseWaterOpt * (1 + weatherWaterAdjustment)).round();
-    waterMax = (baseWaterMax * (1 + weatherWaterAdjustment)).round();
-    print('After weather adjustment (+${(weatherWaterAdjustment*100).toInt()}%): opt=$waterOpt ml');
-  }
   
   // Apply alcohol correction (addition to already corrected values)
   if (alcoholWaterAdjustment > 0) {
@@ -643,8 +631,6 @@ class HydrationProvider extends ChangeNotifier {
   int potassium = basePotassium;
   int magnesium = baseMagnesium;
   
-  // Add weather salt correction
-  sodium += weatherSodiumAdjustment;
   
   // Add alcohol salt correction
   sodium += alcoholSodiumAdjustment;
@@ -683,12 +669,6 @@ class HydrationProvider extends ChangeNotifier {
     notifyListeners();
   }
   
-  void updateWeatherAdjustments(double waterAdjustment, int sodiumAdjustment) {
-    weatherWaterAdjustment = waterAdjustment;
-    weatherSodiumAdjustment = sodiumAdjustment;
-    _calculateGoals();
-    notifyListeners();
-  }
   
   Future<void> _loadData() async {
     final prefs = await SharedPreferences.getInstance();
@@ -1339,10 +1319,6 @@ class HydrationProvider extends ChangeNotifier {
         break;
     }
     
-    // Add weather risk
-    if (weatherWaterAdjustment > 0.1) {
-      baseHRI += 10;
-    }
     
     // Add alcohol risk
     if (alcoholService != null) {

@@ -177,7 +177,7 @@ class _UnitsPageState extends State<UnitsPage> {
         padding: const EdgeInsets.all(18),
         decoration: BoxDecoration(
           color: isSelected 
-            ? const Color(0xFF2EC5FF).withOpacity(0.1)
+            ? const Color(0xFF2EC5FF).withValues(alpha: 0.1)
             : Colors.white,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
@@ -193,7 +193,7 @@ class _UnitsPageState extends State<UnitsPage> {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: const Color(0xFF2EC5FF).withOpacity(0.1),
+                color: const Color(0xFF2EC5FF).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Center(

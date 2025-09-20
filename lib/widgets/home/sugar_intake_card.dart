@@ -26,21 +26,11 @@ class SugarIntakeCard extends StatelessWidget {
     
     final hriImpact = _calculateHRIImpact(sugarData.totalGrams);
     
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: _getGradientColors(sugarData.totalGrams),
-        ),
+    return Card(
+      margin: EdgeInsets.zero,
+      elevation: 2,
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: _getShadowColor(sugarData.totalGrams).withOpacity(0.3),
-            blurRadius: 15,
-            offset: const Offset(0, 5),
-          ),
-        ],
       ),
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -57,15 +47,15 @@ class SugarIntakeCard extends StatelessWidget {
                       Row(
                         children: [
                           Icon(
-                            _getSugarIcon(sugarData.totalGrams), 
-                            color: Colors.white, 
+                            Icons.cake,
+                            color: Theme.of(context).primaryColor,
                             size: 36
                           ),
                           const SizedBox(width: 12),
                           Text(
                             '${sugarData.totalGrams.round()}g',
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.onSurface,
                               fontSize: 42,
                               fontWeight: FontWeight.bold,
                             ),
@@ -75,8 +65,8 @@ class SugarIntakeCard extends StatelessWidget {
                       const SizedBox(height: 8),
                       Text(
                         l10n.totalSugar,
-                        style: const TextStyle(
-                          color: Colors.white,
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSurface,
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),
@@ -84,7 +74,7 @@ class SugarIntakeCard extends StatelessWidget {
                       Text(
                         _getStatusText(sugarData.totalGrams),
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.9),
+                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
                           fontSize: 14,
                         ),
                         maxLines: 2,
@@ -97,10 +87,10 @@ class SugarIntakeCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.15),
+                    color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.3),
+                      color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
                       width: 1,
                     ),
                   ),
@@ -109,7 +99,7 @@ class SugarIntakeCard extends StatelessWidget {
                       Text(
                         l10n.hriRisk,
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.9),
+                          color: Theme.of(context).colorScheme.primary,
                           fontSize: 11,
                           fontWeight: FontWeight.w500,
                         ),
@@ -119,8 +109,8 @@ class SugarIntakeCard extends StatelessWidget {
                       const SizedBox(height: 6),
                       Text(
                         hriImpact > 0 ? '+$hriImpact' : '$hriImpact',
-                        style: const TextStyle(
-                          color: Colors.white,
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
                         ),
@@ -128,7 +118,7 @@ class SugarIntakeCard extends StatelessWidget {
                       Text(
                         'pts',
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.8),
+                          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.8),
                           fontSize: 11,
                         ),
                       ),
@@ -146,9 +136,9 @@ class SugarIntakeCard extends StatelessWidget {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Colors.white.withOpacity(0),
-                    Colors.white.withOpacity(0.3),
-                    Colors.white.withOpacity(0),
+                    Colors.white.withValues(alpha: 0),
+                    Colors.white.withValues(alpha: 0.3),
+                    Colors.white.withValues(alpha: 0),
                   ],
                 ),
               ),
@@ -183,10 +173,10 @@ class SugarIntakeCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.1),
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
                   width: 1,
                 ),
               ),
@@ -196,16 +186,16 @@ class SugarIntakeCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(
-                        _getWarningIcon(sugarData.totalGrams),
-                        color: Colors.white,
+                        Icons.lightbulb_outline,
+                        color: Theme.of(context).colorScheme.primary,
                         size: 22,
                       ),
                       const SizedBox(width: 10),
                       Expanded(
                         child: Text(
                           _getAdviceText(sugarData.totalGrams, l10n),
-                          style: const TextStyle(
-                            color: Colors.white,
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontSize: 13,
                             fontWeight: FontWeight.w500,
                             height: 1.4,
@@ -264,7 +254,7 @@ class SugarIntakeCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
+              color: Colors.grey.withValues(alpha: 0.3),
               blurRadius: 15,
               offset: const Offset(0, 5),
             ),
@@ -279,7 +269,7 @@ class SugarIntakeCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.amber.withOpacity(0.2),
+                  color: Colors.amber.withValues(alpha: 0.2),
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: Colors.amber,
@@ -324,7 +314,7 @@ class SugarIntakeCard extends StatelessWidget {
               Text(
                 l10n.sugarTrackingPro,
                 style: TextStyle(
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.white.withValues(alpha: 0.8),
                   fontSize: 14,
                 ),
                 textAlign: TextAlign.center,
@@ -347,7 +337,7 @@ class SugarIntakeCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.amber.withOpacity(0.3),
+                      color: Colors.amber.withValues(alpha: 0.3),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -392,10 +382,10 @@ class SugarIntakeCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.15),
+              color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
               shape: BoxShape.circle,
             ),
-            child: Icon(icon, color: Colors.white, size: 24),
+            child: Icon(icon, color: Theme.of(context).colorScheme.primary, size: 24),
           ),
           const SizedBox(height: 8),
           Padding(
@@ -403,7 +393,7 @@ class SugarIntakeCard extends StatelessWidget {
             child: Text(
               label,
               style: TextStyle(
-                color: Colors.white.withOpacity(0.8),
+                color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                 fontSize: 10,
               ),
               maxLines: 2,
@@ -414,8 +404,8 @@ class SugarIntakeCard extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             value,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
               fontWeight: FontWeight.bold,
               fontSize: 16,
             ),
@@ -423,7 +413,7 @@ class SugarIntakeCard extends StatelessWidget {
           Text(
             'g',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
               fontSize: 11,
             ),
           ),
@@ -439,13 +429,13 @@ class SugarIntakeCard extends StatelessWidget {
   }) {
     return Row(
       children: [
-        Icon(icon, color: Colors.white.withOpacity(0.7), size: 16),
+        Icon(icon, color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6), size: 16),
         const SizedBox(width: 8),
         Expanded(
           child: Text(
             '$label: ',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.8),
+              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
               fontSize: 13,
             ),
             overflow: TextOverflow.ellipsis,
@@ -454,8 +444,8 @@ class SugarIntakeCard extends StatelessWidget {
         ),
         Text(
           value,
-          style: const TextStyle(
-            color: Colors.white,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurface,
             fontSize: 13,
             fontWeight: FontWeight.w600,
           ),
@@ -504,42 +494,9 @@ class SugarIntakeCard extends StatelessWidget {
     return '$percentage% ❌';
   }
 
-  List<Color> _getGradientColors(double grams) {
-    if (grams <= 25) {
-      // Норма - зеленый
-      return [const Color(0xFF66BB6A), const Color(0xFF43A047)];
-    } else if (grams <= 50) {
-      // Умеренно - желтый
-      return [const Color(0xFFFFCA28), const Color(0xFFFFB300)];
-    } else if (grams <= 75) {
-      // Высоко - оранжевый
-      return [const Color(0xFFFF9800), const Color(0xFFF57C00)];
-    } else {
-      // Очень высоко - красный
-      return [const Color(0xFFEF5350), const Color(0xFFE53935)];
-    }
-  }
 
-  Color _getShadowColor(double grams) {
-    if (grams <= 25) return Colors.green;
-    if (grams <= 50) return Colors.amber;
-    if (grams <= 75) return Colors.orange;
-    return Colors.red;
-  }
 
-  IconData _getSugarIcon(double grams) {
-    if (grams <= 25) return Icons.check_circle;
-    if (grams <= 50) return Icons.cake;
-    if (grams <= 75) return Icons.warning_amber;
-    return Icons.error_outline;
-  }
 
-  IconData _getWarningIcon(double grams) {
-    if (grams <= 25) return Icons.check_circle_outline;
-    if (grams <= 50) return Icons.info_outline;
-    if (grams <= 75) return Icons.priority_high;
-    return Icons.warning;
-  }
 }
 
 // Data model for sugar intake

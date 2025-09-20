@@ -92,13 +92,13 @@ class WaterRingWithWave extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                       decoration: BoxDecoration(
                         color: useWhiteText
-                          ? Colors.white.withOpacity(0.2)
-                          : Colors.grey.withOpacity(0.1),
+                          ? Colors.white.withValues(alpha: 0.2)
+                          : Colors.grey.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
                           color: useWhiteText
                             ? Colors.transparent
-                            : Colors.grey.withOpacity(0.3),
+                            : Colors.grey.withValues(alpha: 0.3),
                           width: 1,
                         ),
                       ),
@@ -257,15 +257,15 @@ class WaterPainter extends CustomPainter {
     canvas.clipPath(clip);
 
     final level = (1.0 - progress) * (h - 16) + 8;
-    _drawWave(canvas, size, level, t, waterColor.withOpacity(0.85), 5, 1.6);
-    _drawWave(canvas, size, level + 2, (t + 0.35) % 1.0, waterColor.withOpacity(0.6), 3, 2.3);
+    _drawWave(canvas, size, level, t, waterColor.withValues(alpha: 0.85), 5, 1.6);
+    _drawWave(canvas, size, level + 2, (t + 0.35) % 1.0, waterColor.withValues(alpha: 0.6), 3, 2.3);
 
     // Gloss on top
     final gloss = Paint()
       ..shader = LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
-        colors: [Colors.white.withOpacity(0.25), Colors.transparent],
+        colors: [Colors.white.withValues(alpha: 0.25), Colors.transparent],
         stops: const [0.0, 0.4],
       ).createShader(Rect.fromLTWH(0, 0, w, h));
     canvas.drawRect(Rect.fromLTWH(0, 0, w, h * 0.4), gloss);
@@ -276,7 +276,7 @@ class WaterPainter extends CustomPainter {
     final glass = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.0
-      ..color = Colors.white.withOpacity(0.3);
+      ..color = Colors.white.withValues(alpha: 0.3);
     canvas.drawCircle(c, r - 8, glass);
 
     // Progress arc
@@ -301,7 +301,7 @@ class WaterPainter extends CustomPainter {
       
       // Glowing dot
       final glowPaint = Paint()
-        ..color = ringColor.withOpacity(0.3)
+        ..color = ringColor.withValues(alpha: 0.3)
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2);
       canvas.drawCircle(end, 4, glowPaint);
       

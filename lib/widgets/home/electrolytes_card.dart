@@ -54,7 +54,7 @@ class ElectrolytesCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.blue.withOpacity(0.3),
+            color: Colors.blue.withValues(alpha: 0.3),
             blurRadius: 15,
             offset: const Offset(0, 5),
           ),
@@ -102,7 +102,7 @@ class ElectrolytesCard extends StatelessWidget {
                       Text(
                         _getShortStatus(totalPercent),
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.9), 
+                          color: Colors.white.withValues(alpha: 0.9), 
                           fontSize: 14,
                         ),
                         maxLines: 1,
@@ -115,10 +115,10 @@ class ElectrolytesCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.15),
+                    color: Colors.white.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: Colors.white.withOpacity(0.3),
+                      color: Colors.white.withValues(alpha: 0.3),
                       width: 1,
                     ),
                   ),
@@ -127,7 +127,7 @@ class ElectrolytesCard extends StatelessWidget {
                       Text(
                         l10n.hriRisk,
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.9), 
+                          color: Colors.white.withValues(alpha: 0.9), 
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
@@ -144,7 +144,7 @@ class ElectrolytesCard extends StatelessWidget {
                       Text(
                         'pts',
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.8), 
+                          color: Colors.white.withValues(alpha: 0.8), 
                           fontSize: 11,
                         ),
                       ),
@@ -162,9 +162,9 @@ class ElectrolytesCard extends StatelessWidget {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Colors.white.withOpacity(0),
-                    Colors.white.withOpacity(0.3),
-                    Colors.white.withOpacity(0),
+                    Colors.white.withValues(alpha: 0),
+                    Colors.white.withValues(alpha: 0.3),
+                    Colors.white.withValues(alpha: 0),
                   ],
                 ),
               ),
@@ -204,10 +204,10 @@ class ElectrolytesCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.1),
+                color: Colors.white.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withValues(alpha: 0.2),
                   width: 1,
                 ),
               ),
@@ -281,7 +281,7 @@ class ElectrolytesCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
+              color: Colors.grey.withValues(alpha: 0.3),
               blurRadius: 15,
               offset: const Offset(0, 5),
             ),
@@ -296,7 +296,7 @@ class ElectrolytesCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.amber.withOpacity(0.2),
+                  color: Colors.amber.withValues(alpha: 0.2),
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: Colors.amber,
@@ -341,7 +341,7 @@ class ElectrolytesCard extends StatelessWidget {
               Text(
                 l10n.electrolyteTrackingPro,
                 style: TextStyle(
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.white.withValues(alpha: 0.8),
                   fontSize: 14,
                 ),
                 textAlign: TextAlign.center,
@@ -364,7 +364,7 @@ class ElectrolytesCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.amber.withOpacity(0.3),
+                      color: Colors.amber.withValues(alpha: 0.3),
                       blurRadius: 8,
                       offset: const Offset(0, 2),
                     ),
@@ -414,7 +414,7 @@ class ElectrolytesCard extends StatelessWidget {
           width: 32,
           height: 32,
           decoration: BoxDecoration(
-            color: color.withOpacity(0.2),
+            color: color.withValues(alpha: 0.2),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Center(
@@ -450,7 +450,7 @@ class ElectrolytesCard extends StatelessWidget {
                   Text(
                     '$current / $goal mg',
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.9),
+                      color: Colors.white.withValues(alpha: 0.9),
                       fontSize: 13,
                       fontWeight: FontWeight.w500,
                     ),
@@ -464,7 +464,7 @@ class ElectrolytesCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 child: LinearProgressIndicator(
                   value: percent,
-                  backgroundColor: Colors.white.withOpacity(0.2),
+                  backgroundColor: Colors.white.withValues(alpha: 0.2),
                   valueColor: AlwaysStoppedAnimation(color),
                   minHeight: 8,
                 ),
@@ -483,12 +483,12 @@ class ElectrolytesCard extends StatelessWidget {
   }) {
     return Row(
       children: [
-        Icon(icon, color: Colors.white.withOpacity(0.7), size: 16),
+        Icon(icon, color: Colors.white.withValues(alpha: 0.7), size: 16),
         const SizedBox(width: 8),
         Text(
           '$label: ',
           style: TextStyle(
-            color: Colors.white.withOpacity(0.8),
+            color: Colors.white.withValues(alpha: 0.8),
             fontSize: 13,
           ),
         ),

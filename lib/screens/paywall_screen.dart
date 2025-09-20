@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 
-import 'package:hydracoach/l10n/app_localizations.dart';
+import '../l10n/app_localizations.dart';
 import '../services/analytics_service.dart';
 import '../services/remote_config_service.dart';
 import '../services/subscription_service.dart';
@@ -159,7 +159,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
                             ).animate()
                               .scale(duration: 600.ms, curve: Curves.elasticOut)
                               .then()
-                              .shimmer(duration: 2000.ms, color: const Color(0xFF8AF5A3).withOpacity(0.2)),
+                              .shimmer(duration: 2000.ms, color: const Color(0xFF8AF5A3).withValues(alpha: 0.2)),
                           ),
                         ),
                         // Benefits on the right
@@ -243,7 +243,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
                     icon: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: (isDark ? Colors.white12 : Colors.white.withOpacity(0.9)),
+                        color: (isDark ? Colors.white12 : Colors.white.withValues(alpha: 0.9)),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(Icons.close, size: 20, color: isDark ? Colors.white : const Color(0xFF2D3436)),
@@ -264,7 +264,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           width: 24,
           height: 24,
           decoration: BoxDecoration(
-            color: Colors.cyan.withOpacity(0.15),
+            color: Colors.cyan.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(6),
           ),
           child: Icon(icon, size: 14, color: Colors.cyan),
@@ -366,8 +366,8 @@ class _PaywallScreenState extends State<PaywallScreen> {
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: (isDark ? Colors.cyanAccent.withOpacity(0.08)
-                                   : Colors.cyan.withOpacity(0.15)),
+                    color: (isDark ? Colors.cyanAccent.withValues(alpha: 0.08)
+                                   : Colors.cyan.withValues(alpha: 0.15)),
                     blurRadius: 20,
                     offset: const Offset(0, 6),
                   ),
@@ -462,7 +462,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
                       end: Alignment.bottomRight,
                     ),
                     borderRadius: BorderRadius.circular(12),
-                    boxShadow: [BoxShadow(color: Colors.pink.withOpacity(0.3), blurRadius: 8, offset: const Offset(0, 2))],
+                    boxShadow: [BoxShadow(color: Colors.pink.withValues(alpha: 0.3), blurRadius: 8, offset: const Offset(0, 2))],
                   ),
                   child: Text(
                     original != null
@@ -535,7 +535,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
           decoration: BoxDecoration(
             color: Colors.cyan,
             borderRadius: BorderRadius.circular(30),
-            boxShadow: [BoxShadow(color: Colors.cyan.withOpacity(0.3), blurRadius: 20, offset: const Offset(0, 10))],
+            boxShadow: [BoxShadow(color: Colors.cyan.withValues(alpha: 0.3), blurRadius: 20, offset: const Offset(0, 10))],
           ),
           child: Center(
             child: _isLoading
@@ -590,7 +590,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
                 Container(
                   width: 36,
                   height: 36,
-                  decoration: BoxDecoration(color: Colors.cyan.withOpacity(0.12), borderRadius: BorderRadius.circular(8)),
+                  decoration: BoxDecoration(color: Colors.cyan.withValues(alpha: 0.12), borderRadius: BorderRadius.circular(8)),
                   child: Icon(f['icon'] as IconData, color: Colors.cyan.shade600, size: 20),
                 ),
                 const SizedBox(width: 12),
@@ -674,7 +674,6 @@ class _PaywallScreenState extends State<PaywallScreen> {
           break;
       }
 
-      // Реальная покупка через Google Play
       print('🛍️ Initiating purchase for plan: ${_selected.name}');
       print('📦 Product ID: $productId');
       _analytics.logSubscriptionPurchaseAttempt(
@@ -683,7 +682,97 @@ class _PaywallScreenState extends State<PaywallScreen> {
         trialEnabled: trialEnabledForAnalytics,
       );
 
-      final success = await subscriptionProvider.purchaseSubscription(productId);
+      bool success = false;
+
+      if (kDebugMode) {
+        // В debug режиме показываем диалог выбора: мок или реальная покупка
+        final mockPurchase = await showDialog<String>(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Test Purchase'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Choose purchase type for testing:'),
+                const SizedBox(height: 8),
+                Consumer<SubscriptionProvider>(
+                  builder: (context, subscription, child) => Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: subscription.isPro ? Colors.green.shade50 : Colors.grey.shade100,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: subscription.isPro ? Colors.green : Colors.grey.shade300,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          subscription.isPro ? Icons.verified : Icons.lock,
+                          color: subscription.isPro ? Colors.green : Colors.grey,
+                          size: 16,
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          'Current status: ${subscription.isPro ? "PRO" : "FREE"}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: subscription.isPro ? Colors.green.shade700 : Colors.grey.shade700,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context, 'mock_success'),
+                child: const Text('Mock Purchase (Success)'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(context, 'mock_clear'),
+                child: const Text('Clear PRO Status'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(context, 'real'),
+                child: const Text('Real Purchase'),
+              ),
+            ],
+          ),
+        );
+
+        if (mockPurchase == 'mock_success') {
+          // Мок покупка - всегда успешная
+          print('🎭 Mock purchase initiated - simulating success');
+          await Future.delayed(const Duration(seconds: 1)); // Имитируем задержку
+          success = true;
+          // Устанавливаем Pro статус в subscription provider
+          await subscriptionProvider.setMockProStatus(true);
+        } else if (mockPurchase == 'mock_clear') {
+          // Сброс PRO статуса
+          print('🎭 Clearing PRO status');
+          await subscriptionProvider.clearMockProStatus();
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('PRO status cleared'),
+                backgroundColor: Colors.orange,
+                behavior: SnackBarBehavior.floating,
+              ),
+            );
+          }
+          return; // Выходим из метода
+        } else {
+          // Реальная покупка через Google Play
+          success = await subscriptionProvider.purchaseSubscription(productId);
+        }
+      } else {
+        // В релизе всегда реальная покупка
+        success = await subscriptionProvider.purchaseSubscription(productId);
+      }
 
       _analytics.logSubscriptionPurchaseResult(
         product: _selected.name,

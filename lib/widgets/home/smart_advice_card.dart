@@ -6,7 +6,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import '../../providers/hydration_provider.dart';
 import '../../services/alcohol_service.dart';
 import '../../services/hri_service.dart';
-import '../../services/weather_service.dart';
 import '../../services/units_service.dart';
 import '../../l10n/app_localizations.dart';
 import '../ion_character.dart';
@@ -19,11 +18,10 @@ class SmartAdviceCard extends StatelessWidget {
     final provider = Provider.of<HydrationProvider>(context, listen: false);
     final alcohol = Provider.of<AlcoholService>(context, listen: false);
     final hri = Provider.of<HRIService>(context, listen: false);
-    final weather = Provider.of<WeatherService>(context, listen: false);
     final units = Provider.of<UnitsService>(context, listen: false);
     final l10n = AppLocalizations.of(context);
 
-    final advice = _getSmartAdvice(provider, alcohol, hri, weather, units, l10n);
+    final advice = _getSmartAdvice(provider, alcohol, hri, units, l10n);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -77,7 +75,6 @@ class SmartAdviceCard extends StatelessWidget {
     HydrationProvider provider,
     AlcoholService alcoholService,
     HRIService hriService,
-    WeatherService weatherService,
     UnitsService units,
     AppLocalizations l10n,
   ) {
@@ -149,7 +146,7 @@ class SmartAdviceCard extends StatelessWidget {
         return _getMorningAdvice(hriComponents['morning']!, units, l10n);
 
       case 'heat':
-        return _getHeatAdvice(hriComponents['heat']!, weatherService, units, l10n);
+        return _getHeatAdvice(hriComponents['heat']!, units, l10n);
     }
 
     // Perfect state
@@ -359,7 +356,7 @@ class SmartAdviceCard extends StatelessWidget {
     };
   }
 
-  Map<String, dynamic> _getHeatAdvice(double component, WeatherService weatherService, UnitsService units, AppLocalizations l10n) {
+  Map<String, dynamic> _getHeatAdvice(double component, UnitsService units, AppLocalizations l10n) {
     final volumeToShow = units.formatVolume(400);
     return {
       'title': '🌡️ Hot weather',

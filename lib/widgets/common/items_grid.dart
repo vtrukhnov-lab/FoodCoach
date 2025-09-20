@@ -113,17 +113,17 @@ class ItemGridTile extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: isLocked 
-            ? theme.colorScheme.surface.withOpacity(0.5)
+            ? theme.colorScheme.surface.withValues(alpha: 0.5)
             : theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: isLocked
-              ? theme.colorScheme.outline.withOpacity(0.1)
-              : theme.colorScheme.outline.withOpacity(0.2),
+              ? theme.colorScheme.outline.withValues(alpha: 0.1)
+              : theme.colorScheme.outline.withValues(alpha: 0.2),
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(isLocked ? 0.02 : 0.05),
+              color: Colors.black.withValues(alpha: isLocked ? 0.02 : 0.05),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),
@@ -152,7 +152,7 @@ class ItemGridTile extends StatelessWidget {
                         fontSize: 11,
                         fontWeight: FontWeight.w600,
                         color: isLocked 
-                          ? theme.colorScheme.onSurface.withOpacity(0.5)
+                          ? theme.colorScheme.onSurface.withValues(alpha: 0.5)
                           : theme.colorScheme.onSurface,
                       ),
                       textAlign: TextAlign.center,
@@ -191,7 +191,7 @@ class ItemGridTile extends StatelessWidget {
               Positioned.fill(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.1),
+                    color: Colors.black.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
@@ -323,7 +323,7 @@ class ItemGridTile extends StatelessWidget {
           '${hydration.toInt()}%',
           style: TextStyle(
             fontSize: 9,
-            color: theme.colorScheme.onSurface.withOpacity(0.6),
+            color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
           ),
         );
       }

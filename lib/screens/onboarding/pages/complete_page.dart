@@ -133,7 +133,7 @@ class CompletePage extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF2EC5FF).withOpacity(0.1),
+            color: const Color(0xFF2EC5FF).withValues(alpha: 0.1),
             blurRadius: 20,
             offset: const Offset(0, 4),
           ),

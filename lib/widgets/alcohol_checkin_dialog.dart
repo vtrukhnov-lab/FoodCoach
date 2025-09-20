@@ -98,7 +98,7 @@ class _AlcoholCheckinDialogState extends State<AlcoholCheckinDialog> {
                         color: isSelected ? theme.primaryColor : Colors.grey[300]!,
                         width: 2,
                       ),
-                      color: isSelected ? theme.primaryColor.withOpacity(0.1) : null,
+                      color: isSelected ? theme.primaryColor.withValues(alpha: 0.1) : null,
                     ),
                     child: Text(
                       _emojis[index],
