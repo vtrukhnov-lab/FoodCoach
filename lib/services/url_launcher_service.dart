@@ -16,7 +16,7 @@ class UrlLauncherService {
   // Ссылки для магазинов приложений (будут обновлены после публикации)
   static const String googlePlayUrl = 'https://play.google.com/store/apps/details?id=com.playcus.hydracoach';
   static const String appStoreUrl = 'https://apps.apple.com/app/hydracoach/id123456789';
-  static const String shareText = 'Check out HydraCoach - Smart hydration tracking app! 💧';
+  static const String shareText = 'Check out FoodCoach - Smart hydration tracking app! 💧';
 
   /// Открыть веб-ссылку
   static Future<bool> openUrl(String url) async {
@@ -50,7 +50,7 @@ class UrlLauncherService {
   /// Быстрые методы для основных ссылок приложения
   static Future<bool> openPrivacyPolicy() => openUrl(privacyPolicyUrl);
   static Future<bool> openWebsite() => openUrl(websiteUrl);
-  static Future<bool> openSupportEmail() => openEmail(supportEmail, subject: 'HydraCoach Support');
+  static Future<bool> openSupportEmail() => openEmail(supportEmail, subject: 'FoodCoach Support');
   static Future<bool> openDataSafetyGP() => openUrl(dataSafetyGPUrl);
   static Future<bool> openDataSafetyIOS() => openUrl(dataSafetyIOSUrl);
 

@@ -150,7 +150,7 @@ class RemoteConfigService {
       'price_lifetime_currency': '\$',
       
       // Тексты пейвола
-      'paywall_title': 'HydraCoach PRO',
+      'paywall_title': 'FoodCoach PRO',
       'paywall_subtitle': 'Стань героем водного баланса!',
       'paywall_button_text': 'Продолжить',
       'paywall_trial_text': 'Попробуйте 7 дней бесплатно',
@@ -386,7 +386,7 @@ class RemoteConfigService {
   String get priceLifetimeCurrency => _getValue('price_lifetime_currency', 'USD');
   
   // Тексты пейвола (базовые английские значения)
-  String get paywallTitle => _getValue('paywall_title', 'HydraCoach PRO');
+  String get paywallTitle => _getValue('paywall_title', 'FoodCoach PRO');
   String get paywallSubtitle => _getValue('paywall_subtitle', 'Become a hydration hero!');
   String get paywallButtonText => _getValue('paywall_button_text', 'Continue');
   String get paywallTrialText => _getValue('paywall_trial_text', 'Try 7 days free');

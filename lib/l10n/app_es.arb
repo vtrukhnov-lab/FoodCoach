@@ -1,6 +1,6 @@
 {
   "@@locale": "es",
-  "appTitle": "HydroCoach",
+  "appTitle": "FoodCoach",
   "@appTitle": {
     "description": "El nombre de la aplicación"
   },
@@ -255,7 +255,7 @@
   "back": "Atrás",
   "next": "Siguiente",
   "start": "Comenzar",
-  "welcomeTitle": "Bienvenido a\nHydroCoach",
+  "welcomeTitle": "Bienvenido a\nFoodCoach",
   "welcomeSubtitle": "Seguimiento inteligente de agua y electrolitos\npara keto, ayuno y vida activa",
   "weightPageTitle": "Tu peso",
   "weightPageSubtitle": "Para calcular la cantidad óptima de agua",
@@ -639,7 +639,7 @@
     }
   },
   "heatWarningCold": "❄️ ¡Frío! Abrígate y bebe líquidos calientes",
-  "notificationChannelName": "Recordatorios HydroCoach",
+  "notificationChannelName": "Recordatorios FoodCoach",
   "@notificationChannelName": {
     "description": "Nombre del canal de notificaciones"
   },
@@ -1091,7 +1091,7 @@
   "nextEatingWindow": "Próxima comida: {time}",
   "todaysWorkouts": "Entrenamientos de hoy",
 "hoursAgo": "h atrás",
-"onboardingWelcomeTitle": "HydroCoach — hidratación inteligente cada día",
+"onboardingWelcomeTitle": "FoodCoach — hidratación inteligente cada día",
 "onboardingWelcomeSubtitle": "Bebe de forma más inteligente, no más\nLa app considera el clima, electrolitos y tus hábitos\nAyuda a mantener mente clara y energía estable",
 "onboardingBullet1": "Norma personal de agua y sales según el clima y tú",
 "onboardingBullet2": "Consejos de «qué hacer ahora» en lugar de gráficos vacíos",
@@ -1698,11 +1698,11 @@
     }
   }
 },
-"tutorialStep3": "¡Sobresaliente! Estás listo para usar HydroCoach de forma independiente. ¡Estaré aquí para ayudarte a lograr la hidratación perfecta!",
+"tutorialStep3": "¡Sobresaliente! Estás listo para usar FoodCoach de forma independiente. ¡Estaré aquí para ayudarte a lograr la hidratación perfecta!",
 "tutorialComplete": "Comenzar a usar",
 
 "onboardingNotificationExamplesTitle": "Recordatorios Inteligentes",
-"onboardingNotificationExamplesSubtitle": "HydroCoach sabe cuándo necesitas agua",
+"onboardingNotificationExamplesSubtitle": "FoodCoach sabe cuándo necesitas agua",
 "onboardingLocationExamplesTitle": "Consejos Personales",
 "onboardingLocationExamplesSubtitle": "Consideramos el clima para recomendaciones precisas",
 "onboardingAllowNotifications": "Permitir Notificaciones",

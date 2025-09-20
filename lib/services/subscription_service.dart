@@ -100,14 +100,14 @@ class SubscriptionService {
   static const List<SubscriptionProduct> _defaultProducts = [
     SubscriptionProduct(
       identifier: 'hydracoach_pro_yearly',
-      title: 'HydraCoach PRO — Годовая',
+      title: 'FoodCoach PRO — Годовая',
       description: 'Все PRO функции, включая продвинутые напоминания и алкогольные протоколы',
       priceText: '2 290 ₽ / год',
       billingPeriod: Duration(days: 365),
     ),
     SubscriptionProduct(
       identifier: 'hydracoach_pro_monthly',
-      title: 'HydraCoach PRO — Месячная',
+      title: 'FoodCoach PRO — Месячная',
       description: 'Гибкий доступ к PRO функционалу с помесячной оплатой',
       priceText: '249 ₽ / месяц',
       billingPeriod: Duration(days: 30),

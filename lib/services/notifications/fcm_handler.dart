@@ -113,7 +113,7 @@ class FCMHandler {
 
   /// Показ foreground уведомления как локального
   Future<void> _showForegroundNotification(RemoteMessage message) async {
-    final title = message.notification?.title ?? 'HydroMate';
+    final title = message.notification?.title ?? 'FoodCoach';
     final body = message.notification?.body ?? '';
 
     // Определяем тип из data или используем custom

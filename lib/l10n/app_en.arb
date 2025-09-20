@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "appTitle": "HydroCoach",
+  "appTitle": "FoodCoach",
   "@appTitle": {
     "description": "The application name"
   },
@@ -255,7 +255,7 @@
   "back": "Back",
   "next": "Next",
   "start": "Start",
-  "welcomeTitle": "Welcome to\nHydroCoach",
+  "welcomeTitle": "Welcome to\nFoodCoach",
   "welcomeSubtitle": "Smart water and electrolyte tracking\nfor keto, fasting and active life",
   "weightPageTitle": "Your weight",
   "weightPageSubtitle": "To calculate optimal water amount",
@@ -639,7 +639,7 @@
     }
   },
   "heatWarningCold": "❄️ Cold! Warm up and drink warm fluids",
-  "notificationChannelName": "HydroCoach Reminders",
+  "notificationChannelName": "FoodCoach Reminders",
   "@notificationChannelName": {
     "description": "Name of the notification channel"
   },
@@ -1161,7 +1161,7 @@
 "@hoursAgo": {
   "description": "Hours ago suffix"
 },
- "onboardingWelcomeTitle": "HydroCoach — smart hydration every day",
+ "onboardingWelcomeTitle": "FoodCoach — smart hydration every day",
   "@onboardingWelcomeTitle": {
     "description": "Main welcome title with ION"
   },
@@ -1920,11 +1920,11 @@
     }
   }
 },
-"tutorialStep3": "Outstanding! You're ready to use HydroCoach independently. I'll be here to help you achieve perfect hydration!",
+"tutorialStep3": "Outstanding! You're ready to use FoodCoach independently. I'll be here to help you achieve perfect hydration!",
 "tutorialComplete": "Start using",
 
 "onboardingNotificationExamplesTitle": "Smart Reminders",
-"onboardingNotificationExamplesSubtitle": "HydroCoach knows when you need water",
+"onboardingNotificationExamplesSubtitle": "FoodCoach knows when you need water",
 "onboardingLocationExamplesTitle": "Personal Advice",
 "onboardingLocationExamplesSubtitle": "We consider weather for accurate recommendations",
 "onboardingAllowNotifications": "Allow Notifications",

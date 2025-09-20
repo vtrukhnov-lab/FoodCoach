@@ -256,7 +256,7 @@ class NotificationSender {
       _getChannelName(channelId),
       importance: importance,
       priority: priority,
-      ticker: 'HydroMate',
+      ticker: 'FoodCoach',
       icon: '@mipmap/ic_launcher',
       color: const Color.fromARGB(255, 33, 150, 243),
       enableVibration: !channelId.contains('report') && !channelId.contains('silent'),
@@ -264,7 +264,7 @@ class NotificationSender {
       styleInformation: BigTextStyleInformation(
         body,
         contentTitle: title,
-        summaryText: 'HydroMate',
+        summaryText: 'FoodCoach',
       ),
     );
 

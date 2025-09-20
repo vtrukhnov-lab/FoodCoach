@@ -20,9 +20,14 @@
 
     <!-- Разрешение для Google Play Billing -->
     <uses-permission android:name="com.android.vending.BILLING" />
+
+    <!-- Camera permissions for barcode scanning -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
     
     <application
-        android:label="HydroCoach"
+        android:label="FoodCoach"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true"

@@ -1,39 +1,37 @@
-# HydraCoach 💧
+# FoodCoach 🥗
 
-Smart water and electrolyte tracking app optimized for keto, fasting, and active lifestyle.
+Smart nutrition tracking app with barcode scanning and comprehensive food analysis.
 
 ## ✨ Features
 
 ### Core Features (FREE)
-- **Smart Water Tracking** - Personalized daily goals based on weight, diet, and activity
-- **Electrolyte Balance** - Track sodium, potassium, and magnesium intake
-- **Weather Integration** - Automatic goal adjustments based on Heat Index
-- **Hydration Status** - Real-time monitoring with HRI (Hydration Risk Index)
-- **Smart Reminders** - Context-aware notifications (post-coffee, heat warnings)
-- **Diet Modes** - Optimized for normal, keto, and intermittent fasting
-- **Daily Reports** - Evening summary with insights and recommendations
-- **Alcohol Tracking** - Log drinks and get hydration corrections
+- **Barcode Scanning** - Instant product recognition with camera
+- **Food Database** - Powered by OpenFoodFacts with 2M+ products
+- **Nutrition Tracking** - Calories, macros, and micronutrients
+- **Smart Portions** - Weight-based accurate nutrition calculation
+- **Daily Overview** - Visual progress tracking with charts
+- **Food History** - Complete meal and snack logging
+- **Multi-language** - Support for English, Russian, and Spanish
 
 ### PRO Features (Subscription)
-- **Advanced Reminders** - Workout protocols, fasting-aware notifications
-- **Recovery Plans** - Step-by-step hydration after alcohol
-- **Sobriety Calendar** - Track and celebrate alcohol-free days
-- **Unlimited Sync** - Full cloud backup and multi-device support
-- **Weekly PRO Reports** - Deep analytics with CSV export
-- **Health Integrations** - Apple Health / Google Fit sync
-- **Calibration Tools** - Sweat rate testing, urine color tracking
+- **Advanced Analytics** - Weekly nutrition reports with insights
+- **Custom Foods** - Add personal recipes and meals
+- **Meal Planning** - Plan your nutrition ahead
+- **Export Data** - CSV export for nutrition analysis
+- **Sync Across Devices** - Cloud backup and synchronization
+- **Nutrition Goals** - Personalized targets for health goals
 
 ## 📱 Screenshots
 
 <details>
 <summary>View Screenshots</summary>
 
-- Main Dashboard with progress rings
-- Weather card with heat adjustments
-- Daily report and analytics
-- History and trends
-- Alcohol tracking and recovery
-- Settings and profile
+- Barcode scanner with real-time detection
+- Food database search and selection
+- Nutrition dashboard with progress
+- Daily food log and history
+- Macronutrient breakdown charts
+- Settings and goal configuration
 
 </details>
 
@@ -42,7 +40,8 @@ Smart water and electrolyte tracking app optimized for keto, fasting, and active
 - **Framework:** Flutter 3.0+
 - **State Management:** Provider
 - **Backend:** Firebase (Auth, Firestore, Remote Config)
-- **Billing:** RevenueCat
+- **Food Database:** OpenFoodFacts API
+- **Barcode Scanning:** mobile_scanner
 - **Analytics:** Firebase Analytics + AppsFlyer
 - **Localization:** Flutter ARB (EN/RU/ES)
 - **Local Storage:** SharedPreferences
@@ -52,24 +51,23 @@ Smart water and electrolyte tracking app optimized for keto, fasting, and active
 ## 📁 Project Structure
 
 ```
-hydracoach/
+foodcoach/
 ├── lib/
 │   ├── main.dart                 # App entry point
-│   ├── config/                   # Configuration
-│   │   ├── remote_config.dart    # Remote parameters
-│   │   └── feature_flags.dart    # Feature toggles
 │   ├── models/                   # Data models
+│   │   └── food_intake.dart      # Food tracking model
 │   ├── screens/                  # UI screens
-│   │   ├── main_screen.dart      # Dashboard
+│   │   ├── home_screen.dart      # Dashboard
+│   │   ├── barcode_scanner_screen.dart # Scanner
 │   │   ├── onboarding/           # Onboarding flow
-│   │   ├── alcohol/              # Alcohol features
 │   │   └── settings/             # Settings
 │   ├── services/                 # Business logic
-│   │   ├── hydration_calculator.dart
-│   │   ├── weather_service.dart
+│   │   ├── openfoodfacts_service.dart # Food database
 │   │   ├── notification_service.dart
-│   │   └── revenue_cat_service.dart
+│   │   └── analytics_service.dart
 │   ├── widgets/                  # Reusable UI components
+│   │   ├── home/                 # Dashboard widgets
+│   │   └── common/               # Shared widgets
 │   ├── providers/                # State management
 │   ├── utils/                    # Utilities
 │   └── l10n/                     # Localization files
@@ -89,14 +87,14 @@ hydracoach/
 - Dart SDK (3.0 or higher)
 - iOS/Android development environment
 - Firebase project configured
-- RevenueCat account for billing
+- Camera permissions for barcode scanning
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/vtrukhnov-lab/HydraCoach.git
-cd HydraCoach
+git clone https://github.com/vtrukhnov-lab/FoodCoach.git
+cd FoodCoach
 ```
 
 2. Install dependencies:
@@ -131,50 +129,52 @@ flutter run -d android
 flutter run -d chrome
 ```
 
-## 🧮 Core Algorithms
+## 🍎 Food Database Integration
 
-### Water Calculation
+### OpenFoodFacts API
+FoodCoach uses the OpenFoodFacts database, providing access to:
+- 2M+ products worldwide
+- Detailed nutrition information
+- Ingredient lists and allergens
+- Product images and brands
+- Nutrition scores (Nutri-Score, Nova)
+
+### Nutrition Calculation
 ```
-Base formulas (ml/day):
-- Minimum: 22 ml × weight(kg)
-- Optimal: 30 ml × weight(kg)
-- Maximum: 36 ml × weight(kg)
-
-Adjustments:
-- Heat Index corrections
-- Activity level multipliers
-- Coffee/alcohol compensations
-- Fasting mode modifications
-```
-
-### Electrolyte Targets
-```
-Normal mode:
-- Sodium: 2000mg
-- Potassium: 3500mg
-- Magnesium: 400mg
-
-Keto mode:
-- Sodium: 3000-5000mg
-- Potassium: 3500-4700mg
-- Magnesium: 400-600mg
+Per serving calculations:
+- Weight-based portion control
+- Accurate macro/micronutrient scaling
+- Calorie tracking with daily goals
+- Sugar, sodium, and fiber monitoring
 ```
 
-### Hydration Risk Index (HRI)
-```
-Factors (0-100 scale):
-- Heat Index impact
-- Physical activity level
-- Caffeine intake
-- Alcohol consumption
-- Sleep quality
-- Urine color (PRO)
+### Barcode Recognition
+- Real-time camera scanning
+- Support for EAN, UPC, and other formats
+- Instant product lookup
+- Offline fallback for manual entry
 
-Risk zones:
-- Green: 0-30 (Good)
-- Yellow: 31-60 (Caution)
-- Red: 61-100 (Risk)
+## 🔧 Core Features
+
+### Nutrition Tracking
 ```
+Macronutrients:
+- Proteins: Target based on body weight
+- Carbohydrates: Customizable daily limits
+- Fats: Healthy fat intake monitoring
+
+Micronutrients:
+- Sodium: Daily intake tracking
+- Sugar: Added vs natural sugar distinction
+- Fiber: Daily fiber goal progress
+```
+
+### Food Logging
+- Barcode scanning for instant recognition
+- Manual search in OpenFoodFacts database
+- Custom portion sizes and weights
+- Meal categorization (breakfast, lunch, dinner, snacks)
+- Edit and delete logged foods
 
 ## 🌍 Localization
 
@@ -189,39 +189,15 @@ To add a new language:
 2. Translate all keys from `app_en.arb`
 3. Run `flutter gen-l10n`
 
-## 🔧 Configuration
-
-### Remote Config Parameters
-
-Key parameters managed remotely via Firebase:
-
-- Water calculation formulas
-- Electrolyte targets by diet mode
-- Heat Index thresholds
-- Notification limits
-- Alcohol correction factors
-- HRI risk thresholds
-- Feature flags
-
-### Environment Variables
-
-Required in `.env`:
-```
-WEATHER_API_KEY=your_openweather_key
-REVENUE_CAT_API_KEY=your_revenuecat_key
-APPSFLYER_DEV_KEY=your_appsflyer_key
-```
-
 ## 📊 Analytics Events
 
 Key events tracked:
-- Onboarding completion
-- Water/electrolyte logging
-- Hydration status changes
-- Reminder interactions
+- Barcode scanning success/failure
+- Food logging and portion selection
+- Daily nutrition goal progress
+- Search queries and results
+- User engagement metrics
 - Subscription events
-- Alcohol tracking
-- Report generation
 
 ## 🧪 Testing
 
@@ -254,15 +230,21 @@ flutter build ipa --release
 
 ## 🗺️ Roadmap
 
-- [ ] Phase 1: Core hydration tracking (Released ✅)
-- [ ] Phase 2: PRO subscription model (In Progress 🚧)
-- [ ] Phase 3: Alcohol awareness module (In Progress 🚧)
-- [ ] Phase 4: Publisher SDK integration
-- [ ] Phase 5: Advanced features
-  - [ ] Apple Watch / WearOS apps
-  - [ ] AI recommendations
-  - [ ] Social challenges
-  - [ ] Meal tracking integration
+- [x] Phase 1: Barcode scanning and basic tracking ✅
+- [ ] Phase 2: Advanced nutrition analytics 🚧
+- [ ] Phase 3: Meal planning and recipes
+- [ ] Phase 4: Health integrations (Apple Health, Google Fit)
+- [ ] Phase 5: AI-powered recommendations
+- [ ] Phase 6: Social features and challenges
+- [ ] Phase 7: Nutritionist consultations
+
+### Upcoming Features
+- Recipe creator and nutrition calculator
+- Meal planning with shopping lists
+- Restaurant menu integration
+- Nutrition goal coaching
+- Weight management tracking
+- Dietary restriction filters
 
 ## 🤝 Contributing
 
@@ -288,25 +270,25 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Weather data from OpenWeatherMap API
+- Food data from OpenFoodFacts community
+- Barcode scanning by mobile_scanner
 - Icons from Material Design
-- Billing infrastructure by RevenueCat
 - Analytics by Firebase & AppsFlyer
-- Special thanks to the keto/fasting community for feedback
+- Special thanks to the nutrition tracking community
 
 ## 📞 Support
 
 For questions or support:
 - Open an issue on GitHub
-- Email: support@hydracoach.app
-- Documentation: [docs.hydracoach.app](https://docs.hydracoach.app)
+- Email: support@foodcoach.app
+- Documentation: [docs.foodcoach.app](https://docs.foodcoach.app)
 
 ## 👨‍💻 Author
 
 **Viktor Trukhnov**
 - GitHub: [@vtrukhnov-lab](https://github.com/vtrukhnov-lab)
-- Email: viktor@hydracoach.app
+- Email: viktor@foodcoach.app
 
 ---
 
-Built with ❤️ using Flutter
+Built with ❤️ using Flutter and OpenFoodFacts

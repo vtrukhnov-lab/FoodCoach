@@ -1,6 +1,6 @@
 {
   "@@locale": "ru",
-  "appTitle": "HydroCoach",
+  "appTitle": "FoodCoach",
   "@appTitle": {
     "description": "Название приложения"
   },
@@ -255,7 +255,7 @@
   "back": "Назад",
   "next": "Далее",
   "start": "Начать",
-  "welcomeTitle": "Добро пожаловать в\nHydroCoach",
+  "welcomeTitle": "Добро пожаловать в\nFoodCoach",
   "welcomeSubtitle": "Умное отслеживание воды и электролитов\nдля кето, поста и активной жизни",
   "weightPageTitle": "Ваш вес",
   "weightPageSubtitle": "Для расчёта оптимального количества воды",
@@ -639,7 +639,7 @@
     }
   },
   "heatWarningCold": "❄️ Холодно! Согревайтесь и пейте тёплые жидкости",
-  "notificationChannelName": "Напоминания HydroCoach",
+  "notificationChannelName": "Напоминания FoodCoach",
   "@notificationChannelName": {
     "description": "Название канала уведомлений"
   },
@@ -1089,7 +1089,7 @@
   "nextEatingWindow": "Следующий приём пищи: {time}",
   "todaysWorkouts": "Тренировки сегодня",
 "hoursAgo": "ч назад",
-"onboardingWelcomeTitle": "HydroCoach — умная гидратация каждый день",
+"onboardingWelcomeTitle": "FoodCoach — умная гидратация каждый день",
 "onboardingWelcomeSubtitle": "Пей умнее, а не больше\nПриложение учитывает погоду, электролиты и твои привычки\nПомогает держать ясную голову и стабильную энергию",
 "onboardingBullet1": "Индивидуальная норма воды и солей по погоде и тебе",
 "onboardingBullet2": "Подсказки «что делать сейчас» вместо голых графиков",
@@ -1685,10 +1685,10 @@
     }
   }
 },
-"tutorialStep3": "Превосходно! Ты готов к самостоятельному использованию HydroCoach. Я буду рядом, чтобы помочь тебе достичь идеальной гидратации!",
+"tutorialStep3": "Превосходно! Ты готов к самостоятельному использованию FoodCoach. Я буду рядом, чтобы помочь тебе достичь идеальной гидратации!",
 "tutorialComplete": "Начать пользоваться",
 "onboardingNotificationExamplesTitle": "Умные напоминания",
-"onboardingNotificationExamplesSubtitle": "HydroCoach знает, когда вам нужна вода",
+"onboardingNotificationExamplesSubtitle": "FoodCoach знает, когда вам нужна вода",
 "onboardingLocationExamplesTitle": "Персональные советы",
 "onboardingLocationExamplesSubtitle": "Учитываем погоду для точных рекомендаций",
 "onboardingAllowNotifications": "Разрешить уведомления",

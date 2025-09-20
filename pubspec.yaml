@@ -1,9 +1,9 @@
-name: hydracoach
-description: "Smart hydration tracking with electrolyte balance"
+name: foodcoach
+description: "Smart nutrition tracking app with barcode scanning and comprehensive food analysis"
 publish_to: 'none'
 
-# Версия приложения: 2.0.0 (major notification system overhaul) + номер сборки 1
-version: 2.0.4+20 # версия+номер_сборки
+# Version: 1.0.0 (initial FoodCoach release) + build number 1
+version: 1.0.0+1 # version+build_number
 
 environment:
   sdk: ^3.9.0
