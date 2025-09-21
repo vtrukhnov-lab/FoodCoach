@@ -27,6 +27,10 @@ import 'screens/paywall_screen.dart';
 import 'screens/achievements_screen.dart';
 import 'screens/food_catalog_screen.dart';
 import 'screens/openfood_catalog_screen.dart';
+import 'screens/favorites_screen.dart';
+import 'screens/barcode_scanner_screen.dart';
+import 'screens/recipe_analysis_screen.dart';
+import 'models/favorite_product.dart';
 
 // Services
 import 'services/notification_service.dart';
@@ -256,6 +260,13 @@ class MyApp extends StatelessWidget {
             '/sports': (context) => const SportsScreen(),
             '/food': (context) => const FoodCatalogScreen(),
             '/openfood_catalog': (context) => const OpenFoodCatalogScreen(),
+            '/favorites': (context) => const FavoritesScreen(),
+            '/barcode_scanner': (context) => const BarcodeScannerScreen(),
+            '/recipe_analysis': (context) {
+              final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+              final products = args?['products'] as List<FavoriteProduct>? ?? [];
+              return RecipeAnalysisScreen(products: products);
+            },
             '/main': (context) => const MainShell(),
             '/paywall': (context) => const PaywallScreen(source: 'app_route'),
             '/achievements': (context) => const AchievementsScreen(),

@@ -290,11 +290,16 @@ class MacronutrientsCard extends StatelessWidget {
     double totalCarbs = 0;
     double totalFats = 0;
 
+    print('🥩 DEBUG: Total food intakes today: ${provider.todayFoodIntakes.length}');
+
     for (final food in provider.todayFoodIntakes) {
+      print('🥩 DEBUG: Food: ${food.foodName} - P:${food.proteins}g, C:${food.carbohydrates}g, F:${food.fats}g');
       totalProteins += food.proteins;
       totalCarbs += food.carbohydrates;
       totalFats += food.fats;
     }
+
+    print('🥩 DEBUG: Total macros - P:${totalProteins}g, C:${totalCarbs}g, F:${totalFats}g');
 
     return {
       'proteins': totalProteins,

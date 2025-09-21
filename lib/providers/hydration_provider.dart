@@ -1143,6 +1143,9 @@ class HydrationProvider extends ChangeNotifier {
 
   /// Add food intake
   Future<void> addFoodIntake(FoodIntake foodIntake) async {
+    print('🍎 DEBUG: Adding food intake: ${foodIntake.foodName}');
+    print('🍎 DEBUG: Macronutrients - Proteins: ${foodIntake.proteins}g, Carbs: ${foodIntake.carbohydrates}g, Fats: ${foodIntake.fats}g');
+
     todayFoodIntakes.add(foodIntake);
 
     // Log analytics for food
@@ -1156,6 +1159,9 @@ class HydrationProvider extends ChangeNotifier {
       'potassium': foodIntake.potassium,
       'magnesium': foodIntake.magnesium,
       'sugar': foodIntake.sugar,
+      'proteins': foodIntake.proteins,
+      'carbohydrates': foodIntake.carbohydrates,
+      'fats': foodIntake.fats,
       'has_caffeine': foodIntake.hasCaffeine,
     });
 

@@ -13,6 +13,7 @@ import '../services/units_service.dart';
 import '../services/analytics_service.dart';
 import '../screens/paywall_screen.dart';
 import '../screens/barcode_scanner_screen.dart';
+import '../screens/openfood_catalog_screen.dart';
 import '../data/items_catalog.dart';
 import '../data/catalog_item.dart';
 
@@ -354,6 +355,18 @@ class _FoodCatalogScreenState extends State<FoodCatalogScreen>
         backgroundColor: Colors.transparent,
         foregroundColor: theme.colorScheme.onSurface,
         actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const OpenFoodCatalogScreen(),
+                ),
+              );
+            },
+            tooltip: 'Search OpenFood',
+          ),
           IconButton(
             icon: const Icon(Icons.qr_code_scanner),
             onPressed: () {

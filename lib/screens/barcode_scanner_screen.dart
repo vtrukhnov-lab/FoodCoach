@@ -5,6 +5,8 @@ import '../services/openfoodfacts_service.dart';
 import '../widgets/common/weight_selection_dialog.dart';
 import '../providers/hydration_provider.dart';
 import '../models/food_intake.dart';
+import '../models/favorite_product.dart';
+import '../services/favorites_service.dart';
 
 class BarcodeScannerScreen extends StatefulWidget {
   const BarcodeScannerScreen({super.key});
@@ -16,6 +18,7 @@ class BarcodeScannerScreen extends StatefulWidget {
 class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
   MobileScannerController cameraController = MobileScannerController();
   bool _isProcessing = false;
+  final FavoritesService _favoritesService = FavoritesService();
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +95,7 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: const Text(
-                'Наведите камеру на штрих-код продукта',
+                'Наведите камеру на штрих-код или QR-код продукта',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -124,15 +127,47 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
       final product = await OpenFoodFactsService.instance.getProduct(barcode);
 
       if (product != null && mounted) {
+        // Get product image URL
+        final imageUrl = OpenFoodFactsService.instance.getImageUrl(product);
+
         // Show weight selection dialog
-        final weight = await showDialog<double>(
+        final result = await showDialog<WeightSelectionResult>(
           context: context,
           builder: (context) => WeightSelectionDialog(
             productName: product['product_name'] ?? 'Неизвестный продукт',
+            productImage: imageUrl,
+            productData: product,
           ),
         );
 
-        if (weight != null && mounted) {
+        if (result != null && mounted) {
+          // If user chose to add to favorites
+          if (result.addToFavorites) {
+            try {
+              final favoriteProduct = FavoriteProduct.fromOpenFoodProduct(product);
+              await _favoritesService.addFavorite(favoriteProduct);
+
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Добавлено в избранное: ${product['product_name'] ?? 'продукт'}'),
+                  backgroundColor: Colors.green,
+                ),
+              );
+              Navigator.pop(context);
+              return;
+            } catch (e) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Ошибка добавления в избранное: $e'),
+                  backgroundColor: Colors.red,
+                ),
+              );
+              return;
+            }
+          }
+
+          final weight = result.weight;
+
           // Calculate nutrition per selected weight
           final calories = ((product['nutriments']?['energy-kcal_100g'] ?? 0) * weight / 100).round();
           final proteins = ((product['nutriments']?['proteins_100g'] ?? 0) * weight / 100);

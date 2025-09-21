@@ -436,6 +436,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: "home_screen_fab",
         onPressed: () {
           HapticFeedback.lightImpact();
           Navigator.push(

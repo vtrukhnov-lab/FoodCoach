@@ -9,6 +9,8 @@ import '../providers/hydration_provider.dart';
 import '../services/openfoodfacts_service.dart';
 import '../models/food_intake.dart';
 import '../widgets/common/weight_selection_dialog.dart';
+import '../models/favorite_product.dart';
+import '../services/favorites_service.dart';
 
 class OpenFoodCatalogScreen extends StatefulWidget {
   const OpenFoodCatalogScreen({super.key});
@@ -20,6 +22,7 @@ class OpenFoodCatalogScreen extends StatefulWidget {
 class _OpenFoodCatalogScreenState extends State<OpenFoodCatalogScreen> {
   final TextEditingController _searchController = TextEditingController();
   final OpenFoodFactsService _service = OpenFoodFactsService();
+  final FavoritesService _favoritesService = FavoritesService();
   Timer? _debounceTimer;
 
   List<Map<String, dynamic>> _products = [];
@@ -422,14 +425,49 @@ class _OpenFoodCatalogScreenState extends State<OpenFoodCatalogScreen> {
     final context = this.context;
     HapticFeedback.selectionClick();
 
-    final weight = await showDialog<double>(
+    final imageUrl = OpenFoodFactsService.instance.getImageUrl(product);
+
+    final result = await showDialog<WeightSelectionResult>(
       context: context,
       builder: (context) => WeightSelectionDialog(
         productName: product['product_name'] ?? 'Product',
+        productImage: imageUrl,
+        productData: product,
       ),
     );
 
-    if (weight == null || !context.mounted) return;
+    if (result == null || !context.mounted) return;
+
+    // Если нужно добавить в избранное
+    if (result.addToFavorites) {
+      try {
+        final favoriteProduct = FavoriteProduct.fromOpenFoodProduct(product);
+        await _favoritesService.addFavorite(favoriteProduct);
+
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Добавлено в избранное: ${product['product_name'] ?? 'продукт'}'),
+              duration: const Duration(seconds: 2),
+            ),
+          );
+          Navigator.pop(context);
+        }
+        return;
+      } catch (e) {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Ошибка добавления в избранное: $e'),
+              backgroundColor: Theme.of(context).colorScheme.error,
+            ),
+          );
+        }
+        return;
+      }
+    }
+
+    final weight = result.weight;
 
     try {
       final provider = context.read<HydrationProvider>();
@@ -443,6 +481,10 @@ class _OpenFoodCatalogScreenState extends State<OpenFoodCatalogScreen> {
       final fats = (nutriments['fat_100g'] ?? 0) * factor;
       final sugar = (nutriments['sugars_100g'] ?? 0) * factor;
       final sodium = ((nutriments['sodium_100g'] ?? 0) * factor * 1000).round(); // Convert to mg
+
+      print('🛒 DEBUG: Raw nutrients per 100g: ${nutriments.toString()}');
+      print('🛒 DEBUG: Weight factor: ${factor}');
+      print('🛒 DEBUG: Calculated macros - P:${proteins}g, C:${carbs}g, F:${fats}g');
 
       final foodIntake = FoodIntake(
         id: DateTime.now().millisecondsSinceEpoch.toString(),

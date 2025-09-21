@@ -98,6 +98,7 @@ class _MainShellState extends State<MainShell> {
       
       // FAB - центральная кнопка
       floatingActionButton: FloatingActionButton(
+        heroTag: "main_shell_fab",
         onPressed: _showAddMenu,
         backgroundColor: Theme.of(context).colorScheme.primary,
         child: const Icon(Icons.add, color: Colors.white),
@@ -245,84 +246,40 @@ class _AddMenuSheet extends StatelessWidget {
                   children: [
                     _buildAddOption(
                       context: context,
-                      icon: Icons.water_drop,
-                      label: l10n.water,
+                      icon: Icons.qr_code_scanner,
+                      label: l10n.scanBarcode,
                       color: Colors.blue,
-                      route: '/liquids',
+                      route: '/barcode_scanner',
                     ),
                     const SizedBox(width: 12),
                     _buildAddOption(
                       context: context,
-                      icon: Icons.coffee,
-                      label: l10n.hotDrinks,
-                      color: Colors.brown,
-                      route: '/hot_drinks',
+                      icon: Icons.shopping_cart,
+                      label: l10n.searchCatalog,
+                      color: Colors.indigo,
+                      route: '/openfood_catalog',
                     ),
                   ],
                 ),
                 const SizedBox(height: 12),
-                
+
                 // Вторая строка
                 Row(
                   children: [
                     _buildAddOption(
                       context: context,
-                      icon: Icons.bolt,
-                      label: l10n.electrolytes,
-                      color: Colors.orange,
-                      route: '/electrolytes',
+                      icon: Icons.favorite,
+                      label: 'Избранное',
+                      color: Colors.pink,
+                      route: '/favorites',
                     ),
                     const SizedBox(width: 12),
-                    _buildAddOption(
-                      context: context,
-                      icon: Icons.local_bar,
-                      label: l10n.alcohol,
-                      color: Colors.purple,
-                      route: '/alcohol',
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                
-                // Третья строка
-                Row(
-                  children: [
                     _buildAddOption(
                       context: context,
                       icon: Icons.fitness_center,
                       label: l10n.sports,
                       color: Colors.green,
                       route: '/sports',
-                    ),
-                    const SizedBox(width: 12),
-                    _buildAddOption(
-                      context: context,
-                      icon: Icons.medication,
-                      label: l10n.supplements,
-                      color: Colors.teal,
-                      route: '/supplements',
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-
-                // Четвертая строка - Food
-                Row(
-                  children: [
-                    _buildAddOption(
-                      context: context,
-                      icon: Icons.restaurant,
-                      label: l10n.foodCatalog,
-                      color: Colors.deepOrange,
-                      route: '/food',
-                    ),
-                    const SizedBox(width: 12),
-                    _buildAddOption(
-                      context: context,
-                      icon: Icons.shopping_cart, // 🛒 иконка корзины
-                      label: l10n.searchCatalog,
-                      color: Colors.indigo,
-                      route: '/openfood_catalog',
                     ),
                   ],
                 ),
