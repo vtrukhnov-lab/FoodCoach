@@ -814,7 +814,7 @@ abstract class AppLocalizations {
   /// **'PRO Features'**
   String get proFeaturesSection;
 
-  /// No description provided for @unlockPro.
+  /// Unlock PRO button text
   ///
   /// In en, this message translates to:
   /// **'Unlock PRO'**
@@ -1690,7 +1690,7 @@ abstract class AppLocalizations {
   /// **'Share result'**
   String get shareResult;
 
-  /// No description provided for @retry.
+  /// Retry button text
   ///
   /// In en, this message translates to:
   /// **'Retry'**
@@ -4954,10 +4954,10 @@ abstract class AppLocalizations {
   /// **'Consumed'**
   String get currentIntake;
 
-  /// No description provided for @dailyGoal.
+  /// Daily goal label
   ///
   /// In en, this message translates to:
-  /// **'Goal'**
+  /// **'Daily Goal'**
   String get dailyGoal;
 
   /// No description provided for @toGo.
@@ -7546,7 +7546,7 @@ abstract class AppLocalizations {
   /// **'Whopper'**
   String get foodBurgerKing;
 
-  /// Meals counter
+  /// Meals count label
   ///
   /// In en, this message translates to:
   /// **'meals'**
@@ -7701,6 +7701,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Recommended calories: ~{calories} kcal/day'**
   String recommendedCalories(int calories);
+
+  /// Macronutrients card title
+  ///
+  /// In en, this message translates to:
+  /// **'Macronutrients'**
+  String get macronutrients;
+
+  /// Proteins macronutrient label
+  ///
+  /// In en, this message translates to:
+  /// **'Proteins'**
+  String get proteins;
+
+  /// Carbohydrates macronutrient label
+  ///
+  /// In en, this message translates to:
+  /// **'Carbs'**
+  String get carbohydrates;
+
+  /// Fats macronutrient label
+  ///
+  /// In en, this message translates to:
+  /// **'Fats'**
+  String get fats;
+
+  /// Average calories per meal label
+  ///
+  /// In en, this message translates to:
+  /// **'avg/meal'**
+  String get avgCaloriesPerMeal;
+
+  /// Track macronutrients description
+  ///
+  /// In en, this message translates to:
+  /// **'Track your protein, carbs and fats'**
+  String get trackMacronutrients;
+
+  /// PRO feature label
+  ///
+  /// In en, this message translates to:
+  /// **'PRO Feature'**
+  String get proFeature;
+
+  /// Scan barcode button tooltip
+  ///
+  /// In en, this message translates to:
+  /// **'Scan Barcode'**
+  String get scanBarcode;
+
+  /// Description for calorie tracking
+  ///
+  /// In en, this message translates to:
+  /// **'Track your daily calorie intake and nutrition'**
+  String get trackCaloriesDescription;
+
+  /// Balance label for macronutrients chart
+  ///
+  /// In en, this message translates to:
+  /// **'Balance'**
+  String get balance;
+
+  /// OpenFood catalog screen title
+  ///
+  /// In en, this message translates to:
+  /// **'OpenFood Catalog'**
+  String get openFoodCatalog;
+
+  /// Search placeholder text for OpenFood catalog
+  ///
+  /// In en, this message translates to:
+  /// **'Search 2M+ products...'**
+  String get searchProducts;
+
+  /// Message when no products found in search
+  ///
+  /// In en, this message translates to:
+  /// **'No products found'**
+  String get noProductsFound;
+
+  /// Search catalog option in add menu
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get searchCatalog;
 }
 
 class _AppLocalizationsDelegate

@@ -12,6 +12,7 @@ import '../services/subscription_service.dart';
 import '../services/units_service.dart';
 import '../services/analytics_service.dart';
 import '../screens/paywall_screen.dart';
+import '../screens/barcode_scanner_screen.dart';
 import '../data/items_catalog.dart';
 import '../data/catalog_item.dart';
 
@@ -352,6 +353,20 @@ class _FoodCatalogScreenState extends State<FoodCatalogScreen>
         elevation: 0,
         backgroundColor: Colors.transparent,
         foregroundColor: theme.colorScheme.onSurface,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.qr_code_scanner),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const BarcodeScannerScreen(),
+                ),
+              );
+            },
+            tooltip: l10n.scanBarcode,
+          ),
+        ],
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),

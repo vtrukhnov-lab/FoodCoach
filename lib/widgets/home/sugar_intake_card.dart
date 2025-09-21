@@ -24,8 +24,6 @@ class SugarIntakeCard extends StatelessWidget {
     final provider = Provider.of<HydrationProvider>(context);
     final sugarData = provider.getSugarIntakeData(context);
     
-    final hriImpact = _calculateHRIImpact(sugarData.totalGrams);
-    
     return Card(
       margin: EdgeInsets.zero,
       elevation: 2,
@@ -83,48 +81,6 @@ class SugarIntakeCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                // HRI Impact блок - с уменьшенными отступами
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(
-                      color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
-                      width: 1,
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      Text(
-                        l10n.hriRisk,
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontSize: 11,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        hriImpact > 0 ? '+$hriImpact' : '$hriImpact',
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'pts',
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.8),
-                          fontSize: 11,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ],
             ),
 
@@ -151,16 +107,19 @@ class SugarIntakeCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 _buildDetailItem(
+                  context,
                   icon: Icons.eco,
                   label: l10n.naturalSugar,
                   value: '${sugarData.naturalSugarGrams.round()}',
                 ),
                 _buildDetailItem(
+                  context,
                   icon: Icons.add_circle,
                   label: l10n.addedSugar,
                   value: '${sugarData.addedSugarGrams.round()}',
                 ),
                 _buildDetailItem(
+                  context,
                   icon: Icons.visibility_off,
                   label: l10n.hiddenSugar,
                   value: '${sugarData.hiddenSugarGrams.round()}',
@@ -209,6 +168,7 @@ class SugarIntakeCard extends StatelessWidget {
                   const SizedBox(height: 12),
                   // Корректировки воды
                   _buildAdjustmentRow(
+                    context,
                     icon: Icons.local_drink,
                     label: l10n.water,
                     value: _getWaterAdjustment(sugarData.totalGrams),
@@ -216,6 +176,7 @@ class SugarIntakeCard extends StatelessWidget {
                   const SizedBox(height: 6),
                   // Статус дневного лимита
                   _buildAdjustmentRow(
+                    context,
                     icon: Icons.speed,
                     label: l10n.dailyLimit,
                     value: _getDailyLimitStatus(sugarData.totalGrams),
@@ -371,7 +332,7 @@ class SugarIntakeCard extends StatelessWidget {
   }
 
   // Детальный элемент с адаптивной версткой
-  Widget _buildDetailItem({
+  Widget _buildDetailItem(BuildContext context, {
     required IconData icon,
     required String label,
     required String value,
@@ -422,7 +383,7 @@ class SugarIntakeCard extends StatelessWidget {
     );
   }
 
-  Widget _buildAdjustmentRow({
+  Widget _buildAdjustmentRow(BuildContext context, {
     required IconData icon,
     required String label,
     required String value,

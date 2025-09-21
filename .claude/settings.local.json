@@ -53,7 +53,8 @@
       "Bash(git remote remove:*)",
       "Bash(git remote add:*)",
       "WebFetch(domain:pub.dev)",
-      "Bash(del \"C:\\Projects\\FoodCoach\\lib\\services\\weather_service.dart\")"
+      "Bash(del \"C:\\Projects\\FoodCoach\\lib\\services\\weather_service.dart\")",
+      "Bash(flutterfire:*)"
     ],
     "deny": [],
     "ask": []

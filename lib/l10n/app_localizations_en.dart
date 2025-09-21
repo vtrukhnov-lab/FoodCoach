@@ -2639,7 +2639,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get currentIntake => 'Consumed';
 
   @override
-  String get dailyGoal => 'Goal';
+  String get dailyGoal => 'Daily Goal';
 
   @override
   String get toGo => 'Remaining';
@@ -4082,4 +4082,47 @@ class AppLocalizationsEn extends AppLocalizations {
   String recommendedCalories(int calories) {
     return 'Recommended calories: ~$calories kcal/day';
   }
+
+  @override
+  String get macronutrients => 'Macronutrients';
+
+  @override
+  String get proteins => 'Proteins';
+
+  @override
+  String get carbohydrates => 'Carbs';
+
+  @override
+  String get fats => 'Fats';
+
+  @override
+  String get avgCaloriesPerMeal => 'avg/meal';
+
+  @override
+  String get trackMacronutrients => 'Track your protein, carbs and fats';
+
+  @override
+  String get proFeature => 'PRO Feature';
+
+  @override
+  String get scanBarcode => 'Scan Barcode';
+
+  @override
+  String get trackCaloriesDescription =>
+      'Track your daily calorie intake and nutrition';
+
+  @override
+  String get balance => 'Balance';
+
+  @override
+  String get openFoodCatalog => 'OpenFood Catalog';
+
+  @override
+  String get searchProducts => 'Search 2M+ products...';
+
+  @override
+  String get noProductsFound => 'No products found';
+
+  @override
+  String get searchCatalog => 'Search';
 }

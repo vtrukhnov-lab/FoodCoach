@@ -317,8 +317,13 @@ class _AddMenuSheet extends StatelessWidget {
                       route: '/food',
                     ),
                     const SizedBox(width: 12),
-                    // Пустое место для будущих категорий
-                    Expanded(child: SizedBox()),
+                    _buildAddOption(
+                      context: context,
+                      icon: Icons.shopping_cart, // 🛒 иконка корзины
+                      label: l10n.searchCatalog,
+                      color: Colors.indigo,
+                      route: '/openfood_catalog',
+                    ),
                   ],
                 ),
               ],

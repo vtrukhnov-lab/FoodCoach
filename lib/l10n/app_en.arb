@@ -2519,6 +2519,78 @@
       "example": "1750"
     }
   }
+},
+"macronutrients": "Macronutrients",
+"@macronutrients": {
+  "description": "Macronutrients card title"
+},
+"proteins": "Proteins",
+"@proteins": {
+  "description": "Proteins macronutrient label"
+},
+"carbohydrates": "Carbs",
+"@carbohydrates": {
+  "description": "Carbohydrates macronutrient label"
+},
+"fats": "Fats",
+"@fats": {
+  "description": "Fats macronutrient label"
+},
+"meals": "meals",
+"@meals": {
+  "description": "Meals count label"
+},
+"avgCaloriesPerMeal": "avg/meal",
+"@avgCaloriesPerMeal": {
+  "description": "Average calories per meal label"
+},
+"trackMacronutrients": "Track your protein, carbs and fats",
+"@trackMacronutrients": {
+  "description": "Track macronutrients description"
+},
+"proFeature": "PRO Feature",
+"@proFeature": {
+  "description": "PRO feature label"
+},
+"unlockPro": "Unlock PRO",
+"@unlockPro": {
+  "description": "Unlock PRO button text"
+},
+"scanBarcode": "Scan Barcode",
+"@scanBarcode": {
+  "description": "Scan barcode button tooltip"
+},
+"dailyGoal": "Daily Goal",
+"@dailyGoal": {
+  "description": "Daily goal label"
+},
+"trackCaloriesDescription": "Track your daily calorie intake and nutrition",
+"@trackCaloriesDescription": {
+  "description": "Description for calorie tracking"
+},
+"balance": "Balance",
+"@balance": {
+  "description": "Balance label for macronutrients chart"
+},
+"openFoodCatalog": "OpenFood Catalog",
+"@openFoodCatalog": {
+  "description": "OpenFood catalog screen title"
+},
+"searchProducts": "Search 2M+ products...",
+"@searchProducts": {
+  "description": "Search placeholder text for OpenFood catalog"
+},
+"noProductsFound": "No products found",
+"@noProductsFound": {
+  "description": "Message when no products found in search"
+},
+"retry": "Retry",
+"@retry": {
+  "description": "Retry button text"
+},
+"searchCatalog": "Search",
+"@searchCatalog": {
+  "description": "Search catalog option in add menu"
 }
 }
 

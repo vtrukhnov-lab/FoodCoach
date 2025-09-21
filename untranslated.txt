@@ -1,5 +1,36 @@
 {
   "es": [
-    "ofRecommendedLimit"
+    "ofRecommendedLimit",
+    "macronutrients",
+    "proteins",
+    "carbohydrates",
+    "fats",
+    "avgCaloriesPerMeal",
+    "trackMacronutrients",
+    "proFeature",
+    "scanBarcode",
+    "trackCaloriesDescription",
+    "balance",
+    "openFoodCatalog",
+    "searchProducts",
+    "noProductsFound",
+    "searchCatalog"
+  ],
+
+  "ru": [
+    "macronutrients",
+    "proteins",
+    "carbohydrates",
+    "fats",
+    "avgCaloriesPerMeal",
+    "trackMacronutrients",
+    "proFeature",
+    "scanBarcode",
+    "trackCaloriesDescription",
+    "balance",
+    "openFoodCatalog",
+    "searchProducts",
+    "noProductsFound",
+    "searchCatalog"
   ]
 }

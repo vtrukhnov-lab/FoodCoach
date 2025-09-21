@@ -15,6 +15,7 @@ import '../providers/hydration_provider.dart';
 
 // Screens
 import '../screens/achievements_screen.dart';
+import '../screens/barcode_scanner_screen.dart';
 
 // Widgets
 import '../widgets/home/home_header.dart';
@@ -22,6 +23,8 @@ import '../widgets/home/main_progress_card.dart';
 import '../widgets/home/electrolytes_card.dart';
 import '../widgets/home/hri_status_card.dart';
 import '../widgets/home/sugar_intake_card.dart';
+import '../widgets/home/calories_intake_card.dart';
+import '../widgets/home/macronutrients_card.dart';
 import '../widgets/achievement_overlay.dart';
 import '../models/achievement.dart';
 
@@ -229,7 +232,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     final l10n = AppLocalizations.of(context);
     
     final List<Widget> cards = [
+      const CaloriesIntakeCard(), // Главная карточка первой
       MainProgressCard(onUpdate: _onIntakeUpdated),
+      const MacronutrientsCard(),
       const ElectrolytesCard(),
       const SugarIntakeCard(),
     ];
@@ -358,7 +363,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   
                   // Card carousel
                   SizedBox(
-                    height: 520,
+                    height: 580, // Увеличена высота для главной карточки калорий
                     child: PageView.builder(
                       controller: _pageController,
                       itemCount: cards.length,
@@ -430,6 +435,21 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          HapticFeedback.lightImpact();
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const BarcodeScannerScreen(),
+            ),
+          );
+        },
+        backgroundColor: theme.primaryColor,
+        foregroundColor: Colors.white,
+        tooltip: l10n.scanBarcode,
+        child: const Icon(Icons.qr_code_scanner),
       ),
     );
   }
