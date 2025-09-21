@@ -4105,6 +4105,42 @@ class AppLocalizationsRu extends AppLocalizations {
   String get carbohydrates => 'Carbs';
 
   @override
+  String get carbsInfo => 'Carbs Information';
+
+  @override
+  String get carbsWhoRecommendation => 'WHO Recommendation';
+
+  @override
+  String get carbsWhoDetails =>
+      'The World Health Organization recommends that 55% of daily calories should come from carbohydrates. For a 2000-calorie diet, this equals about 275 grams of carbs per day.';
+
+  @override
+  String get carbsWholeFoodsTitle => 'Choose Whole Foods';
+
+  @override
+  String get carbsWholeFoodsDetails =>
+      'It\'s recommended to get carbohydrates from whole, unprocessed foods rather than refined products. This provides more nutrients, fiber, and sustained energy.';
+
+  @override
+  String get carbsGoodSources => 'Good Sources';
+
+  @override
+  String get carbsGoodSourcesList =>
+      '• Whole grains (brown rice, quinoa, oats)\n• Fresh fruits and vegetables\n• Legumes (beans, lentils, peas)\n• Sweet potatoes and other root vegetables';
+
+  @override
+  String get understood => 'Understood';
+
+  @override
+  String get dietNormal => 'Normal';
+
+  @override
+  String get dietLowCarb => 'Low Carb';
+
+  @override
+  String get dietKeto => 'Keto';
+
+  @override
   String get fats => 'Fats';
 
   @override

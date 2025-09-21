@@ -2532,6 +2532,54 @@
 "@carbohydrates": {
   "description": "Carbohydrates macronutrient label"
 },
+"carbsInfo": "Carbs Information",
+"@carbsInfo": {
+  "description": "Carbohydrates information dialog title"
+},
+"carbsWhoRecommendation": "WHO Recommendation",
+"@carbsWhoRecommendation": {
+  "description": "WHO recommendation section title"
+},
+"carbsWhoDetails": "The World Health Organization recommends that 55% of daily calories should come from carbohydrates. For a 2000-calorie diet, this equals about 275 grams of carbs per day.",
+"@carbsWhoDetails": {
+  "description": "WHO carbohydrates recommendation details"
+},
+"carbsWholeFoodsTitle": "Choose Whole Foods",
+"@carbsWholeFoodsTitle": {
+  "description": "Whole foods recommendation title"
+},
+"carbsWholeFoodsDetails": "It's recommended to get carbohydrates from whole, unprocessed foods rather than refined products. This provides more nutrients, fiber, and sustained energy.",
+"@carbsWholeFoodsDetails": {
+  "description": "Whole foods carbohydrates recommendation"
+},
+"carbsGoodSources": "Good Sources",
+"@carbsGoodSources": {
+  "description": "Good carbohydrate sources title"
+},
+"carbsGoodSourcesList": "• Whole grains (brown rice, quinoa, oats)\n• Fresh fruits and vegetables\n• Legumes (beans, lentils, peas)\n• Sweet potatoes and other root vegetables",
+"@carbsGoodSourcesList": {
+  "description": "List of good carbohydrate sources"
+},
+"understood": "Understood",
+"@understood": {
+  "description": "Dialog confirmation button"
+},
+"dietMode": "Diet Mode",
+"@dietMode": {
+  "description": "Diet mode selector title"
+},
+"dietNormal": "Normal",
+"@dietNormal": {
+  "description": "Normal diet mode"
+},
+"dietLowCarb": "Low Carb",
+"@dietLowCarb": {
+  "description": "Low carb diet mode"
+},
+"dietKeto": "Keto",
+"@dietKeto": {
+  "description": "Keto diet mode"
+},
 "fats": "Fats",
 "@fats": {
   "description": "Fats macronutrient label"

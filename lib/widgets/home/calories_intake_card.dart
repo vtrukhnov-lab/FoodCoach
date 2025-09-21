@@ -1,7 +1,6 @@
 // lib/widgets/home/calories_intake_card.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'dart:math' as math;
 import '../../providers/hydration_provider.dart';
 import '../../services/subscription_service.dart';
@@ -40,113 +39,111 @@ class CaloriesIntakeCard extends StatelessWidget {
       },
       child: Card(
         margin: EdgeInsets.zero,
-        elevation: 4, // Увеличенная тень для главной карточки
+        elevation: 2,
+        clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24), // Увеличенный радиус
+          borderRadius: BorderRadius.circular(20),
         ),
-        child: Container(
-          // Увеличенная высота для главной карточки
-          height: 360,
-          padding: const EdgeInsets.all(24), // Увеличенный padding
+        child: Padding(
+          padding: const EdgeInsets.all(20),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Заголовок
+              // Заголовок (без иконки)
               Row(
                 children: [
-                  Icon(
-                    _getCaloriesIcon(totalCalories),
-                    color: Theme.of(context).primaryColor,
-                    size: 32,
-                  ),
-                  const SizedBox(width: 12),
                   Text(
                     l10n.calories,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onSurface,
-                      fontSize: 24,
+                      fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const Spacer(),
-                  Text(
-                    _getStatusBadge(totalCalories, calorieGoal),
-                    style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: _getStatusColor(totalCalories, calorieGoal).withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Text(
+                      _getStatusBadge(totalCalories, calorieGoal),
+                      style: TextStyle(
+                        color: _getStatusColor(totalCalories, calorieGoal),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ],
               ),
 
-              const SizedBox(height: 24),
+              const SizedBox(height: 20),
 
               // Большая круговая диаграмма в центре
-              Expanded(
-                child: Center(
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      // Основная круговая диаграмма
-                      SizedBox(
-                        width: 200,
-                        height: 200,
-                        child: CustomPaint(
-                          painter: LargeCircularProgressPainter(
-                            progress: progress,
-                            color: _getProgressColor(progress, context),
-                            backgroundColor: Theme.of(context).colorScheme.outline.withValues(alpha: 0.1),
-                            strokeWidth: 16,
-                          ),
+              Center(
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    // Основная круговая диаграмма
+                    SizedBox(
+                      width: 180,
+                      height: 180,
+                      child: CustomPaint(
+                        painter: LargeCircularProgressPainter(
+                          progress: progress,
+                          color: _getProgressColor(progress, context),
+                          backgroundColor: Theme.of(context).colorScheme.outline.withValues(alpha: 0.1),
+                          strokeWidth: 14,
                         ),
                       ),
-                      // Центральная информация
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            '$totalCalories',
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.onSurface,
-                              fontSize: 48,
-                              fontWeight: FontWeight.bold,
-                            ),
+                    ),
+                    // Центральная информация
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          '$totalCalories',
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onSurface,
+                            fontSize: 42,
+                            fontWeight: FontWeight.bold,
                           ),
-                          Text(
-                            'kcal',
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
+                        ),
+                        Text(
+                          'kcal',
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
                           ),
-                          const SizedBox(height: 8),
-                          Text(
-                            '${(progress * 100).round()}% of goal',
-                            style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          '${(progress * 100).round()}% of $calorieGoal',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
                           ),
-                          Text(
-                            'Goal: ${calorieGoal} kcal',
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
-                              fontSize: 12,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
 
-              const SizedBox(height: 24),
+              const SizedBox(height: 20),
 
-              // Нижняя информация
+              // Статистика внизу (только если есть приемы пищи)
               if (foodProgress['foodCount'] > 0) ...[
+                Container(
+                  width: double.infinity,
+                  height: 1,
+                  color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.1),
+                ),
+                const SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -158,7 +155,7 @@ class CaloriesIntakeCard extends StatelessWidget {
                     ),
                     Container(
                       width: 1,
-                      height: 40,
+                      height: 32,
                       color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
                     ),
                     _buildStatItem(
@@ -169,7 +166,7 @@ class CaloriesIntakeCard extends StatelessWidget {
                     ),
                     Container(
                       width: 1,
-                      height: 40,
+                      height: 32,
                       color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
                     ),
                     _buildStatItem(
@@ -182,36 +179,31 @@ class CaloriesIntakeCard extends StatelessWidget {
                 ),
               ] else ...[
                 // Пустое состояние
-                Column(
-                  children: [
-                    Icon(
-                      Icons.add_circle_outline,
-                      color: Theme.of(context).primaryColor,
-                      size: 32,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      l10n.tapToAddFood,
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onSurface,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                Center(
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.add_circle_outline,
+                        color: Theme.of(context).primaryColor,
+                        size: 28,
                       ),
-                    ),
-                    Text(
-                      'Start tracking your nutrition',
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
-                        fontSize: 12,
+                      const SizedBox(height: 8),
+                      Text(
+                        l10n.tapToAddFood,
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSurface,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ],
           ),
         ),
-      ).animate().fadeIn(delay: 100.ms).scale(begin: const Offset(0.95, 0.95)),
+      ),
     );
   }
 
@@ -227,24 +219,13 @@ class CaloriesIntakeCard extends StatelessWidget {
       },
       child: Card(
         margin: EdgeInsets.zero,
-        elevation: 4,
+        elevation: 2,
+        clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(20),
         ),
-        child: Container(
-          height: 360,
-          padding: const EdgeInsets.all(24),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.grey.shade100,
-                Colors.grey.shade200,
-              ],
-            ),
-          ),
+        child: Padding(
+          padding: const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -266,7 +247,7 @@ class CaloriesIntakeCard extends StatelessWidget {
                 l10n.calories,
                 style: const TextStyle(
                   color: Colors.grey,
-                  fontSize: 28,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
@@ -276,7 +257,7 @@ class CaloriesIntakeCard extends StatelessWidget {
                 l10n.proFeature,
                 style: TextStyle(
                   color: Colors.grey.shade600,
-                  fontSize: 16,
+                  fontSize: 14,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -291,7 +272,7 @@ class CaloriesIntakeCard extends StatelessWidget {
                   l10n.unlockPro,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -299,7 +280,7 @@ class CaloriesIntakeCard extends StatelessWidget {
             ],
           ),
         ),
-      ).animate().fadeIn(delay: 100.ms).scale(begin: const Offset(0.95, 0.95)),
+      ),
     );
   }
 
@@ -313,14 +294,14 @@ class CaloriesIntakeCard extends StatelessWidget {
         Icon(
           icon,
           color: Theme.of(context).primaryColor,
-          size: 20,
+          size: 18,
         ),
         const SizedBox(height: 4),
         Text(
           value,
           style: TextStyle(
             color: Theme.of(context).colorScheme.onSurface,
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -346,6 +327,14 @@ class CaloriesIntakeCard extends StatelessWidget {
     if (progress < 0.5) return Colors.orange;
     if (progress < 0.8) return Colors.blue;
     if (progress <= 1.0) return Colors.green;
+    return Colors.red;
+  }
+
+  Color _getStatusColor(int calories, int goal) {
+    final percentage = (calories / goal * 100).round();
+    if (percentage < 50) return Colors.orange;
+    if (percentage < 80) return Colors.blue;
+    if (percentage <= 110) return Colors.green;
     return Colors.red;
   }
 
@@ -401,31 +390,6 @@ class LargeCircularProgressPainter extends CustomPainter {
       false,
       progressPaint,
     );
-
-    // Добавляем градиент для красоты
-    if (progress > 0) {
-      final gradientPaint = Paint()
-        ..shader = SweepGradient(
-          startAngle: -math.pi / 2,
-          endAngle: -math.pi / 2 + sweepAngle,
-          colors: [
-            color.withValues(alpha: 0.3),
-            color,
-            color.withValues(alpha: 0.8),
-          ],
-        ).createShader(Rect.fromCircle(center: center, radius: radius))
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = strokeWidth / 2
-        ..strokeCap = StrokeCap.round;
-
-      canvas.drawArc(
-        Rect.fromCircle(center: center, radius: radius + strokeWidth / 4),
-        startAngle,
-        sweepAngle,
-        false,
-        gradientPaint,
-      );
-    }
   }
 
   @override

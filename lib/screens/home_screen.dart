@@ -22,7 +22,7 @@ import '../widgets/home/home_header.dart';
 import '../widgets/home/main_progress_card.dart';
 import '../widgets/home/electrolytes_card.dart';
 import '../widgets/home/hri_status_card.dart';
-import '../widgets/home/sugar_intake_card.dart';
+import '../widgets/home/carbs_intake_card.dart';
 import '../widgets/home/calories_intake_card.dart';
 import '../widgets/home/macronutrients_card.dart';
 import '../widgets/achievement_overlay.dart';
@@ -235,8 +235,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       const CaloriesIntakeCard(), // Главная карточка первой
       MainProgressCard(onUpdate: _onIntakeUpdated),
       const MacronutrientsCard(),
-      const ElectrolytesCard(),
-      const SugarIntakeCard(),
+      const CarbsIntakeCard(),
     ];
 
     return Scaffold(
@@ -363,7 +362,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                   
                   // Card carousel
                   SizedBox(
-                    height: 580, // Увеличена высота для главной карточки калорий
+                    height: 400, // Уменьшена высота так как карточек меньше
                     child: PageView.builder(
                       controller: _pageController,
                       itemCount: cards.length,

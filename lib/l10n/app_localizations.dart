@@ -634,7 +634,7 @@ abstract class AppLocalizations {
   /// **'Weight'**
   String get weight;
 
-  /// No description provided for @dietMode.
+  /// Diet mode selector title
   ///
   /// In en, this message translates to:
   /// **'Diet Mode'**
@@ -7719,6 +7719,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Carbs'**
   String get carbohydrates;
+
+  /// Carbohydrates information dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Carbs Information'**
+  String get carbsInfo;
+
+  /// WHO recommendation section title
+  ///
+  /// In en, this message translates to:
+  /// **'WHO Recommendation'**
+  String get carbsWhoRecommendation;
+
+  /// WHO carbohydrates recommendation details
+  ///
+  /// In en, this message translates to:
+  /// **'The World Health Organization recommends that 55% of daily calories should come from carbohydrates. For a 2000-calorie diet, this equals about 275 grams of carbs per day.'**
+  String get carbsWhoDetails;
+
+  /// Whole foods recommendation title
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Whole Foods'**
+  String get carbsWholeFoodsTitle;
+
+  /// Whole foods carbohydrates recommendation
+  ///
+  /// In en, this message translates to:
+  /// **'It\'s recommended to get carbohydrates from whole, unprocessed foods rather than refined products. This provides more nutrients, fiber, and sustained energy.'**
+  String get carbsWholeFoodsDetails;
+
+  /// Good carbohydrate sources title
+  ///
+  /// In en, this message translates to:
+  /// **'Good Sources'**
+  String get carbsGoodSources;
+
+  /// List of good carbohydrate sources
+  ///
+  /// In en, this message translates to:
+  /// **'• Whole grains (brown rice, quinoa, oats)\n• Fresh fruits and vegetables\n• Legumes (beans, lentils, peas)\n• Sweet potatoes and other root vegetables'**
+  String get carbsGoodSourcesList;
+
+  /// Dialog confirmation button
+  ///
+  /// In en, this message translates to:
+  /// **'Understood'**
+  String get understood;
+
+  /// Normal diet mode
+  ///
+  /// In en, this message translates to:
+  /// **'Normal'**
+  String get dietNormal;
+
+  /// Low carb diet mode
+  ///
+  /// In en, this message translates to:
+  /// **'Low Carb'**
+  String get dietLowCarb;
+
+  /// Keto diet mode
+  ///
+  /// In en, this message translates to:
+  /// **'Keto'**
+  String get dietKeto;
 
   /// Fats macronutrient label
   ///

@@ -28,8 +28,32 @@ import '../models/intake.dart';
 import '../models/alcohol_intake.dart';
 import '../models/food_intake.dart';
 import '../data/catalog_item.dart'; // Added for CatalogItem
-import '../widgets/home/sugar_intake_card.dart'; // Added for SugarIntakeData
+// import '../widgets/home/sugar_intake_card.dart'; // Removed - now using carbs
+import '../widgets/home/carbs_intake_card.dart'; // Added for CarbsIntakeData
 import '../services/achievement_tracker.dart';
+
+// SugarIntakeData class for compatibility
+class SugarIntakeData {
+  final double totalGrams;
+  final double naturalSugarGrams;
+  final double addedSugarGrams;
+  final double hiddenSugarGrams;
+  final double drinksGrams;
+  final double foodGrams;
+  final double snacksGrams;
+  final Map<String, double> bySource;
+
+  SugarIntakeData({
+    required this.totalGrams,
+    required this.naturalSugarGrams,
+    required this.addedSugarGrams,
+    required this.hiddenSugarGrams,
+    required this.drinksGrams,
+    required this.foodGrams,
+    required this.snacksGrams,
+    required this.bySource,
+  });
+}
 
 
 
@@ -41,11 +65,19 @@ enum _HydrationStatusInternal {
   lowSalt,
 }
 
+// Diet modes for carbs calculation
+enum DietMode {
+  normal,    // 55% carbs (WHO standard)
+  lowCarb,   // 25% carbs
+  keto,      // 8% carbs
+}
+
 class HydrationProvider extends ChangeNotifier {
   double weight = 70;
   String dietMode = 'normal';
   String activityLevel = 'medium'; // Kept for compatibility
   int dailyCaloriesGoal = 2000; // Цель по калориям на основе веса
+  DietMode carbsDietMode = DietMode.normal; // Режим диеты для углеводов
   List<Intake> todayIntakes = [];
   List<FoodIntake> todayFoodIntakes = [];
   
@@ -352,6 +384,80 @@ class HydrationProvider extends ChangeNotifier {
       snacksGrams: snacksGrams,
       bySource: bySource,
     );
+  }
+
+  /// Get carbohydrates intake data from food intakes
+  CarbsIntakeData getCarbsIntakeData(BuildContext context) {
+    double totalCarbs = 0;
+    Map<String, double> bySource = {};
+
+    // Calculate carbs from food intakes only
+    for (final foodIntake in todayFoodIntakes) {
+      final carbsGrams = foodIntake.carbohydrates;
+
+      if (carbsGrams > 0) {
+        totalCarbs += carbsGrams;
+
+        // Add to sources by food type
+        bySource['food'] = (bySource['food'] ?? 0) + carbsGrams;
+
+        // More detailed breakdown by food name if needed
+        final foodKey = foodIntake.foodName.toLowerCase().replaceAll(' ', '_');
+        bySource[foodKey] = (bySource[foodKey] ?? 0) + carbsGrams;
+      }
+    }
+
+    // Daily carbs goal based on selected diet mode
+    double carbsPercentage;
+    switch (carbsDietMode) {
+      case DietMode.normal:
+        carbsPercentage = 0.55; // 55% WHO standard
+        break;
+      case DietMode.lowCarb:
+        carbsPercentage = 0.25; // 25% low carb
+        break;
+      case DietMode.keto:
+        carbsPercentage = 0.08; // 8% keto
+        break;
+    }
+
+    final carbsCalorieGoal = dailyCaloriesGoal * carbsPercentage;
+    final dailyLimit = carbsCalorieGoal / 4; // Convert calories to grams (4 kcal per gram)
+
+    return CarbsIntakeData(
+      totalGrams: totalCarbs,
+      dailyLimit: dailyLimit,
+      foodCount: todayFoodIntakes.length,
+      bySource: bySource,
+    );
+  }
+
+  /// Set carbs diet mode and save to preferences
+  Future<void> setCarbsDietMode(DietMode mode) async {
+    carbsDietMode = mode;
+    notifyListeners();
+
+    // Save to SharedPreferences
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('carbsDietMode', mode.name);
+  }
+
+  /// Load carbs diet mode from preferences
+  Future<void> loadCarbsDietMode() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedMode = prefs.getString('carbsDietMode');
+
+    if (savedMode != null) {
+      try {
+        carbsDietMode = DietMode.values.firstWhere(
+          (mode) => mode.name == savedMode,
+          orElse: () => DietMode.normal,
+        );
+      } catch (e) {
+        carbsDietMode = DietMode.normal;
+      }
+    }
+    notifyListeners();
   }
   
   /// Get sugar impact on HRI (updated to use context)
@@ -717,6 +823,9 @@ class HydrationProvider extends ChangeNotifier {
           sugar: double.parse(data[10]),
           hasCaffeine: data[11] == 'true',
           emoji: data.length > 12 && data[12].isNotEmpty ? data[12] : null,
+          proteins: data.length > 13 ? double.parse(data[13]) : 0.0,
+          carbohydrates: data.length > 14 ? double.parse(data[14]) : 0.0,
+          fats: data.length > 15 ? double.parse(data[15]) : 0.0,
         );
       } catch (e) {
         print('Error parsing food intake: $e');
@@ -725,10 +834,13 @@ class HydrationProvider extends ChangeNotifier {
     }).where((intake) => intake != null).cast<FoodIntake>().toList();
     
     _calculateGoals();
-    
+
+    // Load carbs diet mode
+    await loadCarbsDietMode();
+
     // Update water progress cache after loading data
     await _updateWaterProgressCache();
-    
+
     notifyListeners();
   }
   
@@ -1141,7 +1253,7 @@ class HydrationProvider extends ChangeNotifier {
         return '${intake.id}|${intake.timestamp.toIso8601String()}|${intake.foodId}|'
                '${intake.foodName}|${intake.weight}|${intake.calories}|${intake.waterContent}|'
                '${intake.sodium}|${intake.potassium}|${intake.magnesium}|${intake.sugar}|${intake.hasCaffeine}|'
-               '${intake.emoji ?? ""}';
+               '${intake.emoji ?? ""}|${intake.proteins}|${intake.carbohydrates}|${intake.fats}';
       }).toList();
 
       await prefs.setStringList(todayFoodKey, foodIntakesJson);
