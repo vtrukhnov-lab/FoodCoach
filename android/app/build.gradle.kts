@@ -37,12 +37,28 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.playcus.hydracoach"
+        // applicationId теперь задается в флейворах
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         multiDexEnabled = true
+    }
+
+    flavorDimensions += "app"
+
+    productFlavors {
+        create("foodcoach") {
+            dimension = "app"
+            applicationId = "com.playcus.foodcoach"
+            manifestPlaceholders["appName"] = "FoodCoach"
+        }
+
+        create("foodcoachsup") {
+            dimension = "app"
+            applicationId = "com.logics7.foodmasterpro"
+            manifestPlaceholders["appName"] = "FoodMaster Pro"
+        }
     }
 
     signingConfigs {

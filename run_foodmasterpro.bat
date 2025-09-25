@@ -1,0 +1,3 @@
+@echo off
+echo Starting FoodMaster Pro...
+flutter run --flavor foodcoachsup -t lib/main_foodcoachsup.dart

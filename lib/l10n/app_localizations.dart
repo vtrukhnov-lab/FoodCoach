@@ -6928,6 +6928,480 @@ abstract class AppLocalizations {
   /// **'Allow Location'**
   String get onboardingAllowLocation;
 
+  /// No description provided for @onboardingNewWelcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach your goal in 3 months'**
+  String get onboardingNewWelcomeTitle;
+
+  /// No description provided for @onboardingSlide1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Track calories and weight'**
+  String get onboardingSlide1Title;
+
+  /// No description provided for @onboardingSlide1Description.
+  ///
+  /// In en, this message translates to:
+  /// **'Simple to use'**
+  String get onboardingSlide1Description;
+
+  /// No description provided for @onboardingSlide2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Control proteins, fats and carbohydrates'**
+  String get onboardingSlide2Title;
+
+  /// No description provided for @onboardingSlide2Description.
+  ///
+  /// In en, this message translates to:
+  /// **'Scientific approach'**
+  String get onboardingSlide2Description;
+
+  /// No description provided for @onboardingSlide3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Form habits forever'**
+  String get onboardingSlide3Title;
+
+  /// No description provided for @onboardingSlide3Description.
+  ///
+  /// In en, this message translates to:
+  /// **'Long-term effect'**
+  String get onboardingSlide3Description;
+
+  /// No description provided for @onboardingGoalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What is your goal?'**
+  String get onboardingGoalTitle;
+
+  /// No description provided for @onboardingGoalSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll customize the app for your task'**
+  String get onboardingGoalSubtitle;
+
+  /// No description provided for @onboardingLoseWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Lose weight'**
+  String get onboardingLoseWeight;
+
+  /// No description provided for @onboardingLoseWeightDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Shed excess pounds'**
+  String get onboardingLoseWeightDesc;
+
+  /// No description provided for @onboardingGainMuscle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gain muscle mass'**
+  String get onboardingGainMuscle;
+
+  /// No description provided for @onboardingGainMuscleDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Increase muscles and strength'**
+  String get onboardingGainMuscleDesc;
+
+  /// No description provided for @onboardingMaintainWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintain weight'**
+  String get onboardingMaintainWeight;
+
+  /// No description provided for @onboardingMaintainWeightDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep current shape'**
+  String get onboardingMaintainWeightDesc;
+
+  /// No description provided for @onboardingImproveNutrition.
+  ///
+  /// In en, this message translates to:
+  /// **'Improve nutrition'**
+  String get onboardingImproveNutrition;
+
+  /// No description provided for @onboardingImproveNutritionDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Eat healthier food'**
+  String get onboardingImproveNutritionDesc;
+
+  /// No description provided for @onboardingBodyParamsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell us about yourself'**
+  String get onboardingBodyParamsTitle;
+
+  /// No description provided for @onboardingBodyParamsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This data is used to calculate your personal nutrition plan'**
+  String get onboardingBodyParamsSubtitle;
+
+  /// No description provided for @onboardingGender.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get onboardingGender;
+
+  /// No description provided for @onboardingMale.
+  ///
+  /// In en, this message translates to:
+  /// **'Male'**
+  String get onboardingMale;
+
+  /// No description provided for @onboardingFemale.
+  ///
+  /// In en, this message translates to:
+  /// **'Female'**
+  String get onboardingFemale;
+
+  /// No description provided for @onboardingAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Age'**
+  String get onboardingAge;
+
+  /// No description provided for @onboardingHeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Height'**
+  String get onboardingHeight;
+
+  /// No description provided for @onboardingCurrentWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Current weight'**
+  String get onboardingCurrentWeight;
+
+  /// No description provided for @onboardingTargetWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Target weight'**
+  String get onboardingTargetWeight;
+
+  /// No description provided for @onboardingNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get onboardingNext;
+
+  /// No description provided for @onboardingActivityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How active are you?'**
+  String get onboardingActivityTitle;
+
+  /// No description provided for @onboardingActivitySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Excluding workouts - only daily activity'**
+  String get onboardingActivitySubtitle;
+
+  /// No description provided for @onboardingSedentary.
+  ///
+  /// In en, this message translates to:
+  /// **'Sedentary'**
+  String get onboardingSedentary;
+
+  /// No description provided for @onboardingSedentaryDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Desk job, little walking'**
+  String get onboardingSedentaryDesc;
+
+  /// No description provided for @onboardingSedentaryExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Office, remote work, studying'**
+  String get onboardingSedentaryExample;
+
+  /// No description provided for @onboardingModerate.
+  ///
+  /// In en, this message translates to:
+  /// **'Moderately active'**
+  String get onboardingModerate;
+
+  /// No description provided for @onboardingModerateDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'On feet part of the day'**
+  String get onboardingModerateDesc;
+
+  /// No description provided for @onboardingModerateExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Teacher, salesperson, parent'**
+  String get onboardingModerateExample;
+
+  /// No description provided for @onboardingActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Very active'**
+  String get onboardingActive;
+
+  /// No description provided for @onboardingActiveDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Physical work'**
+  String get onboardingActiveDesc;
+
+  /// No description provided for @onboardingActiveExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Builder, courier, trainer'**
+  String get onboardingActiveExample;
+
+  /// No description provided for @onboardingCalculatePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculate plan'**
+  String get onboardingCalculatePlan;
+
+  /// No description provided for @onboardingPlanTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personal nutrition plan'**
+  String get onboardingPlanTitle;
+
+  /// No description provided for @onboardingPlanSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on your parameters and goal'**
+  String get onboardingPlanSubtitle;
+
+  /// No description provided for @onboardingDailyCalories.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily calories'**
+  String get onboardingDailyCalories;
+
+  /// No description provided for @onboardingProteins.
+  ///
+  /// In en, this message translates to:
+  /// **'Proteins'**
+  String get onboardingProteins;
+
+  /// No description provided for @onboardingFats.
+  ///
+  /// In en, this message translates to:
+  /// **'Fats'**
+  String get onboardingFats;
+
+  /// No description provided for @onboardingCarbs.
+  ///
+  /// In en, this message translates to:
+  /// **'Carbohydrates'**
+  String get onboardingCarbs;
+
+  /// No description provided for @onboardingPlanTip.
+  ///
+  /// In en, this message translates to:
+  /// **'We use the scientifically proven Mifflin-St Jeor formula for accurate calculation'**
+  String get onboardingPlanTip;
+
+  /// No description provided for @onboardingStartNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Start now'**
+  String get onboardingStartNow;
+
+  /// No description provided for @onboardingEditPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit plan'**
+  String get onboardingEditPlan;
+
+  /// No description provided for @onboardingWeightProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight Progress'**
+  String get onboardingWeightProgress;
+
+  /// No description provided for @onboardingCurrentWeightLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Current'**
+  String get onboardingCurrentWeightLabel;
+
+  /// No description provided for @onboardingTargetWeightLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Target'**
+  String get onboardingTargetWeightLabel;
+
+  /// No description provided for @onboardingProgressWeeks.
+  ///
+  /// In en, this message translates to:
+  /// **'weeks'**
+  String get onboardingProgressWeeks;
+
+  /// No description provided for @onboardingRegistrationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create account'**
+  String get onboardingRegistrationTitle;
+
+  /// No description provided for @onboardingRegistrationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Save your progress and sync across devices'**
+  String get onboardingRegistrationSubtitle;
+
+  /// No description provided for @onboardingEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get onboardingEmail;
+
+  /// No description provided for @onboardingPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get onboardingPassword;
+
+  /// No description provided for @onboardingCreateAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create account'**
+  String get onboardingCreateAccount;
+
+  /// No description provided for @onboardingContinueGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Google'**
+  String get onboardingContinueGoogle;
+
+  /// No description provided for @onboardingContinueApple.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Apple'**
+  String get onboardingContinueApple;
+
+  /// No description provided for @onboardingTryWithoutAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Try without account'**
+  String get onboardingTryWithoutAccount;
+
+  /// No description provided for @onboardingPasswordWeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Weak'**
+  String get onboardingPasswordWeak;
+
+  /// No description provided for @onboardingPasswordMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get onboardingPasswordMedium;
+
+  /// No description provided for @onboardingPasswordStrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Strong'**
+  String get onboardingPasswordStrong;
+
+  /// No description provided for @onboardingEmailInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email'**
+  String get onboardingEmailInvalid;
+
+  /// No description provided for @onboardingPasswordTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Password too short'**
+  String get onboardingPasswordTooShort;
+
+  /// No description provided for @onboardingQuickStartTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first meal'**
+  String get onboardingQuickStartTitle;
+
+  /// No description provided for @onboardingQuickStartSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s track something to get you started'**
+  String get onboardingQuickStartSubtitle;
+
+  /// No description provided for @onboardingSelectFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Select food'**
+  String get onboardingSelectFood;
+
+  /// No description provided for @onboardingChoosePortion.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose portion'**
+  String get onboardingChoosePortion;
+
+  /// No description provided for @onboardingConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get onboardingConfirm;
+
+  /// No description provided for @onboardingSearchFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for food...'**
+  String get onboardingSearchFood;
+
+  /// No description provided for @onboardingBreakfastItems.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular breakfast items'**
+  String get onboardingBreakfastItems;
+
+  /// No description provided for @onboardingPortion.
+  ///
+  /// In en, this message translates to:
+  /// **'Portion'**
+  String get onboardingPortion;
+
+  /// No description provided for @onboardingGrams.
+  ///
+  /// In en, this message translates to:
+  /// **'grams'**
+  String get onboardingGrams;
+
+  /// No description provided for @onboardingAddToLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to log'**
+  String get onboardingAddToLog;
+
+  /// No description provided for @onboardingGreatStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Great start!'**
+  String get onboardingGreatStart;
+
+  /// No description provided for @onboardingFirstMealAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Your first meal has been added'**
+  String get onboardingFirstMealAdded;
+
+  /// No description provided for @onboardingStartTracking.
+  ///
+  /// In en, this message translates to:
+  /// **'Start tracking'**
+  String get onboardingStartTracking;
+
+  /// No description provided for @onboardingSkipTutorial.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip tutorial'**
+  String get onboardingSkipTutorial;
+
   /// Food catalog screen title
   ///
   /// In en, this message translates to:

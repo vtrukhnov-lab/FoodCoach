@@ -1,0 +1,20 @@
+    // Удалить или закомментировать строку 40:
+    // applicationId = "com.playcus.hydracoach"
+
+    // И после блока defaultConfig (после строки 46) добавить:
+
+    flavorDimensions += "app"
+
+    productFlavors {
+        create("foodcoach") {
+            dimension = "app"
+            applicationId = "com.playcus.foodcoach"
+            manifestPlaceholders["appName"] = "FoodCoach"
+        }
+
+        create("foodcoachsup") {
+            dimension = "app"
+            applicationId = "com.logics7.foodmasterpro"
+            manifestPlaceholders["appName"] = "FoodMaster Pro"
+        }
+    }

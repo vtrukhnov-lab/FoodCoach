@@ -2283,5 +2283,97 @@
       "example": "1750"
     }
   }
-}
+},
+
+"onboardingWelcomeTitle": "Достигните своей цели за 3 месяца",
+"onboardingSlide1Title": "Отслеживайте калории и вес",
+"onboardingSlide1Description": "Простота использования",
+"onboardingSlide2Title": "Контролируйте белки, жиры и углеводы",
+"onboardingSlide2Description": "Научный подход",
+"onboardingSlide3Title": "Формируйте привычки навсегда",
+"onboardingSlide3Description": "Долгосрочный эффект",
+"start": "Начать",
+"alreadyHaveAccount": "У меня есть аккаунт",
+
+"goalPageTitle": "Какая ваша цель?",
+"goalPageSubtitle": "Мы настроим приложение под вашу задачу",
+"goalLoseWeight": "Похудеть",
+"goalLoseWeightDesc": "Сбросить лишние килограммы",
+"goalGainMuscle": "Набрать мышечную массу",
+"goalGainMuscleDesc": "Увеличить мышцы и силу",
+"goalMaintainWeight": "Поддерживать вес",
+"goalMaintainWeightDesc": "Сохранить текущую форму",
+"goalImproveNutrition": "Улучшить питание",
+"goalImproveNutritionDesc": "Есть более здоровую пищу",
+
+"bodyParamsTitle": "Расскажите о себе",
+"bodyParamsSubtitle": "Для точного расчета калорий",
+"gender": "Пол",
+"male": "Мужской",
+"female": "Женский",
+"age": "Возраст",
+"ageHint": "Полных лет",
+"height": "Рост",
+"currentWeight": "Текущий вес",
+"targetWeight": "Целевой вес",
+
+"activityTitle": "Насколько вы активны?",
+"activitySubtitle": "Без учета тренировок - только повседневная активность",
+"activitySedentary": "Малоподвижный",
+"activitySedentaryDesc": "Сидячая работа, мало хожу пешком",
+"activitySedentaryExamples": "Офис, удаленка, учеба",
+"activityModerate": "Умеренно активный",
+"activityModerateDesc": "На ногах часть дня",
+"activityModerateExamples": "Преподаватель, продавец, родитель",
+"activityActive": "Очень активный",
+"activityActiveDesc": "Физическая работа",
+"activityActiveExamples": "Строитель, курьер, тренер",
+"calculatePlan": "Рассчитать план",
+
+"planTitle": "Ваш персональный план готов!",
+"dailyCalories": "Дневная норма калорий",
+"perDay": "в день",
+"macroDistribution": "Распределение БЖУ",
+"proteins": "Белки",
+"fats": "Жиры",
+"carbs": "Углеводы",
+"startTracking": "Начать отслеживание",
+"editPlan": "Изменить план",
+
+"registrationTitle": "Создайте аккаунт",
+"registrationSubtitle": "Сохраним ваш прогресс и настройки",
+"email": "Email",
+"emailHint": "email@example.com",
+"password": "Пароль",
+"passwordHint": "Минимум 8 символов",
+"createAccount": "Создать аккаунт",
+"continueWithGoogle": "Продолжить с Google",
+"continueWithApple": "Продолжить с Apple",
+"tryWithoutRegistration": "Попробовать без регистрации",
+"passwordWeak": "Слабый",
+"passwordMedium": "Средний",
+"passwordStrong": "Сильный",
+"passwordStrengthLabel": "Сложность пароля",
+
+"quickStartTitle": "Попробуем добавить завтрак",
+"quickStartSubtitle": "Это займет 30 секунд",
+"step1Title": "Шаг 1: Поиск продукта",
+"step2Title": "Шаг 2: Выберите порцию",
+"step3Title": "Отлично!",
+"searchHint": "Например: овсянка",
+"popularBreakfasts": "Популярные завтраки:",
+"portion": "Количество",
+"calories": "Калории",
+"addToDiary": "Добавить в дневник",
+"caloriesAdded": "Вы добавили {calories} ккал",
+"@caloriesAdded": {
+  "placeholders": {
+    "calories": {
+      "type": "int"
+    }
+  }
+},
+"quickStartComplete": "Теперь вы знаете, как отслеживать питание.\\nТак же легко можно добавить обед, ужин и перекусы!",
+"goToApp": "Перейти в приложение",
+"skipTutorial": "Пропустить обучение"
 }

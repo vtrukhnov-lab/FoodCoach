@@ -1,0 +1,17 @@
+ИНСТРУКЦИЯ ПО НАСТРОЙКЕ main_shell.dart
+
+В файле lib/screens/main_shell.dart нужно сделать 2 изменения:
+
+1. После строки 4 добавьте импорты:
+import '../config/flavor_config.dart';
+
+2. После строки 7 добавьте:
+import 'home_screen_redesign.dart';
+
+3. В строке 37 замените:
+const HomeScreen(),
+
+на:
+FlavorConfig.useRedesignedHome ? const HomeScreenRedesign() : const HomeScreen(),
+
+Это позволит автоматически выбирать нужный экран в зависимости от флейвора.

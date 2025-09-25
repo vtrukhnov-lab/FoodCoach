@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../l10n/app_localizations.dart';
 import '../services/analytics_service.dart';
+import '../config/flavor_config.dart';
+import '../widgets/custom_bottom_navigation.dart';
 
 // Экраны
 import 'home_screen.dart';
+import 'home_screen_redesign.dart';
 import 'history_screen.dart';
 import 'notification_settings_screen.dart';
 import 'settings_screen.dart';
@@ -34,7 +37,7 @@ class _MainShellState extends State<MainShell> {
   void initState() {
     super.initState();
     _screens = [
-      const HomeScreen(),
+      FlavorConfig.useRedesignedHome ? const HomeScreenRedesign() : const HomeScreen(),
       const HistoryScreen(),
       const NotificationSettingsScreen(),
       Container(), // Пустой контейнер вместо текста
@@ -95,59 +98,65 @@ class _MainShellState extends State<MainShell> {
         index: _currentIndex,
         children: _screens,
       ),
-      
-      // FAB - центральная кнопка
-      floatingActionButton: FloatingActionButton(
+
+      // Используем разные нижние панели в зависимости от флейвора
+      floatingActionButton: FlavorConfig.isFoodCoachSup ? null : FloatingActionButton(
         heroTag: "main_shell_fab",
         onPressed: _showAddMenu,
         backgroundColor: Theme.of(context).colorScheme.primary,
         child: const Icon(Icons.add, color: Colors.white),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      
+      floatingActionButtonLocation: FlavorConfig.isFoodCoachSup ? null : FloatingActionButtonLocation.centerDocked,
+
       // Bottom Navigation
-      bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 8.0,
-        child: SizedBox(
-          height: 65,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              // Левая часть
-              _buildNavItem(
-                icon: Icons.home_outlined,
-                activeIcon: Icons.home,
-                label: l10n.home,
-                index: 0,
+      bottomNavigationBar: FlavorConfig.isFoodCoachSup
+          ? CustomBottomNavigation(
+              currentIndex: _currentIndex,
+              onTabTapped: _onTabTapped,
+              onAddPressed: _showAddMenu,
+            )
+          : BottomAppBar(
+              shape: const CircularNotchedRectangle(),
+              notchMargin: 8.0,
+              child: SizedBox(
+                height: 65,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    // Левая часть
+                    _buildNavItem(
+                      icon: Icons.home_outlined,
+                      activeIcon: Icons.home,
+                      label: l10n.home,
+                      index: 0,
+                    ),
+                    _buildNavItem(
+                      icon: Icons.history_outlined,
+                      activeIcon: Icons.history,
+                      label: l10n.history,
+                      index: 1,
+                    ),
+
+                    // Пространство для FAB
+                    const SizedBox(width: 40),
+
+                    // Правая часть
+                    _buildNavItem(
+                      icon: Icons.notifications_outlined,
+                      activeIcon: Icons.notifications,
+                      label: l10n.notificationsSection,
+                      index: 2,
+                    ),
+                    _buildNavItem(
+                      icon: Icons.settings_outlined,
+                      activeIcon: Icons.settings,
+                      label: l10n.settings,
+                      index: 4,
+                    ),
+                  ],
+                ),
               ),
-              _buildNavItem(
-                icon: Icons.history_outlined,
-                activeIcon: Icons.history,
-                label: l10n.history,
-                index: 1,
-              ),
-              
-              // Пространство для FAB
-              const SizedBox(width: 40),
-              
-              // Правая часть
-              _buildNavItem(
-                icon: Icons.notifications_outlined,
-                activeIcon: Icons.notifications,
-                label: l10n.notificationsSection,
-                index: 2,
-              ),
-              _buildNavItem(
-                icon: Icons.settings_outlined,
-                activeIcon: Icons.settings,
-                label: l10n.settings,
-                index: 4,
-              ),
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 

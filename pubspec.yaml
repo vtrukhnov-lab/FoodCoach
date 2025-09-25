@@ -66,6 +66,7 @@ dependencies:
 
   # 💰 IN-APP PURCHASES
   in_app_purchase: ^3.2.0
+  flutter_svg: ^2.2.1
 
 dev_dependencies:
   flutter_test:
@@ -85,6 +86,7 @@ flutter:
   assets:
     - assets/images/
     - assets/notifications/
+    - assets/icons/
   
   # Шрифты (если будем добавлять кастомные)
   # fonts:

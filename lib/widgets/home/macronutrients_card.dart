@@ -386,7 +386,7 @@ class MacronutrientPieChartPainter extends CustomPainter {
 
     var currentAngle = -math.pi / 2; // Start at top
 
-    // Draw protein arc (red)
+    // Draw protein arc (red - from Figma)
     if (proteins > 0) {
       final proteinPaint = Paint()
         ..color = Colors.red
@@ -404,7 +404,7 @@ class MacronutrientPieChartPainter extends CustomPainter {
       currentAngle += proteinAngle;
     }
 
-    // Draw carbs arc (blue)
+    // Draw carbs arc (green - from Figma)
     if (carbs > 0) {
       final carbPaint = Paint()
         ..color = Colors.blue
@@ -422,7 +422,7 @@ class MacronutrientPieChartPainter extends CustomPainter {
       currentAngle += carbAngle;
     }
 
-    // Draw fats arc (orange)
+    // Draw fats arc (orange - from Figma)
     if (fats > 0) {
       final fatPaint = Paint()
         ..color = Colors.orange

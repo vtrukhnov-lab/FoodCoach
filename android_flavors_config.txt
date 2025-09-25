@@ -1,0 +1,24 @@
+ИНСТРУКЦИЯ ПО ДОБАВЛЕНИЮ ФЛЕЙВОРОВ В build.gradle.kts
+
+Найдите блок defaultConfig (строка 39-46) и после него добавьте:
+
+    flavorDimensions += "app"
+
+    productFlavors {
+        create("foodcoach") {
+            dimension = "app"
+            applicationId = "com.playcus.foodcoach"
+            manifestPlaceholders["appName"] = "FoodCoach"
+        }
+
+        create("foodcoachsup") {
+            dimension = "app"
+            applicationId = "com.logics7.foodmasterpro"
+            manifestPlaceholders["appName"] = "FoodMaster Pro"
+        }
+    }
+
+А также удалите или закомментируйте строку 40:
+    // applicationId = "com.playcus.hydracoach"
+
+Так как теперь applicationId будет задаваться через флейворы.

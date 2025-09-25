@@ -1,0 +1,3 @@
+@echo off
+echo Starting FoodCoach...
+flutter run --flavor foodcoach -t lib/main_foodcoach.dart

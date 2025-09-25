@@ -3715,6 +3715,249 @@ class AppLocalizationsEs extends AppLocalizations {
   String get onboardingAllowLocation => 'Permitir Ubicación';
 
   @override
+  String get onboardingNewWelcomeTitle => 'Alcanza tu meta en 3 meses';
+
+  @override
+  String get onboardingSlide1Title => 'Seguimiento de calorías y peso';
+
+  @override
+  String get onboardingSlide1Description => 'Fácil de usar';
+
+  @override
+  String get onboardingSlide2Title =>
+      'Controla proteínas, grasas y carbohidratos';
+
+  @override
+  String get onboardingSlide2Description => 'Enfoque científico';
+
+  @override
+  String get onboardingSlide3Title => 'Forma hábitos para siempre';
+
+  @override
+  String get onboardingSlide3Description => 'Efecto a largo plazo';
+
+  @override
+  String get onboardingGoalTitle => '¿Cuál es tu objetivo?';
+
+  @override
+  String get onboardingGoalSubtitle =>
+      'Personalizaremos la aplicación para tu meta';
+
+  @override
+  String get onboardingLoseWeight => 'Perder peso';
+
+  @override
+  String get onboardingLoseWeightDesc => 'Eliminar kilos de más';
+
+  @override
+  String get onboardingGainMuscle => 'Ganar masa muscular';
+
+  @override
+  String get onboardingGainMuscleDesc => 'Aumentar músculos y fuerza';
+
+  @override
+  String get onboardingMaintainWeight => 'Mantener peso';
+
+  @override
+  String get onboardingMaintainWeightDesc => 'Conservar forma actual';
+
+  @override
+  String get onboardingImproveNutrition => 'Mejorar nutrición';
+
+  @override
+  String get onboardingImproveNutritionDesc => 'Comer más saludable';
+
+  @override
+  String get onboardingBodyParamsTitle => 'Cuéntanos sobre ti';
+
+  @override
+  String get onboardingBodyParamsSubtitle =>
+      'Esta información se usa para calcular tu plan nutricional personal';
+
+  @override
+  String get onboardingGender => 'Género';
+
+  @override
+  String get onboardingMale => 'Masculino';
+
+  @override
+  String get onboardingFemale => 'Femenino';
+
+  @override
+  String get onboardingAge => 'Edad';
+
+  @override
+  String get onboardingHeight => 'Altura';
+
+  @override
+  String get onboardingCurrentWeight => 'Peso actual';
+
+  @override
+  String get onboardingTargetWeight => 'Peso objetivo';
+
+  @override
+  String get onboardingNext => 'Siguiente';
+
+  @override
+  String get onboardingActivityTitle => '¿Qué tan activo eres?';
+
+  @override
+  String get onboardingActivitySubtitle =>
+      'Sin entrenamientos - solo actividad diaria';
+
+  @override
+  String get onboardingSedentary => 'Sedentario';
+
+  @override
+  String get onboardingSedentaryDesc => 'Trabajo de escritorio, poco caminar';
+
+  @override
+  String get onboardingSedentaryExample => 'Oficina, trabajo remoto, estudios';
+
+  @override
+  String get onboardingModerate => 'Moderadamente activo';
+
+  @override
+  String get onboardingModerateDesc => 'De pie parte del día';
+
+  @override
+  String get onboardingModerateExample => 'Maestro, vendedor, padre';
+
+  @override
+  String get onboardingActive => 'Muy activo';
+
+  @override
+  String get onboardingActiveDesc => 'Trabajo físico';
+
+  @override
+  String get onboardingActiveExample => 'Constructor, mensajero, entrenador';
+
+  @override
+  String get onboardingCalculatePlan => 'Calcular plan';
+
+  @override
+  String get onboardingPlanTitle => 'Tu plan nutricional personal';
+
+  @override
+  String get onboardingPlanSubtitle => 'Basado en tus parámetros y objetivo';
+
+  @override
+  String get onboardingDailyCalories => 'Calorías diarias';
+
+  @override
+  String get onboardingProteins => 'Proteínas';
+
+  @override
+  String get onboardingFats => 'Grasas';
+
+  @override
+  String get onboardingCarbs => 'Carbohidratos';
+
+  @override
+  String get onboardingPlanTip =>
+      'Usamos la fórmula científicamente probada de Mifflin-St Jeor para un cálculo preciso';
+
+  @override
+  String get onboardingStartNow => 'Comenzar ahora';
+
+  @override
+  String get onboardingEditPlan => 'Editar plan';
+
+  @override
+  String get onboardingWeightProgress => 'Progreso de Peso';
+
+  @override
+  String get onboardingCurrentWeightLabel => 'Actual';
+
+  @override
+  String get onboardingTargetWeightLabel => 'Objetivo';
+
+  @override
+  String get onboardingProgressWeeks => 'semanas';
+
+  @override
+  String get onboardingRegistrationTitle => 'Crear cuenta';
+
+  @override
+  String get onboardingRegistrationSubtitle =>
+      'Guarda tu progreso y sincroniza entre dispositivos';
+
+  @override
+  String get onboardingEmail => 'Correo electrónico';
+
+  @override
+  String get onboardingPassword => 'Contraseña';
+
+  @override
+  String get onboardingCreateAccount => 'Crear cuenta';
+
+  @override
+  String get onboardingContinueGoogle => 'Continuar con Google';
+
+  @override
+  String get onboardingContinueApple => 'Continuar con Apple';
+
+  @override
+  String get onboardingTryWithoutAccount => 'Probar sin cuenta';
+
+  @override
+  String get onboardingPasswordWeak => 'Débil';
+
+  @override
+  String get onboardingPasswordMedium => 'Media';
+
+  @override
+  String get onboardingPasswordStrong => 'Fuerte';
+
+  @override
+  String get onboardingEmailInvalid => 'Correo inválido';
+
+  @override
+  String get onboardingPasswordTooShort => 'Contraseña muy corta';
+
+  @override
+  String get onboardingQuickStartTitle => 'Añade tu primera comida';
+
+  @override
+  String get onboardingQuickStartSubtitle => 'Registremos algo para comenzar';
+
+  @override
+  String get onboardingSelectFood => 'Seleccionar comida';
+
+  @override
+  String get onboardingChoosePortion => 'Elegir porción';
+
+  @override
+  String get onboardingConfirm => 'Confirmar';
+
+  @override
+  String get onboardingSearchFood => 'Buscar comida...';
+
+  @override
+  String get onboardingBreakfastItems => 'Artículos populares para desayuno';
+
+  @override
+  String get onboardingPortion => 'Porción';
+
+  @override
+  String get onboardingGrams => 'gramos';
+
+  @override
+  String get onboardingAddToLog => 'Añadir al registro';
+
+  @override
+  String get onboardingGreatStart => '¡Excelente comienzo!';
+
+  @override
+  String get onboardingFirstMealAdded => 'Tu primera comida ha sido añadida';
+
+  @override
+  String get onboardingStartTracking => 'Comenzar seguimiento';
+
+  @override
+  String get onboardingSkipTutorial => 'Saltar tutorial';
+
+  @override
   String get foodCatalog => 'Catálogo de Alimentos';
 
   @override
